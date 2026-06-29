@@ -123,7 +123,6 @@ if ( $et_home_hero_use_video ) :
                             muted
                             loop
                             playsinline
-                            autoplay
                             preload="metadata"
                             poster="<?php echo esc_url( $et_home_hero_video_poster ); ?>"
                         ></video>

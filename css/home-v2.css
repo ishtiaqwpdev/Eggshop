@@ -676,6 +676,10 @@
     opacity: 0;
 }
 
+.et-home__hero-video-wrap.is-playing {
+    cursor: pointer;
+}
+
 .et-home__hero-video-play {
     position: absolute;
     top: 50%;
@@ -713,7 +717,14 @@
 
 .et-home__hero-video-wrap.is-playing .et-home__hero-video-play {
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
+}
+
+.et-home__hero-video-wrap:not(.is-playing) .et-home__hero-video-play {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .et-home__hero-video-sound {
