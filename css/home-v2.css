@@ -225,8 +225,8 @@
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.02em;
-    color: var(--et-home-heading) !important;
-    -webkit-text-stroke: 0.85px var(--et-home-heading);
+    color: red !important;
+    -webkit-text-stroke: 0.85px red;
     paint-order: stroke fill;
 }
 
@@ -235,8 +235,8 @@
 }
 
 .et-home__hero-title-line--accent {
-    color: var(--et-home-accent) !important;
-    -webkit-text-stroke-color: var(--et-home-accent);
+    color: red !important;
+    -webkit-text-stroke-color: red;
 }
 
 .et-home__hero-text {
