@@ -92,18 +92,18 @@
         });
     }
 
-    function buildEggCarouselChevronSvg(direction) {
+    function buildEggCarouselIcon(direction) {
         if (direction === 'prev') {
-            return '<svg class="et-home__egg-carousel-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>';
+            return '<i class="fas fa-angle-left et-home__egg-carousel-angle" aria-hidden="true"></i>';
         }
 
-        return '<svg class="et-home__egg-carousel-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
+        return '<i class="fas fa-angle-right et-home__egg-carousel-angle" aria-hidden="true"></i>';
     }
 
     function buildEggCarouselArrows(arrowClass, prevLabel, nextLabel) {
         return {
-            prevArrow: '<button class="slick-prev et-home__egg-carousel-arrow ' + arrowClass + ' ' + arrowClass + '--prev" aria-label="' + prevLabel + '" type="button">' + buildEggCarouselChevronSvg('prev') + '</button>',
-            nextArrow: '<button class="slick-next et-home__egg-carousel-arrow ' + arrowClass + ' ' + arrowClass + '--next" aria-label="' + nextLabel + '" type="button">' + buildEggCarouselChevronSvg('next') + '</button>'
+            prevArrow: '<button class="slick-prev et-home__egg-carousel-arrow ' + arrowClass + ' ' + arrowClass + '--prev" aria-label="' + prevLabel + '" type="button">' + buildEggCarouselIcon('prev') + '</button>',
+            nextArrow: '<button class="slick-next et-home__egg-carousel-arrow ' + arrowClass + ' ' + arrowClass + '--next" aria-label="' + nextLabel + '" type="button">' + buildEggCarouselIcon('next') + '</button>'
         };
     }
 

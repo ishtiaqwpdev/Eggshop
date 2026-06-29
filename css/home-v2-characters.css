@@ -108,7 +108,7 @@
     height: 100%;
 }
 
-/* Pink chevron navigation (shared with best sellers) */
+/* Pink angle-icon navigation (shared with best sellers) */
 .et-home__egg-carousel-arrow {
     position: absolute;
     top: 50%;
@@ -123,8 +123,8 @@
     border-radius: 50%;
     background: #ff4d8d !important;
     color: #ffffff;
-    font-size: 0;
-    line-height: 0;
+    font-size: 24px;
+    line-height: 1;
     cursor: pointer;
     transform: translateY(-50%);
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
@@ -137,10 +137,11 @@
     content: none !important;
 }
 
-.et-home__egg-carousel-chevron {
+.et-home__egg-carousel-angle {
     display: block;
-    width: 20px;
-    height: 20px;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
     pointer-events: none;
 }
 
@@ -352,9 +353,8 @@
         height: 38px;
     }
 
-    .et-home__egg-carousel-chevron {
-        width: 18px;
-        height: 18px;
+    .et-home__egg-carousel-angle {
+        font-size: 22px;
     }
 }
 
