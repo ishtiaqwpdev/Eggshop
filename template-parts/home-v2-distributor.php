@@ -56,8 +56,10 @@ if ( empty( $et_home_distributor_brands ) ) {
                     <span class="et-home__distributor-kicker-chevron" aria-hidden="true">&#8250;</span>
                 </p>
                 <h2 class="et-home__distributor-title" id="et-home-distributor-title">
-                    <span class="et-home__distributor-title-line et-home__distributor-title-line--navy">Become an Eggs Time</span>
-                    <span class="et-home__distributor-title-line et-home__distributor-title-line--green">Distributor</span>
+                    <span class="et-home__distributor-title-line et-home__distributor-title-line--navy">Become an</span>
+                    <span class="et-home__distributor-title-line">
+                        <span class="et-home__distributor-title-line--navy">Eggs Time</span><span class="et-home__distributor-title-line--green"> Distributor</span>
+                    </span>
                 </h2>
                 <p class="et-home__distributor-text">
                     Join our growing global network of distributors and retail partners. Eggs Time combines educational entertainment, surprise toys, and quality confectionery products loved by children and families worldwide.
