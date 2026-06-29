@@ -48,29 +48,30 @@ if ( empty( $et_home_distributor_brands ) ) {
     <div class="et-home__section-inner center">
         <div class="et-home__distributor-panel">
             <div class="et-home__distributor-content">
-                <p class="et-home__section-kicker et-home__distributor-kicker">Partnership &amp; Retail</p>
+                <p class="et-home__section-kicker et-home__distributor-kicker">
+                    <span class="et-home__distributor-kicker-icon" aria-hidden="true">
+                        <i class="fas fa-handshake"></i>
+                    </span>
+                    Partner With Us
+                    <span class="et-home__distributor-kicker-chevron" aria-hidden="true">&#8250;</span>
+                </p>
                 <h2 class="et-home__distributor-title" id="et-home-distributor-title">
-                    <span class="et-home__distributor-title-line et-home__distributor-title-line--navy">Become an</span>
-                    <span class="et-home__distributor-title-line et-home__distributor-title-line--blue">Eggs Time</span>
+                    <span class="et-home__distributor-title-line et-home__distributor-title-line--navy">Become an Eggs Time</span>
                     <span class="et-home__distributor-title-line et-home__distributor-title-line--green">Distributor</span>
                 </h2>
                 <p class="et-home__distributor-text">
                     Join our growing global network of distributors and retail partners. Eggs Time combines educational entertainment, surprise toys, and quality confectionery products loved by children and families worldwide.
                 </p>
                 <p class="et-home__distributor-note">
-                    <span class="et-home__distributor-check" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 6L9 17l-5-5"/>
-                        </svg>
+                    <span class="et-home__distributor-globe" aria-hidden="true">
+                        <i class="fas fa-globe-americas"></i>
                     </span>
                     Available for distribution worldwide.
                 </p>
                 <a href="<?php echo esc_url( $et_home_distributor_url ); ?>" class="et-home__distributor-btn">
-                    Become a Distributor
+                    <span class="et-home__distributor-btn-label">Become a Distributor</span>
                     <span class="et-home__distributor-btn-icon" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h12M13 7l5 5-5 5"/>
-                        </svg>
+                        <i class="fas fa-angle-right"></i>
                     </span>
                 </a>
             </div>
@@ -89,7 +90,9 @@ if ( empty( $et_home_distributor_brands ) ) {
 
                     <p class="et-home__distributor-showcase-label">
                         <span class="et-home__distributor-showcase-line" aria-hidden="true"></span>
+                        <span class="et-home__distributor-showcase-ornament" aria-hidden="true">&#9670;</span>
                         Our Egg Brands
+                        <span class="et-home__distributor-showcase-ornament" aria-hidden="true">&#9670;</span>
                         <span class="et-home__distributor-showcase-line" aria-hidden="true"></span>
                     </p>
 

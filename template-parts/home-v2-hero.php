@@ -41,8 +41,10 @@ if ( $et_home_hero_use_video ) :
                 </p>
 
                 <h1 class="et-home__hero-title">
-                    <span class="et-home__hero-title-line">Play, Learn &amp; Grow with</span>
-                    <span class="et-home__hero-title-line et-home__hero-title-line--accent">Eggs Time!</span>
+                    <span class="et-home__hero-title-line">Play, Learn &amp; Grow</span>
+                    <span class="et-home__hero-title-line">
+                        with <span class="et-home__hero-title-accent">Eggs Time!</span>
+                    </span>
                 </h1>
 
                 <p class="et-home__hero-text">
@@ -192,8 +194,10 @@ else :
             </p>
 
             <h1 class="et-home__hero-title">
-                <span class="et-home__hero-title-line">Play, Learn &amp; Grow with</span>
-                <span class="et-home__hero-title-line et-home__hero-title-line--accent">Eggs Time!</span>
+                <span class="et-home__hero-title-line">Play, Learn &amp; Grow</span>
+                <span class="et-home__hero-title-line">
+                    with <span class="et-home__hero-title-accent">Eggs Time!</span>
+                </span>
             </h1>
 
             <p class="et-home__hero-text">

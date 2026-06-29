@@ -314,10 +314,12 @@
 .et-home__character-image {
     display: block;
     width: auto;
-    max-width: 100%;
+    max-width: min(168px, 100%);
     height: auto;
     max-height: 148px;
+    margin: 0 auto;
     object-fit: contain;
+    object-position: center center;
 }
 
 .et-home__character-body {

@@ -32,7 +32,7 @@ function add_files()
 
 	
 	wp_enqueue_style('style-fonts', TEMPLATEURI . '/css/fonts.css', array(), null);
-	wp_enqueue_style('eggs-google-font', 'https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap', array(), null);
+	wp_enqueue_style('eggs-google-font', 'https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700;800&display=swap', array(), null);
 	wp_enqueue_style('style-bootstrap', TEMPLATEURI . '/css/bootstrap.min.css', array(), null);
     wp_enqueue_style('style-index', TEMPLATEURI . '/css/styles_old.css', array(), null);
     wp_enqueue_style('terms-of-use', TEMPLATEURI . '/css/terms-of-use.css', array(), null);
@@ -145,7 +145,7 @@ function add_home_v2_css()
 
         wp_enqueue_style(
             'home-v2-google-font',
-            'https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap',
+            'https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700;800&display=swap',
             array(),
             null
         );
