@@ -304,7 +304,7 @@ if ( ! function_exists( 'et_home_get_quality_products' ) ) {
      * @return array<int, array<string, string>>
      */
     function et_home_get_quality_products() {
-        $cache_key = 'et_home_quality_products_v6';
+        $cache_key = 'et_home_quality_products_v7';
         $cached    = get_transient( $cache_key );
 
         if ( is_array( $cached ) && ! empty( $cached ) ) {
@@ -320,12 +320,10 @@ if ( ! function_exists( 'et_home_get_quality_products' ) ) {
         }
 
         if ( empty( $products ) ) {
-            $products = et_home_get_design_showcase_fallback();
+            return et_home_get_design_showcase_fallback();
         }
 
-        if ( ! empty( $products ) ) {
-            set_transient( $cache_key, $products, 6 * HOUR_IN_SECONDS );
-        }
+        set_transient( $cache_key, $products, 6 * HOUR_IN_SECONDS );
 
         return $products;
     }

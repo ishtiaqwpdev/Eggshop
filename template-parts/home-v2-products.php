@@ -119,50 +119,15 @@ if ( ! function_exists( 'et_home_get_quality_products' ) ) {
     }
 }
 
-$et_home_quality_products = function_exists( 'et_home_get_design_showcase_fallback' )
-    ? et_home_get_design_showcase_fallback()
-    : et_home_get_quality_products();
+$et_home_quality_products = et_home_get_quality_products();
 
-if ( empty( $et_home_quality_products ) ) {
-    $et_home_quality_products = function_exists( 'et_home_get_design_showcase_fallback' )
-        ? et_home_get_design_showcase_fallback()
-        : array(
-            array(
-                'title' => 'Clapping Hands',
-                'image' => 'https://eggstime.com/wp-content/uploads/2022/05/05.png',
-                'url'   => 'https://eggstime.com/products/',
-                'panel' => '#e3f5ea',
-                'icon'  => 'hand',
-                'tone'  => 'green',
-            ),
-            array(
-                'title' => 'Magik Toy / Grabber',
-                'image' => 'https://eggstime.com/wp-content/uploads/2022/05/02.png',
-                'url'   => 'https://eggstime.com/products/',
-                'panel' => '#fff8e6',
-                'icon'  => 'wand',
-                'tone'  => 'yellow',
-            ),
-            array(
-                'title' => 'Lucky Toy / Sound Animals',
-                'image' => 'https://eggstime.com/wp-content/uploads/2022/05/01.png',
-                'url'   => 'https://eggstime.com/products/big-king-egg/',
-                'panel' => '#e8f3fc',
-                'icon'  => 'music',
-                'tone'  => 'blue',
-            ),
-            array(
-                'title' => 'Skazka Puzzles',
-                'image' => 'https://eggstime.com/wp-content/uploads/2022/05/03.png',
-                'url'   => 'https://eggstime.com/products/',
-                'panel' => '#eaf8ef',
-                'icon'  => 'puzzle',
-                'tone'  => 'green',
-            ),
-        );
+if ( empty( $et_home_quality_products ) && function_exists( 'et_home_get_design_showcase_fallback' ) ) {
+    $et_home_quality_products = et_home_get_design_showcase_fallback();
 }
 
-$et_home_products_url = 'https://eggstime.com/products/';
+$et_home_products_url = function_exists( 'wc_get_page_permalink' )
+    ? wc_get_page_permalink( 'shop' )
+    : home_url( '/products/' );
 ?>
 <section id="et-home-products" class="et-home__products" aria-labelledby="et-home-products-title">
     <div class="et-home__section-inner center">

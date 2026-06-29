@@ -94,16 +94,16 @@
 
     function buildEggCarouselIcon(direction) {
         if (direction === 'prev') {
-            return '<i class="fas fa-angle-left et-home__egg-carousel-angle" aria-hidden="true"></i>';
+            return '<span class="et-home__egg-carousel-angle" aria-hidden="true">&#8249;</span>';
         }
 
-        return '<i class="fas fa-angle-right et-home__egg-carousel-angle" aria-hidden="true"></i>';
+        return '<span class="et-home__egg-carousel-angle" aria-hidden="true">&#8250;</span>';
     }
 
     function buildEggCarouselArrows(arrowClass, prevLabel, nextLabel) {
         return {
-            prevArrow: '<button class="slick-prev et-home__egg-carousel-arrow ' + arrowClass + ' ' + arrowClass + '--prev" aria-label="' + prevLabel + '" type="button">' + buildEggCarouselIcon('prev') + '</button>',
-            nextArrow: '<button class="slick-next et-home__egg-carousel-arrow ' + arrowClass + ' ' + arrowClass + '--next" aria-label="' + nextLabel + '" type="button">' + buildEggCarouselIcon('next') + '</button>'
+            prevArrow: '<button class="slick-prev et-home__egg-carousel-arrow et-home__egg-carousel-arrow--prev ' + arrowClass + ' ' + arrowClass + '--prev" aria-label="' + prevLabel + '" type="button">' + buildEggCarouselIcon('prev') + '</button>',
+            nextArrow: '<button class="slick-next et-home__egg-carousel-arrow et-home__egg-carousel-arrow--next ' + arrowClass + ' ' + arrowClass + '--next" aria-label="' + nextLabel + '" type="button">' + buildEggCarouselIcon('next') + '</button>'
         };
     }
 

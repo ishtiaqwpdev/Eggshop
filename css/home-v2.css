@@ -1028,9 +1028,13 @@
         letter-spacing: 0.1em;
     }
 
-    .et-home__products .et-home__section-kicker,
-    .et-home__parent-benefits .et-home__section-kicker {
+    .et-home__products .et-home__section-kicker {
         font-size: 16px;
+        letter-spacing: 0.1em;
+    }
+
+    .et-home__parent-benefits-intro .et-home__section-kicker {
+        font-size: 17px;
         letter-spacing: 0.1em;
     }
 
@@ -2168,8 +2172,7 @@
     box-shadow: 0 10px 40px rgba(30, 58, 95, 0.1);
 }
 
-.et-home__products .et-home__section-kicker,
-.et-home__parent-benefits .et-home__section-kicker {
+.et-home__products .et-home__section-kicker {
     margin-bottom: 0;
     font-size: 13px;
     font-weight: 800;
@@ -3244,6 +3247,14 @@
 .et-home__parent-benefits-intro {
     margin: 0 0 28px;
     text-align: center;
+}
+
+.et-home__parent-benefits-intro .et-home__section-kicker {
+    margin-bottom: 10px;
+    font-size: clamp(17px, 2.2vw, 22px);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--et-home-blue) !important;
 }
 
 .et-home__parent-benefits-grid {
