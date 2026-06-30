@@ -35,7 +35,7 @@ $et_home_youtube_list = array(
 );
 
 $featured_url   = 'https://www.youtube.com/watch?v=' . $et_home_youtube_featured['video_id'];
-$featured_thumb = 'https://img.youtube.com/vi/' . $et_home_youtube_featured['video_id'] . '/mqdefault.jpg';
+$featured_thumb = 'https://img.youtube.com/vi/' . $et_home_youtube_featured['video_id'] . '/maxresdefault.jpg';
 ?>
 <section id="et-home-youtube" class="et-home__youtube" aria-labelledby="et-home-youtube-title">
     <div class="et-home__section-inner center">
@@ -78,10 +78,11 @@ $featured_thumb = 'https://img.youtube.com/vi/' . $et_home_youtube_featured['vid
                             class="et-home__youtube-featured-image"
                             loading="lazy"
                             decoding="async"
+                            onerror="this.onerror=null;this.src='https://img.youtube.com/vi/<?php echo esc_attr( $et_home_youtube_featured['video_id'] ); ?>/mqdefault.jpg';"
                         />
                         <span class="et-home__youtube-play et-home__youtube-play--large" aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M9 7.5v9l7.5-4.5L9 7.5z"/>
+                                <path d="M7.5 4.5v15l12.5-7.5L7.5 4.5z"/>
                             </svg>
                         </span>
                         <div class="et-home__youtube-player-chrome" aria-hidden="true">

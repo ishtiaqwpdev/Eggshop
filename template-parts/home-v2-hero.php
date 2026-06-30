@@ -8,7 +8,7 @@ $et_home_hero_use_video    = true;
 $et_home_hero_video_url    = 'https://eggstime.com/wp-content/uploads/2026/06/WhatsApp-Video-2026-06-25-at-2.18.18-PM-online-video-cutter.com-1.mp4';
 $et_home_hero_video_poster = 'https://eggstime.com/wp-content/uploads/2026/06/b629e4d0-2122-4ca9-a618-c1bff06faa12.png';
 $et_home_hero_bg           = 'https://eggstime.com/wp-content/uploads/2026/06/b629e4d0-2122-4ca9-a618-c1bff06faa12.png';
-$et_home_hero_btn_arrow    = '<svg class="et-home__hero-btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5l8 7-8 7" stroke="#098BE5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+$et_home_hero_btn_arrow    = '<svg class="et-home__hero-btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="none" d="M8 5l8 7-8 7" stroke="#098BE5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 // Swap $et_home_hero_video_url when the new product-focused edit is ready.
 
 if ( $et_home_hero_use_video ) :
