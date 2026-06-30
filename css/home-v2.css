@@ -1807,13 +1807,13 @@
     display: grid;
     grid-template-columns: minmax(0, 2.35fr) minmax(0, 0.88fr) minmax(170px, 190px);
     gap: 24px;
-    align-items: center;
+    align-items: stretch;
 }
 
 .et-home__youtube-featured {
     display: flex;
     min-height: 0;
-    align-self: center;
+    align-self: stretch;
 }
 
 .et-home__youtube-featured-link {
@@ -1821,10 +1821,9 @@
     display: block;
     flex: 1;
     width: 100%;
-    min-height: 0;
+    min-height: 360px;
     aspect-ratio: 16 / 9;
     max-height: none;
-    min-height: 380px;
     border-radius: 20px;
     overflow: hidden;
     text-decoration: none !important;
@@ -1915,15 +1914,17 @@
 .et-home__youtube-play--large {
     top: 50%;
     left: 50%;
-    width: 84px;
-    height: 84px;
+    width: 76px;
+    height: 76px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 10px 28px rgba(30, 58, 95, 0.22);
     transform: translate(-50%, -50%);
 }
 
 .et-home__youtube-play--large svg {
-    width: 36px;
-    height: 36px;
-    margin-left: 3px;
+    width: 30px;
+    height: 30px;
+    margin-left: 4px;
 }
 
 .et-home__youtube-featured-link:hover .et-home__youtube-play--large,
@@ -2125,9 +2126,32 @@
     color: #ffffff !important;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 992px) {
+    .et-home__youtube-layout {
+        grid-template-columns: minmax(0, 48%) minmax(0, 1fr) minmax(160px, 180px);
+        gap: 20px;
+    }
+
     .et-home__youtube-featured-link {
-        min-height: 440px;
+        aspect-ratio: auto;
+        height: 100%;
+        min-height: 360px;
+        border-radius: 20px;
+    }
+
+    .et-home__youtube-subscribe {
+        max-width: 180px;
+        align-self: center;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .et-home__youtube-layout {
+        gap: 24px;
+    }
+
+    .et-home__youtube-featured-link {
+        min-height: 100%;
     }
 }
 
@@ -2143,6 +2167,15 @@
 
     .et-home__youtube-featured {
         grid-column: 1 / -1;
+        max-width: 520px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .et-home__youtube-featured-link {
+        aspect-ratio: 16 / 9;
+        height: auto;
+        min-height: 360px;
     }
 
     .et-home__youtube-subscribe {
@@ -2181,9 +2214,16 @@
         max-width: 100%;
     }
 
+    .et-home__youtube-featured {
+        max-width: 100%;
+    }
+
     .et-home__youtube-featured-link {
-        max-height: none;
-        min-height: 320px;
+        max-height: 260px;
+        min-height: 240px;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        border-radius: 14px;
     }
 
     .et-home__youtube-list-thumb {
