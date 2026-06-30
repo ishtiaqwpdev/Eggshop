@@ -35,7 +35,7 @@ $et_home_youtube_list = array(
 );
 
 $featured_url   = 'https://www.youtube.com/watch?v=' . $et_home_youtube_featured['video_id'];
-$featured_thumb = 'https://img.youtube.com/vi/' . $et_home_youtube_featured['video_id'] . '/hqdefault.jpg';
+$featured_thumb = 'https://img.youtube.com/vi/' . $et_home_youtube_featured['video_id'] . '/mqdefault.jpg';
 ?>
 <section id="et-home-youtube" class="et-home__youtube" aria-labelledby="et-home-youtube-title">
     <div class="et-home__section-inner center">
@@ -106,7 +106,7 @@ $featured_thumb = 'https://img.youtube.com/vi/' . $et_home_youtube_featured['vid
                     <?php foreach ( $et_home_youtube_list as $index => $video ) : ?>
                         <?php
                         $video_url = 'https://www.youtube.com/watch?v=' . $video['video_id'];
-                        $thumb_url = 'https://img.youtube.com/vi/' . $video['video_id'] . '/hqdefault.jpg';
+                        $thumb_url = 'https://img.youtube.com/vi/' . $video['video_id'] . '/mqdefault.jpg';
                         $num       = str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT );
                         $is_active = 0 === $index;
                         ?>
