@@ -38,7 +38,7 @@ if ( $et_home_hero_use_video ) :
                 </h1>
 
                 <p class="et-home__hero-text">
-                    Educational stories, surprise toys, games and videos that make learning fun for children everywhere.
+                    Educational stories, surprise toys, games and videos that make learning fun for<br class="et-home__hero-text-break" aria-hidden="true"> children everywhere.
                 </p>
 
                 <div class="et-home__hero-actions">
@@ -185,7 +185,7 @@ else :
             </h1>
 
             <p class="et-home__hero-text">
-                Educational stories, surprise toys, games and videos that make learning fun for children everywhere.
+                Educational stories, surprise toys, games and videos that make learning fun for<br class="et-home__hero-text-break" aria-hidden="true"> children everywhere.
             </p>
 
             <div class="et-home__hero-actions">

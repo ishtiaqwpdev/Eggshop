@@ -642,7 +642,7 @@
 
 .et-home__hero--split-video .et-home__hero-text {
     margin-bottom: 20px;
-    max-width: none;
+    max-width: 500px;
     font-size: clamp(16px, 1.8vw, 19px);
     line-height: 1.6;
 }
