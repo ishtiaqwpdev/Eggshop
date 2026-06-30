@@ -568,7 +568,7 @@
 }
 
 .et-home__hero--split-video .et-home__hero-inner {
-    padding: 20px 20px 40px;
+    padding: 20px 20px 50px;
 }
 
 .et-home__hero-grid {
@@ -830,7 +830,7 @@
 
 @media screen and (min-width: 768px) {
     .et-home__hero--split-video .et-home__hero-inner {
-        padding: 24px 28px 44px;
+        padding: 24px 28px 50px;
     }
 }
 
@@ -873,7 +873,7 @@
     }
 
     .et-home__hero--split-video .et-home__hero-inner {
-        padding: 28px 32px 48px;
+        padding: 28px 32px 50px;
     }
 
     .et-home__hero-grid {
@@ -917,7 +917,7 @@
 
     .et-home__hero--split-video .et-home__hero-inner {
         padding-top: 20px;
-        padding-bottom: 32px;
+        padding-bottom: 50px;
     }
 }
 
@@ -946,7 +946,7 @@
     }
 
     .et-home__hero--split-video .et-home__hero-inner {
-        padding: 14px 18px 28px;
+        padding: 14px 18px 50px;
     }
 
     .et-home__hero--split-video .et-home__hero-title {
