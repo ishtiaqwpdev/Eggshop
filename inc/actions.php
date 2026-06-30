@@ -132,6 +132,108 @@ function add_single_product_css()
     );
 }
 
+/**
+ * Bump this when deploying home-v2 template/CSS/JS changes.
+ * First request after deploy purges theme transients and common page caches.
+ */
+if ( ! defined( 'ET_HOME_V2_CACHE_REV' ) ) {
+    define( 'ET_HOME_V2_CACHE_REV', '2025062302' );
+}
+
+/**
+ * Build a cache-busting version string for home-v2 assets.
+ *
+ * @param string $relative_path Theme-relative file path.
+ * @return string
+ */
+function et_home_v2_asset_version( $relative_path ) {
+    $path  = get_template_directory() . '/' . ltrim( $relative_path, '/' );
+    $mtime = file_exists( $path ) ? filemtime( $path ) : 0;
+
+    $markers = array(
+        '/page-home-v2.php',
+        '/template-parts/home-v2-hero.php',
+    );
+
+    $marker_mtime = 0;
+    foreach ( $markers as $marker ) {
+        $marker_path = get_template_directory() . $marker;
+        if ( file_exists( $marker_path ) ) {
+            $marker_mtime = max( $marker_mtime, (int) filemtime( $marker_path ) );
+        }
+    }
+
+    return ET_HOME_V2_CACHE_REV . '.' . $marker_mtime . '.' . $mtime;
+}
+
+/**
+ * Flush home-v2 related transients and supported page-cache plugins.
+ */
+function et_home_v2_flush_all_caches() {
+    et_license_flush_product_cache();
+
+    $transients = array(
+        'et_home_quality_products_v6',
+        'et_home_quality_products_v7',
+        'et_home_social_images_v2',
+    );
+
+    foreach ( $transients as $transient ) {
+        delete_transient( $transient );
+    }
+
+    if ( function_exists( 'litespeed_purge_all' ) ) {
+        litespeed_purge_all();
+    }
+
+    if ( class_exists( 'LiteSpeed_Cache_API' ) && method_exists( 'LiteSpeed_Cache_API', 'purge_all' ) ) {
+        LiteSpeed_Cache_API::purge_all();
+    }
+
+    if ( function_exists( 'rocket_clean_domain' ) ) {
+        rocket_clean_domain();
+    }
+
+    if ( function_exists( 'w3tc_flush_all' ) ) {
+        w3tc_flush_all();
+    }
+
+    if ( function_exists( 'wp_cache_clear_cache' ) ) {
+        wp_cache_clear_cache();
+    }
+
+    if ( function_exists( 'wp_cache_flush' ) ) {
+        wp_cache_flush();
+    }
+}
+
+add_action( 'init', 'et_home_v2_maybe_purge_caches', 1 );
+function et_home_v2_maybe_purge_caches() {
+    $stored = get_option( 'et_home_v2_cache_rev', '' );
+
+    if ( $stored === ET_HOME_V2_CACHE_REV ) {
+        return;
+    }
+
+    et_home_v2_flush_all_caches();
+    update_option( 'et_home_v2_cache_rev', ET_HOME_V2_CACHE_REV, false );
+}
+
+add_action( 'template_redirect', 'et_home_v2_send_nocache_headers', 0 );
+function et_home_v2_send_nocache_headers() {
+    if ( ! is_page( 'home-v2' ) && ! is_page_template( 'page-home-v2.php' ) ) {
+        return;
+    }
+
+    if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+        define( 'DONOTCACHEPAGE', true );
+    }
+
+    if ( ! headers_sent() ) {
+        nocache_headers();
+    }
+}
+
 add_action('wp_enqueue_scripts', 'add_home_v2_css', 1002);
 function add_home_v2_css()
 {
@@ -153,23 +255,21 @@ function add_home_v2_css()
             'home-v2',
             TEMPLATEURI . '/css/home-v2.css',
             array( 'style-all', 'header-new', 'home-v2-google-font', 'fontawesome' ),
-            '1.0.' . filemtime( get_template_directory() . '/css/home-v2.css' )
+            et_home_v2_asset_version( 'css/home-v2.css' )
         );
 
         wp_enqueue_style(
             'home-v2-characters',
             TEMPLATEURI . '/css/home-v2-characters.css',
             array( 'home-v2', 'fontawesome' ),
-            '1.0.' . ( file_exists( get_template_directory() . '/css/home-v2-characters.css' )
-                ? filemtime( get_template_directory() . '/css/home-v2-characters.css' )
-                : '1' )
+            et_home_v2_asset_version( 'css/home-v2-characters.css' )
         );
 
         wp_enqueue_script(
             'home-v2',
             TEMPLATEURI . '/js/home-v2.js',
             array( 'jquery', 'slick' ),
-            '1.0.' . filemtime( get_template_directory() . '/js/home-v2.js' ),
+            et_home_v2_asset_version( 'js/home-v2.js' ),
             true
         );
     }
