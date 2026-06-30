@@ -716,11 +716,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 76px;
-    height: 76px;
+    width: 120px;
+    height: 120px;
     margin: 0;
     padding: 0;
-    padding-left: 4px;
     border: none;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.96);
@@ -731,9 +730,13 @@
     transition: transform 0.2s ease, opacity 0.25s ease, background-color 0.2s ease;
 }
 
-.et-home__hero-video-play svg {
-    width: 30px;
-    height: 30px;
+.et-home__hero-video-play svg,
+.et-home__youtube-play svg,
+.et-home__story-play svg,
+.et-home__social-play svg {
+    width: 100px;
+    height: 60px;
+    flex-shrink: 0;
 }
 
 .et-home__hero-video-play:hover,
@@ -1583,20 +1586,14 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 52px;
-    height: 52px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.95);
     color: var(--et-home-blue);
     box-shadow: 0 4px 16px rgba(30, 58, 95, 0.18);
     transform: translate(-50%, -50%);
     transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.et-home__story-play svg {
-    width: 22px;
-    height: 22px;
-    margin-left: 2px;
 }
 
 .et-home__story-thumb:hover .et-home__story-play,
@@ -1914,17 +1911,11 @@
 .et-home__youtube-play--large {
     top: 50%;
     left: 50%;
-    width: 76px;
-    height: 76px;
+    width: 120px;
+    height: 120px;
     background: rgba(255, 255, 255, 0.96);
     box-shadow: 0 10px 28px rgba(30, 58, 95, 0.22);
     transform: translate(-50%, -50%);
-}
-
-.et-home__youtube-play--large svg {
-    width: 30px;
-    height: 30px;
-    margin-left: 4px;
 }
 
 .et-home__youtube-featured-link:hover .et-home__youtube-play--large,
@@ -2008,15 +1999,9 @@
 .et-home__youtube-play--small {
     top: 50%;
     left: 50%;
-    width: 38px;
-    height: 38px;
+    width: 120px;
+    height: 120px;
     transform: translate(-50%, -50%);
-}
-
-.et-home__youtube-play--small svg {
-    width: 16px;
-    height: 16px;
-    margin-left: 2px;
 }
 
 .et-home__youtube-list-text {
@@ -3129,19 +3114,13 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 58px;
-    height: 58px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.96);
     color: var(--et-home-blue);
     box-shadow: 0 8px 22px rgba(30, 58, 95, 0.2);
     transform: translate(-50%, -50%);
-}
-
-.et-home__social-play svg {
-    width: 24px;
-    height: 24px;
-    margin-left: 2px;
 }
 
 .et-home__social-card--instagram .et-home__social-play {
