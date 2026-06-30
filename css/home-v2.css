@@ -1149,6 +1149,8 @@
 .et-home__best-sellers-slider.slick-initialized {
     display: block;
     width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .et-home__best-sellers-slider:not(.slick-initialized) .et-home__best-sellers-item {
@@ -1256,6 +1258,8 @@
 
 .et-home__best-sellers-slider-wrap {
     position: relative;
+    display: flex;
+    align-items: center;
     padding: 0 52px;
     overflow: visible;
 }

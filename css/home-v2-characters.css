@@ -52,6 +52,8 @@
 /* Slider wrap */
 .et-home__characters-slider-wrap {
     position: relative;
+    display: flex;
+    align-items: center;
     padding: 0 52px;
     overflow: visible;
 }
@@ -77,6 +79,8 @@
 .et-home__characters-slider.slick-initialized {
     display: block;
     width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .et-home__characters-slider.slick-initialized .slick-slide {
@@ -111,22 +115,25 @@
 /* Pink angle-icon navigation (shared with best sellers) */
 .et-home__egg-carousel-arrow {
     position: absolute;
-    top: 50%;
+    top: 0;
+    bottom: 0;
     z-index: 5;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
     padding: 0;
     border: 0 !important;
     border-radius: 50%;
     background: #ff4d8d !important;
     color: #ffffff;
-    font-size: 24px;
+    font-size: 0;
     line-height: 1;
     cursor: pointer;
-    transform: translateY(-50%);
+    transform: none;
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 6px 16px rgba(255, 77, 141, 0.35) !important;
 }
@@ -140,9 +147,13 @@
 }
 
 .et-home__egg-carousel-angle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
     font-family: 'Quicksand', 'Ubuntu', sans-serif;
-    font-size: 34px;
+    font-size: 30px;
     font-weight: 700;
     line-height: 1;
     color: #ffffff !important;
@@ -150,12 +161,9 @@
     user-select: none;
 }
 
-.et-home__egg-carousel-arrow--prev .et-home__egg-carousel-angle {
-    margin-right: 2px;
-}
-
+.et-home__egg-carousel-arrow--prev .et-home__egg-carousel-angle,
 .et-home__egg-carousel-arrow--next .et-home__egg-carousel-angle {
-    margin-left: 2px;
+    margin: 0;
 }
 
 .et-home__characters-slider-wrap .slick-prev,
@@ -172,7 +180,7 @@
 .et-home__egg-carousel-arrow:focus {
     background: #ff3380 !important;
     color: #ffffff !important;
-    transform: translateY(-50%) scale(1.06);
+    transform: scale(1.06);
     outline: none;
     box-shadow: 0 8px 20px rgba(255, 77, 141, 0.42) !important;
 }
@@ -197,7 +205,7 @@
 .et-home__egg-carousel-arrow.slick-disabled {
     opacity: 0.45;
     cursor: not-allowed;
-    transform: translateY(-50%);
+    transform: none;
 }
 
 .et-home__characters-slider-wrap.is-slider-active .slick-list,
