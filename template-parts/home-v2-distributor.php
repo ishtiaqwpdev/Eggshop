@@ -19,13 +19,21 @@ if ( function_exists( 'et_get_home_core_egg_brand_keys' ) && function_exists( 'e
     $brand_meta = et_get_home_core_egg_brand_meta();
 
     foreach ( et_get_home_core_egg_brand_keys() as $brand_key ) {
-        if ( empty( $brand_meta[ $brand_key ]['product_image'] ) ) {
+        if ( empty( $brand_meta[ $brand_key ] ) ) {
+            continue;
+        }
+
+        $brand_image = ! empty( $brand_meta[ $brand_key ]['showcase_image'] )
+            ? $brand_meta[ $brand_key ]['showcase_image']
+            : $brand_meta[ $brand_key ]['product_image'];
+
+        if ( empty( $brand_image ) ) {
             continue;
         }
 
         $et_home_distributor_brands[] = array(
             'name'  => $brand_meta[ $brand_key ]['name'],
-            'image' => $brand_meta[ $brand_key ]['product_image'],
+            'image' => $brand_image,
         );
     }
 }
