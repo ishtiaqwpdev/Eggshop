@@ -40,6 +40,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
                 'name'             => 'Happy Egg',
                 'character_image'  => $uploads_july . '3%D0%94_2.png',
                 'product_image'    => $uploads_july . '5-2.png',
+                'best_seller_image'=> $uploads_july . '5-2.png',
                 'showcase_image'   => $uploads . '2022/05/04-2.png',
                 'tagline'          => 'Sunny surprises full of joy and laughter.',
                 'shop_url'         => home_url( '/products/happy-egg-surprises-gummies-vitamin-c-toy/' ),
@@ -50,6 +51,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
                 'name'             => 'Lucky Egg',
                 'character_image'  => $uploads_july . '3%D0%94_8.png',
                 'product_image'    => $uploads_july . '9-1.png',
+                'best_seller_image'=> $uploads_july . '9-1.png',
                 'showcase_image'   => $uploads . '2022/05/05.png',
                 'tagline'          => 'Lucky finds and playful discoveries await.',
                 'shop_url'         => home_url( '/products/lucky-egg-surprises-multivitamin-gummies-toy/' ),
@@ -60,6 +62,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
                 'name'             => 'King Egg',
                 'character_image'  => $uploads_july . '3%D0%94_3.png',
                 'product_image'    => $uploads_july . '2-4.png',
+                'best_seller_image'=> $uploads_july . '2-4.png',
                 'showcase_image'   => $uploads . '2022/05/01.png',
                 'tagline'          => 'Royal adventures with wisdom and courage.',
                 'shop_url'         => home_url( '/products/big-king-egg/' ),
@@ -70,6 +73,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
                 'name'             => 'Magik Egg',
                 'character_image'  => $uploads_july . '3%D0%94_6.png',
                 'product_image'    => $uploads_july . '7-1.png',
+                'best_seller_image'=> $uploads_july . '7-1.png',
                 'showcase_image'   => $uploads . '2022/05/02.png',
                 'tagline'          => 'Magical worlds of wonder and imagination.',
                 'shop_url'         => home_url( '/products/giant-magik-egg/' ),
@@ -80,6 +84,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
                 'name'             => 'Skazka Egg',
                 'character_image'  => $uploads_july . '3%D0%94_10.png',
                 'product_image'    => $uploads_july . '8-2.png',
+                'best_seller_image'=> $uploads_july . '8-2.png',
                 'showcase_image'   => $uploads . '2022/05/03.png',
                 'tagline'          => 'Fairytale stories that spark creativity.',
                 'shop_url'         => home_url( '/products/skazka-egg/' ),
@@ -90,6 +95,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
                 'name'             => 'Emoji Egg',
                 'character_image'  => $uploads_july . 'EmojiCharacter.png',
                 'product_image'    => $uploads_july . '1-4.png',
+                'best_seller_image'=> $uploads_july . '1-4.png',
                 'showcase_image'   => $uploads . '2022/05/06-2.png',
                 'tagline'          => 'Expressive fun with playful emoji friends.',
                 'shop_url'         => home_url( '/products/emoji-egg/' ),
@@ -219,19 +225,8 @@ if ( ! function_exists( 'et_home_get_core_carousel_character_items' ) ) {
                 'character'
             );
 
-            $egg_item = et_home_build_carousel_visual_item(
-                $meta[ $key ]['name'],
-                $meta[ $key ]['shop_url'],
-                $key,
-                'egg'
-            );
-
             if ( $character_item ) {
                 $items[] = $character_item;
-            }
-
-            if ( $egg_item ) {
-                $items[] = $egg_item;
             }
         }
 
@@ -439,7 +434,7 @@ if ( ! function_exists( 'et_home_get_carousel_characters' ) ) {
      * @return array<int, array<string, string>>
      */
     function et_home_get_carousel_characters() {
-        $cache_key = 'et_home_character_products_v4';
+        $cache_key = 'et_home_character_products_v5';
         $cached    = get_transient( $cache_key );
 
         if ( false !== $cached && is_array( $cached ) && count( $cached ) >= et_home_get_carousel_min_count() ) {

@@ -1137,6 +1137,12 @@
     padding: 0 var(--et-home-section-x) var(--et-home-section-gap);
 }
 
+.main--home-v2 .et-home__section-inner.center {
+    max-width: var(--et-home-max);
+    padding-left: var(--et-home-section-x);
+    padding-right: var(--et-home-section-x);
+}
+
 .et-home__section-kicker {
     margin: 0 0 12px;
     font-family: 'Quicksand', 'Ubuntu', sans-serif;
@@ -1232,8 +1238,7 @@
     }
 }
 
-.et-home__parent-benefits + .et-home__parent-trust .et-home__section-inner,
-.et-home__parent-trust + .et-home__distributor .et-home__section-inner,
+.et-home__parent-benefits + .et-home__distributor .et-home__section-inner,
 .et-home__distributor + .et-home__social .et-home__section-inner,
 .et-home__social + .et-home__cta {
     padding-top: 12px;
@@ -1340,14 +1345,37 @@
 }
 
 .et-home__best-sellers-product {
+    position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     width: 100%;
     min-height: 0;
+    padding-bottom: 2px;
+}
+
+.et-home__best-sellers-product::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 0;
+    width: 72%;
+    height: 10px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(30, 58, 95, 0.18) 0%,
+        rgba(30, 58, 95, 0.08) 42%,
+        transparent 72%
+    );
+    pointer-events: none;
 }
 
 .et-home__best-sellers-product-img {
+    position: relative;
+    z-index: 1;
     display: block;
     width: auto;
     max-width: min(168px, 100%);
@@ -2375,22 +2403,27 @@
     }
 }
 
-/* ----- Quality Products ----- */
+/* ----- More Ways to Play & Learn ----- */
 .et-home__products {
     background: #ffffff;
+    width: 100%;
 }
 
 .et-home__products .et-home__section-inner {
+    width: 100%;
+    max-width: none;
     padding-top: calc(var(--et-home-section-gap) * 0.35);
     padding-bottom: var(--et-home-section-gap);
+    padding-left: var(--et-home-section-x);
+    padding-right: var(--et-home-section-x);
 }
 
 .et-home__products-panel {
-    padding: 32px 32px 36px;
-    border-radius: 28px;
-    background: #ffffff;
-    border: 1px solid rgba(32, 77, 136, 0.06);
-    box-shadow: 0 10px 40px rgba(30, 58, 95, 0.1);
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .et-home__products .et-home__section-kicker {
@@ -2916,8 +2949,8 @@
 
 @media screen and (max-width: 767px) {
     .et-home__products-panel {
-        padding: 22px 16px 26px;
-        border-radius: 22px;
+        padding: 0;
+        border-radius: 0;
     }
 
     .et-home__products-head {
@@ -3146,8 +3179,8 @@
 }
 
 .et-home__social-card--tiktok .et-home__social-brand {
-    color: #111111;
-    background: #f2f2f2;
+    color: #00b8b8;
+    background: #e6faf9;
 }
 
 .et-home__social-card--facebook .et-home__social-brand {
@@ -3287,7 +3320,7 @@
 }
 
 .et-home__social-card--tiktok .et-home__social-play {
-    color: #111111;
+    color: #00b8b8;
 }
 
 .et-home__social-card--facebook .et-home__social-play {
@@ -3330,7 +3363,7 @@
 }
 
 .et-home__social-card--tiktok .et-home__social-cta {
-    background: #111111;
+    background: #00b8b8;
 }
 
 .et-home__social-card--facebook .et-home__social-cta {
@@ -3379,7 +3412,7 @@
 }
 
 .et-home__social-card--tiktok .et-home__social-cta-icon {
-    color: #111111;
+    color: #00b8b8;
 }
 
 .et-home__social-card--facebook .et-home__social-cta-icon {
@@ -3518,12 +3551,17 @@
     z-index: 1;
     width: 100%;
     max-width: var(--et-home-max);
+    margin-left: auto;
+    margin-right: auto;
     padding-top: var(--et-home-section-gap);
     padding-bottom: var(--et-home-section-gap);
+    padding-left: var(--et-home-section-x);
+    padding-right: var(--et-home-section-x);
 }
 
 .et-home__parent-benefits-intro {
-    margin: 0 0 28px;
+    max-width: var(--et-home-narrow);
+    margin: 0 auto 28px;
     text-align: center;
 }
 
@@ -3535,10 +3573,29 @@
     color: var(--et-home-blue) !important;
 }
 
-.et-home__parent-benefits-intro {
-    max-width: var(--et-home-narrow);
-    margin-left: auto;
-    margin-right: auto;
+.et-home__parent-benefits-trust-line {
+    margin: 10px 0 0;
+    font-family: 'Quicksand', 'Ubuntu', sans-serif;
+    font-size: clamp(22px, 2.8vw, 30px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--et-home-heading) !important;
+    -webkit-text-stroke: 0;
+}
+
+.et-home__parent-benefits-certs {
+    margin-top: 36px;
+    padding-top: 8px;
+    text-align: center;
+}
+
+.et-home__parent-benefits-certs-kicker {
+    margin: 0 0 20px;
+    font-size: clamp(15px, 1.6vw, 18px);
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--et-home-blue) !important;
 }
 
 .et-home__parent-benefits-grid {
@@ -3629,12 +3686,6 @@
 }
 
 @media screen and (min-width: 1200px) {
-    .et-home__parent-benefits .et-home__section-inner.center {
-        max-width: min(100%, calc(var(--et-home-max) + (var(--et-home-section-x) * 2)));
-        padding-left: clamp(20px, 3vw, 48px);
-        padding-right: clamp(20px, 3vw, 48px);
-    }
-
     .et-home__parent-benefits-grid {
         gap: 22px;
     }
@@ -3922,10 +3973,10 @@
 
 .et-home__distributor-panel {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
     align-items: center;
-    gap: 16px 18px;
-    padding: 28px 28px;
+    gap: 16px 8px;
+    padding: 28px 24px;
     border-radius: 24px;
     background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
     border: 1px solid rgba(32, 77, 136, 0.08);
@@ -4083,7 +4134,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
     padding-bottom: 0;
     border-bottom: none;
 }
@@ -4104,7 +4155,7 @@
     justify-content: center;
     gap: 10px;
     width: 100%;
-    margin: 0 0 16px;
+    margin: 0 0 12px;
     font-family: 'Quicksand', 'Ubuntu', sans-serif;
     font-size: clamp(12px, 1.4vw, 14px);
     font-weight: 800;
@@ -4171,6 +4222,13 @@
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 20px 36px rgba(30, 58, 95, 0.18));
+}
+
+@media screen and (min-width: 992px) {
+    .et-home__distributor-panel {
+        gap: 16px 6px;
+        padding: 30px 22px;
+    }
 }
 
 @media screen and (max-width: 991px) {

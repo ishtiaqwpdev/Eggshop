@@ -71,7 +71,7 @@ if ( ! function_exists( 'et_get_home_best_seller_cards' ) ) {
 
             $cards[] = array(
                 'name'             => $brand['name'],
-                'product_image'    => $brand['product_image'],
+                'product_image'    => ! empty( $brand['best_seller_image'] ) ? $brand['best_seller_image'] : $brand['product_image'],
                 'character_image'  => $brand['character_image'],
                 'shop_url'         => $brand['shop_url'],
                 'panel'            => $brand['panel'],

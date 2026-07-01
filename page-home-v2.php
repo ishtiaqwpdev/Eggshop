@@ -2,6 +2,18 @@
 /**
  * Template for Home v2 page (slug: home-v2)
  * Dedicated layout — keep WP editor empty.
+ *
+ * Approved section order:
+ * 1. Hero
+ * 2. Choose Your Egg World
+ * 3. Best Sellers
+ * 4. Watch & Learn
+ * 5. More Ways to Play & Learn
+ * 6. Stories That Teach & Inspire
+ * 7. Why Parents Love Eggs Time + Certifications (one trust section)
+ * 8. Become an Eggs Time Distributor
+ * 9. Join the Eggs Time Community
+ * 10. Interested in Our Products
  */
 get_header();
 ?>
@@ -24,8 +36,6 @@ get_header();
         <?php get_template_part( 'template-parts/home-v2', 'stories' ); ?>
 
         <?php get_template_part( 'template-parts/home-v2', 'parent-benefits' ); ?>
-
-        <?php get_template_part( 'template-parts/home-v2', 'parent-trust' ); ?>
 
         <?php get_template_part( 'template-parts/home-v2', 'distributor' ); ?>
 

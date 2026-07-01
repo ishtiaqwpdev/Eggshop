@@ -1,21 +1,26 @@
 <?php
 /**
- * Home v2 — Why Parents Love Eggs Time
+ * Home v2 — Why Parents Love Eggs Time + certifications
  */
 $et_home_parent_benefits = function_exists( 'et_get_home_parent_benefits' )
     ? et_get_home_parent_benefits()
+    : array();
+
+$et_home_trust_certs = function_exists( 'et_get_home_trust_certifications' )
+    ? et_get_home_trust_certifications()
     : array();
 ?>
 <section class="et-home__parent-benefits et-home__playful-section" id="et-home-parent-benefits" aria-labelledby="et-home-parent-benefits-title">
     <div class="et-home__parent-benefits-bg" aria-hidden="true"></div>
     <div class="et-home__section-inner center">
         <div class="et-home__parent-benefits-intro">
-                <p class="et-home__section-kicker et-home__section-kicker--stars">
-                    <span class="et-home__section-star" aria-hidden="true">★</span>
-                    Built for Families
-                    <span class="et-home__section-star" aria-hidden="true">★</span>
-                </p>
+            <p class="et-home__section-kicker et-home__section-kicker--stars">
+                <span class="et-home__section-star" aria-hidden="true">★</span>
+                Built for Families
+                <span class="et-home__section-star" aria-hidden="true">★</span>
+            </p>
             <h2 class="et-home__section-title" id="et-home-parent-benefits-title">Why Parents Love Eggs Time</h2>
+            <p class="et-home__parent-benefits-trust-line">Trusted by Families Worldwide</p>
         </div>
 
         <ul class="et-home__parent-benefits-grid">
@@ -33,5 +38,48 @@ $et_home_parent_benefits = function_exists( 'et_get_home_parent_benefits' )
                 </li>
             <?php endforeach; ?>
         </ul>
+
+        <?php if ( ! empty( $et_home_trust_certs ) ) : ?>
+            <div class="et-home__parent-benefits-certs" id="et-home-parent-trust">
+                <p class="et-home__section-kicker et-home__parent-benefits-certs-kicker">Certifications &amp; Safety Standards</p>
+
+                <div class="et-home__parent-trust-certs">
+                    <div class="et-home__parent-trust-certs-slider-wrap">
+                        <ul class="et-home__parent-trust-certs-grid et-home__parent-trust-certs-slider">
+                            <?php foreach ( $et_home_trust_certs as $cert ) : ?>
+                                <li class="et-home__parent-trust-cert-item">
+                                    <?php if ( ! empty( $cert['url'] ) ) : ?>
+                                        <a
+                                            href="<?php echo esc_url( $cert['url'] ); ?>"
+                                            class="et-home__parent-trust-cert"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <img
+                                                src="<?php echo esc_url( $cert['image'] ); ?>"
+                                                alt="<?php echo esc_attr( $cert['alt'] ); ?>"
+                                                class="et-home__parent-trust-cert-img"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </a>
+                                    <?php else : ?>
+                                        <div class="et-home__parent-trust-cert">
+                                            <img
+                                                src="<?php echo esc_url( $cert['image'] ); ?>"
+                                                alt="<?php echo esc_attr( $cert['alt'] ); ?>"
+                                                class="et-home__parent-trust-cert-img"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </div>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
     </div>
 </section>

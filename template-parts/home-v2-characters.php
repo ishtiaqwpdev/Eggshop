@@ -11,17 +11,9 @@ if ( ! function_exists( 'et_home_get_carousel_characters' ) ) {
     }
 }
 
-$et_home_characters = function_exists( 'et_home_get_carousel_characters' )
-    ? et_home_get_carousel_characters()
+$et_home_characters = function_exists( 'et_home_get_characters' )
+    ? et_home_get_characters()
     : array();
-
-if ( empty( $et_home_characters ) && function_exists( 'et_home_get_characters' ) ) {
-    $et_home_characters = et_home_get_characters();
-}
-
-if ( empty( $et_home_characters ) && function_exists( 'et_home_get_core_carousel_character_items' ) ) {
-    $et_home_characters = et_home_get_core_carousel_character_items();
-}
 ?>
 <section id="et-home-characters" class="et-home__characters" aria-labelledby="et-home-characters-title">
     <div class="et-home__section-inner center">
