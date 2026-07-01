@@ -156,7 +156,9 @@
             swipeToSlide: true,
             draggable: true,
             touchMove: true,
-            edgeFriction: 0.15,
+            touchThreshold: 8,
+            edgeFriction: 0.05,
+            speed: 350,
             waitForAnimate: false,
             prevArrow: arrows.prevArrow,
             nextArrow: arrows.nextArrow,
@@ -234,6 +236,10 @@
             prepareEggWorldSliderForLoop($el);
             $wrap.addClass('is-slider-active');
             $el.slick(buildConfig($wrap, prevLabel, nextLabel, arrowClass));
+            $el.find('img').attr('draggable', 'false');
+            $el.on('dragstart', 'img', function (event) {
+                event.preventDefault();
+            });
             return true;
         }
 

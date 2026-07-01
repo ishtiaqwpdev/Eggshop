@@ -142,14 +142,17 @@ if ( ! function_exists( 'et_home_guess_brand_key_from_text' ) ) {
     }
 }
 
-if ( ! function_exists( 'et_home_build_carousel_character_item' ) ) {
+if ( ! function_exists( 'et_home_build_carousel_visual_item' ) ) {
     /**
+     * Build one carousel card for either the character or product egg artwork.
+     *
      * @param string $name      Card title.
      * @param string $url       Product URL.
      * @param string $brand_key Core brand key.
+     * @param string $visual    character|egg
      * @return array<string, string>|null
      */
-    function et_home_build_carousel_character_item( $name, $url, $brand_key ) {
+    function et_home_build_carousel_visual_item( $name, $url, $brand_key, $visual = 'character' ) {
         $meta = et_get_home_core_egg_brand_meta();
 
         if ( ! isset( $meta[ $brand_key ] ) ) {
@@ -157,11 +160,12 @@ if ( ! function_exists( 'et_home_build_carousel_character_item' ) ) {
         }
 
         $brand = $meta[ $brand_key ];
+        $visual = ( 'egg' === $visual ) ? 'egg' : 'character';
 
         return array(
             'name'    => $name,
-            'image'   => $brand['character_image'],
-            'egg'     => $brand['product_image'],
+            'image'   => ( 'egg' === $visual ) ? $brand['product_image'] : $brand['character_image'],
+            'visual'  => $visual,
             'tagline' => $brand['tagline'],
             'url'     => $url,
             'panel'   => $brand['panel'],
@@ -170,9 +174,21 @@ if ( ! function_exists( 'et_home_build_carousel_character_item' ) ) {
     }
 }
 
+if ( ! function_exists( 'et_home_build_carousel_character_item' ) ) {
+    /**
+     * @param string $name      Card title.
+     * @param string $url       Product URL.
+     * @param string $brand_key Core brand key.
+     * @return array<string, string>|null
+     */
+    function et_home_build_carousel_character_item( $name, $url, $brand_key ) {
+        return et_home_build_carousel_visual_item( $name, $url, $brand_key, 'character' );
+    }
+}
+
 if ( ! function_exists( 'et_home_get_core_carousel_character_items' ) ) {
     /**
-     * Six canonical brand cards for the home carousel.
+     * Twelve canonical brand cards: character + egg for each core brand.
      *
      * @return array<int, array<string, string>>
      */
@@ -189,14 +205,26 @@ if ( ! function_exists( 'et_home_get_core_carousel_character_items' ) ) {
                 continue;
             }
 
-            $item = et_home_build_carousel_character_item(
+            $character_item = et_home_build_carousel_visual_item(
                 $meta[ $key ]['name'],
                 $meta[ $key ]['shop_url'],
-                $key
+                $key,
+                'character'
             );
 
-            if ( $item ) {
-                $items[] = $item;
+            $egg_item = et_home_build_carousel_visual_item(
+                $meta[ $key ]['name'],
+                $meta[ $key ]['shop_url'],
+                $key,
+                'egg'
+            );
+
+            if ( $character_item ) {
+                $items[] = $character_item;
+            }
+
+            if ( $egg_item ) {
+                $items[] = $egg_item;
             }
         }
 
@@ -284,13 +312,15 @@ if ( ! function_exists( 'et_home_append_carousel_character_item' ) ) {
         }
 
         $url_key = untrailingslashit( strtolower( $item['url'] ) );
+        $image_key = isset( $item['image'] ) ? md5( (string) $item['image'] ) : '';
+        $dedupe_key = $url_key . '|' . $image_key;
 
-        if ( isset( $seen_urls[ $url_key ] ) ) {
+        if ( isset( $seen_urls[ $dedupe_key ] ) ) {
             return false;
         }
 
-        $items[]             = $item;
-        $seen_urls[ $url_key ] = true;
+        $items[]                  = $item;
+        $seen_urls[ $dedupe_key ] = true;
 
         return true;
     }
@@ -402,7 +432,7 @@ if ( ! function_exists( 'et_home_get_carousel_characters' ) ) {
      * @return array<int, array<string, string>>
      */
     function et_home_get_carousel_characters() {
-        $cache_key = 'et_home_character_products_v3';
+        $cache_key = 'et_home_character_products_v4';
         $cached    = get_transient( $cache_key );
 
         if ( false !== $cached && is_array( $cached ) && count( $cached ) >= et_home_get_carousel_min_count() ) {
@@ -439,7 +469,7 @@ if ( ! function_exists( 'et_home_get_characters' ) ) {
             $items[] = array(
                 'name'    => $brand['name'],
                 'image'   => $brand['character_image'],
-                'egg'     => $brand['product_image'],
+                'visual'  => 'character',
                 'tagline' => $brand['tagline'],
                 'url'     => $brand['shop_url'],
                 'panel'   => $brand['panel'],

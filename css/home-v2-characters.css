@@ -335,11 +335,10 @@
 .et-home__character-media {
     position: relative;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
-    gap: 4px;
     min-height: 168px;
-    padding: 16px 10px 14px;
+    padding: 16px 12px 14px;
     background: var(--et-character-panel, #f4f5f7);
 }
 
@@ -348,13 +347,13 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    flex: 0 1 auto;
-    min-width: 0;
-    max-width: 58%;
+    width: 100%;
+    max-width: 168px;
+    min-height: 136px;
     padding-bottom: 2px;
 }
 
-.et-home__character-figure::after {
+.et-home__character-figure--character::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -373,32 +372,51 @@
     pointer-events: none;
 }
 
+.et-home__character-figure--egg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 0;
+    width: 64%;
+    height: 8px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(30, 58, 95, 0.14) 0%,
+        rgba(30, 58, 95, 0.06) 45%,
+        transparent 72%
+    );
+    pointer-events: none;
+}
+
 .et-home__character-image {
     position: relative;
     z-index: 1;
     display: block;
     width: auto;
-    max-width: 100%;
+    max-width: min(168px, 100%);
     height: auto;
-    max-height: 136px;
+    max-height: 148px;
     margin: 0 auto;
     object-fit: contain;
     object-position: center bottom;
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none;
 }
 
-.et-home__character-egg {
-    position: relative;
-    z-index: 1;
-    display: block;
-    flex: 0 1 auto;
-    width: auto;
-    max-width: 42%;
-    height: auto;
-    max-height: 112px;
-    margin: 0;
-    object-fit: contain;
-    object-position: center bottom;
-    filter: drop-shadow(0 8px 10px rgba(30, 58, 95, 0.1));
+.et-home__character-figure--egg .et-home__character-image {
+    max-height: 142px;
+}
+
+.et-home__characters-slider .slick-list {
+    cursor: grab;
+}
+
+.et-home__characters-slider .slick-list.dragging {
+    cursor: grabbing;
 }
 
 .et-home__character-body {
@@ -446,11 +464,11 @@
     }
 
     .et-home__character-image {
-        max-height: 120px;
+        max-height: 128px;
     }
 
-    .et-home__character-egg {
-        max-height: 98px;
+    .et-home__character-figure--egg .et-home__character-image {
+        max-height: 122px;
     }
 
     .et-home__characters-intro .et-home__section-title {
