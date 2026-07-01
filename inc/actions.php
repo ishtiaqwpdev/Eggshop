@@ -137,7 +137,7 @@ function add_single_product_css()
  * First request after deploy purges theme transients and common page caches.
  */
 if ( ! defined( 'ET_HOME_V2_CACHE_REV' ) ) {
-    define( 'ET_HOME_V2_CACHE_REV', '2025063027' );
+    define( 'ET_HOME_V2_CACHE_REV', '2025063028' );
 }
 
 /**
@@ -176,6 +176,7 @@ function et_home_v2_flush_all_caches() {
         'et_home_quality_products_v6',
         'et_home_quality_products_v7',
         'et_home_social_images_v2',
+        'et_home_character_products_v3',
     );
 
     foreach ( $transients as $transient ) {
@@ -288,6 +289,7 @@ function et_license_flush_product_cache( $post_id = 0 ) {
     delete_transient( 'et_license_showcase_products_v2' );
     delete_transient( 'et_home_character_products_v1' );
     delete_transient( 'et_home_character_products_v2' );
+    delete_transient( 'et_home_character_products_v3' );
     delete_transient( 'et_home_quality_products_v1' );
     delete_transient( 'et_home_quality_products_v2' );
     delete_transient( 'et_home_quality_products_v3' );

@@ -22,12 +22,13 @@ if ( empty( $et_home_characters ) && function_exists( 'et_home_get_characters' )
 if ( empty( $et_home_characters ) ) {
     $et_home_carousel_image = function_exists( 'et_get_home_carousel_character_image' )
         ? et_get_home_carousel_character_image()
-        : 'https://eggstime.com/wp-content/uploads/2026/06/85d0a881-1271-4fc2-882a-a2d6e4339729-removebg-preview.png';
+        : 'https://eggstime.com/wp-content/uploads/2026/07/3%D0%94_2.png';
 
     $et_home_characters = array(
         array(
             'name'    => 'Happy Egg',
             'image'   => $et_home_carousel_image,
+            'egg'     => 'https://eggstime.com/wp-content/uploads/2026/07/5-2.png',
             'tagline' => 'Sunny surprises full of joy and laughter.',
             'url'     => home_url( '/products/happy-egg-surprises-gummies-vitamin-c-toy/' ),
             'panel'   => '#fff0f6',
@@ -35,7 +36,8 @@ if ( empty( $et_home_characters ) ) {
         ),
         array(
             'name'    => 'Lucky Egg',
-            'image'   => $et_home_carousel_image,
+            'image'   => 'https://eggstime.com/wp-content/uploads/2026/07/3%D0%94_8.png',
+            'egg'     => 'https://eggstime.com/wp-content/uploads/2026/07/9-1.png',
             'tagline' => 'Lucky finds and playful discoveries await.',
             'url'     => home_url( '/products/lucky-egg-surprises-multivitamin-gummies-toy/' ),
             'panel'   => '#fff8e6',
@@ -43,7 +45,8 @@ if ( empty( $et_home_characters ) ) {
         ),
         array(
             'name'    => 'King Egg',
-            'image'   => $et_home_carousel_image,
+            'image'   => 'https://eggstime.com/wp-content/uploads/2026/07/3%D0%94_3.png',
+            'egg'     => 'https://eggstime.com/wp-content/uploads/2026/07/2-4.png',
             'tagline' => 'Royal adventures with wisdom and courage.',
             'url'     => home_url( '/products/big-king-egg/' ),
             'panel'   => '#e8f3fc',
@@ -51,7 +54,8 @@ if ( empty( $et_home_characters ) ) {
         ),
         array(
             'name'    => 'Magik Egg',
-            'image'   => $et_home_carousel_image,
+            'image'   => 'https://eggstime.com/wp-content/uploads/2026/07/3%D0%94_6.png',
+            'egg'     => 'https://eggstime.com/wp-content/uploads/2026/07/7-1.png',
             'tagline' => 'Magical worlds of wonder and imagination.',
             'url'     => home_url( '/products/giant-magik-egg/' ),
             'panel'   => '#f3eef9',
@@ -59,7 +63,8 @@ if ( empty( $et_home_characters ) ) {
         ),
         array(
             'name'    => 'Skazka Egg',
-            'image'   => $et_home_carousel_image,
+            'image'   => 'https://eggstime.com/wp-content/uploads/2026/07/3%D0%94_10.png',
+            'egg'     => 'https://eggstime.com/wp-content/uploads/2026/07/8-2.png',
             'tagline' => 'Fairytale stories that spark creativity.',
             'url'     => home_url( '/products/skazka-egg/' ),
             'panel'   => '#eaf8ef',
@@ -67,7 +72,8 @@ if ( empty( $et_home_characters ) ) {
         ),
         array(
             'name'    => 'Emoji Egg',
-            'image'   => $et_home_carousel_image,
+            'image'   => 'https://eggstime.com/wp-content/uploads/2026/07/EmojiCharacter.png',
+            'egg'     => 'https://eggstime.com/wp-content/uploads/2026/07/1-4.png',
             'tagline' => 'Expressive fun with playful emoji friends.',
             'url'     => home_url( '/products/emoji-egg/' ),
             'panel'   => '#fff0f6',
@@ -96,13 +102,25 @@ if ( empty( $et_home_characters ) ) {
                             style="--et-character-panel: <?php echo esc_attr( $item['panel'] ); ?>; --et-character-accent: <?php echo esc_attr( $item['accent'] ); ?>;"
                         >
                             <div class="et-home__character-media">
-                                <img
-                                    src="<?php echo esc_url( $item['image'] ); ?>"
-                                    alt="<?php echo esc_attr( $item['name'] ); ?>"
-                                    class="et-home__character-image"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
+                                <div class="et-home__character-figure">
+                                    <img
+                                        src="<?php echo esc_url( $item['image'] ); ?>"
+                                        alt="<?php echo esc_attr( $item['name'] ); ?>"
+                                        class="et-home__character-image"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                                <?php if ( ! empty( $item['egg'] ) ) : ?>
+                                    <img
+                                        src="<?php echo esc_url( $item['egg'] ); ?>"
+                                        alt=""
+                                        class="et-home__character-egg"
+                                        loading="lazy"
+                                        decoding="async"
+                                        aria-hidden="true"
+                                    />
+                                <?php endif; ?>
                             </div>
 
                             <div class="et-home__character-body">

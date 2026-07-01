@@ -333,23 +333,72 @@
 }
 
 .et-home__character-media {
+    position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    min-height: 158px;
-    padding: 18px 12px 14px;
+    gap: 4px;
+    min-height: 168px;
+    padding: 16px 10px 14px;
     background: var(--et-character-panel, #f4f5f7);
 }
 
+.et-home__character-figure {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 58%;
+    padding-bottom: 2px;
+}
+
+.et-home__character-figure::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 0;
+    width: 72%;
+    height: 10px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(30, 58, 95, 0.18) 0%,
+        rgba(30, 58, 95, 0.08) 42%,
+        transparent 72%
+    );
+    pointer-events: none;
+}
+
 .et-home__character-image {
+    position: relative;
+    z-index: 1;
     display: block;
     width: auto;
-    max-width: min(168px, 100%);
+    max-width: 100%;
     height: auto;
-    max-height: 148px;
+    max-height: 136px;
     margin: 0 auto;
     object-fit: contain;
-    object-position: center center;
+    object-position: center bottom;
+}
+
+.et-home__character-egg {
+    position: relative;
+    z-index: 1;
+    display: block;
+    flex: 0 1 auto;
+    width: auto;
+    max-width: 42%;
+    height: auto;
+    max-height: 112px;
+    margin: 0;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 8px 10px rgba(30, 58, 95, 0.1));
 }
 
 .et-home__character-body {
@@ -392,12 +441,16 @@
     }
 
     .et-home__character-media {
-        min-height: 140px;
-        padding: 16px 14px 12px;
+        min-height: 152px;
+        padding: 14px 12px 12px;
     }
 
     .et-home__character-image {
-        max-height: 128px;
+        max-height: 120px;
+    }
+
+    .et-home__character-egg {
+        max-height: 98px;
     }
 
     .et-home__characters-intro .et-home__section-title {

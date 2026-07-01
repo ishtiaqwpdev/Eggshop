@@ -10,7 +10,7 @@ if ( ! function_exists( 'et_get_home_carousel_character_image' ) ) {
      * @return string
      */
     function et_get_home_carousel_character_image() {
-        return 'https://eggstime.com/wp-content/uploads/2026/06/85d0a881-1271-4fc2-882a-a2d6e4339729-removebg-preview.png';
+        return 'https://eggstime.com/wp-content/uploads/2026/07/3%D0%94_2.png';
     }
 }
 
@@ -32,13 +32,13 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
      * @return array<string, array<string, string>>
      */
     function et_get_home_core_egg_brand_meta() {
-        $uploads = trailingslashit( home_url( '/wp-content/uploads' ) );
+        $uploads_july = 'https://eggstime.com/wp-content/uploads/2026/07/';
 
         return array(
             'happy'  => array(
                 'name'             => 'Happy Egg',
-                'character_image'  => 'https://eggstime.com/wp-content/uploads/2017/12/Happy-Eggs-4.png',
-                'product_image'    => $uploads . '2022/05/04-2.png',
+                'character_image'  => $uploads_july . '3%D0%94_2.png',
+                'product_image'    => $uploads_july . '5-2.png',
                 'tagline'          => 'Sunny surprises full of joy and laughter.',
                 'shop_url'         => home_url( '/products/happy-egg-surprises-gummies-vitamin-c-toy/' ),
                 'panel'            => '#fff0f6',
@@ -46,8 +46,8 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
             ),
             'lucky'  => array(
                 'name'             => 'Lucky Egg',
-                'character_image'  => 'https://eggstime.com/wp-content/uploads/2017/12/Lucky-Eggs-2.png',
-                'product_image'    => $uploads . '2022/05/05.png',
+                'character_image'  => $uploads_july . '3%D0%94_8.png',
+                'product_image'    => $uploads_july . '9-1.png',
                 'tagline'          => 'Lucky finds and playful discoveries await.',
                 'shop_url'         => home_url( '/products/lucky-egg-surprises-multivitamin-gummies-toy/' ),
                 'panel'            => '#fff8e6',
@@ -55,8 +55,8 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
             ),
             'king'   => array(
                 'name'             => 'King Egg',
-                'character_image'  => 'https://eggstime.com/wp-content/uploads/2017/12/King-Eggs.png',
-                'product_image'    => $uploads . '2022/05/01.png',
+                'character_image'  => $uploads_july . '3%D0%94_3.png',
+                'product_image'    => $uploads_july . '2-4.png',
                 'tagline'          => 'Royal adventures with wisdom and courage.',
                 'shop_url'         => home_url( '/products/big-king-egg/' ),
                 'panel'            => '#e8f3fc',
@@ -64,8 +64,8 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
             ),
             'magik'  => array(
                 'name'             => 'Magik Egg',
-                'character_image'  => 'https://eggstime.com/wp-content/uploads/2017/12/Magik-Eggs-3.png',
-                'product_image'    => $uploads . '2022/05/02.png',
+                'character_image'  => $uploads_july . '3%D0%94_6.png',
+                'product_image'    => $uploads_july . '7-1.png',
                 'tagline'          => 'Magical worlds of wonder and imagination.',
                 'shop_url'         => home_url( '/products/giant-magik-egg/' ),
                 'panel'            => '#f3eef9',
@@ -73,8 +73,8 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
             ),
             'skazka' => array(
                 'name'             => 'Skazka Egg',
-                'character_image'  => 'https://eggstime.com/wp-content/uploads/2017/12/Skazka-Eggs.png',
-                'product_image'    => $uploads . '2022/05/03.png',
+                'character_image'  => $uploads_july . '3%D0%94_10.png',
+                'product_image'    => $uploads_july . '8-2.png',
                 'tagline'          => 'Fairytale stories that spark creativity.',
                 'shop_url'         => home_url( '/products/skazka-egg/' ),
                 'panel'            => '#eaf8ef',
@@ -82,8 +82,8 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
             ),
             'emoji'  => array(
                 'name'             => 'Emoji Egg',
-                'character_image'  => 'https://eggstime.com/wp-content/uploads/2017/12/Emojy-Eggs.png',
-                'product_image'    => $uploads . '2022/05/06-2.png',
+                'character_image'  => $uploads_july . 'EmojiCharacter.png',
+                'product_image'    => $uploads_july . '1-4.png',
                 'tagline'          => 'Expressive fun with playful emoji friends.',
                 'shop_url'         => home_url( '/products/emoji-egg/' ),
                 'panel'            => '#fff0f6',
@@ -160,7 +160,8 @@ if ( ! function_exists( 'et_home_build_carousel_character_item' ) ) {
 
         return array(
             'name'    => $name,
-            'image'   => et_get_home_carousel_character_image(),
+            'image'   => $brand['character_image'],
+            'egg'     => $brand['product_image'],
             'tagline' => $brand['tagline'],
             'url'     => $url,
             'panel'   => $brand['panel'],
@@ -401,7 +402,7 @@ if ( ! function_exists( 'et_home_get_carousel_characters' ) ) {
      * @return array<int, array<string, string>>
      */
     function et_home_get_carousel_characters() {
-        $cache_key = 'et_home_character_products_v2';
+        $cache_key = 'et_home_character_products_v3';
         $cached    = get_transient( $cache_key );
 
         if ( false !== $cached && is_array( $cached ) && count( $cached ) >= et_home_get_carousel_min_count() ) {
@@ -437,7 +438,8 @@ if ( ! function_exists( 'et_home_get_characters' ) ) {
 
             $items[] = array(
                 'name'    => $brand['name'],
-                'image'   => et_get_home_carousel_character_image(),
+                'image'   => $brand['character_image'],
+                'egg'     => $brand['product_image'],
                 'tagline' => $brand['tagline'],
                 'url'     => $brand['shop_url'],
                 'panel'   => $brand['panel'],
