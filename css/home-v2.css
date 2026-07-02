@@ -1338,8 +1338,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    min-height: 158px;
-    padding: 18px 14px 14px;
+    min-height: 168px;
+    padding: 16px 14px 12px;
     background: var(--et-best-seller-panel, #f4f5f7);
     text-align: center;
 }
@@ -1363,9 +1363,9 @@
     z-index: 1;
     display: block;
     width: auto;
-    max-width: min(148px, 100%);
+    max-width: min(118px, 100%);
     height: auto;
-    max-height: 132px;
+    max-height: 142px;
     margin: 0 auto;
     object-fit: contain;
     object-position: center center;
