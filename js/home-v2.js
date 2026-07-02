@@ -198,23 +198,19 @@
         return getEggWorldSliderConfig($wrap, prevLabel, nextLabel, arrowClass, {
             slidesToShow: 6,
             slidesToScroll: 1,
-            initialSlide: 0,
-            infinite: false,
             responsive: [
                 {
                     breakpoint: 1199,
                     settings: {
                         slidesToShow: 3,
-                        slidesToScroll: 1,
-                        infinite: false
+                        slidesToScroll: 1
                     }
                 },
                 {
                     breakpoint: 767,
                     settings: {
                         slidesToShow: 1,
-                        slidesToScroll: 1,
-                        infinite: false
+                        slidesToScroll: 1
                     }
                 }
             ]

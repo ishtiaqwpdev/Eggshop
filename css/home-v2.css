@@ -1454,7 +1454,18 @@
     height: 100%;
 }
 
-/* Pink carousel arrows â€” styles in home-v2-characters.css (.et-home__egg-carousel-arrow) */
+/* Pink carousel arrows — styles in home-v2-characters.css (.et-home__egg-carousel-arrow) */
+.et-home__best-sellers-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
+.et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1;
+}
+
+.et-home__best-sellers-slider-wrap .slick-prev.et-home__egg-carousel-arrow.slick-disabled,
+.et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow.slick-disabled {
+    opacity: 0.45;
+}
 
 @media screen and (min-width: 1200px) {
     .et-home__best-sellers-slider:not(.slick-initialized) {
@@ -3360,7 +3371,7 @@
     width: 100%;
     max-width: min(1040px, 100%);
     margin: 0 auto 28px;
-    padding: 34px 38px 30px;
+    padding: 34px 30px 30px;
     border: none;
     border-radius: 28px;
     background: #ffffff;
@@ -3756,7 +3767,7 @@
     }
 
     .et-home__fun-egg-panel {
-        padding: 22px 18px 20px;
+        padding: 22px 30px 20px;
         border-radius: 22px;
     }
 
