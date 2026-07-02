@@ -3371,33 +3371,37 @@
     width: 100%;
     max-width: min(1040px, 100%);
     margin: 0 auto 28px;
-    padding: 34px 30px 30px;
+    padding: 34px 50px 30px;
     border: none;
     border-radius: 28px;
     background: #ffffff;
     box-shadow: 0 12px 32px rgba(30, 58, 95, 0.08);
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .et-home__fun-egg-panel-grid {
     display: grid;
-    grid-template-columns: repeat(4, max-content);
-    justify-content: center;
-    justify-items: center;
-    gap: 20px 24px;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.82fr) minmax(0, 0.78fr) minmax(0, 0.62fr);
+    gap: 16px 20px;
     align-items: center;
-    margin: 0 70px;
+    width: 100%;
+    margin: 0;
     max-width: 100%;
+    box-sizing: border-box;
 }
 
 .et-home__fun-egg-games {
-    width: min(100%, 300px);
-    text-align: center;
+    width: 100%;
+    min-width: 0;
+    text-align: left;
 }
 
 .et-home__fun-egg-games-head {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 10px;
 }
@@ -3420,6 +3424,8 @@
 
 .et-home__fun-egg-games-title {
     margin: 0;
+    flex: 1 1 0;
+    min-width: 0;
     font-family: 'Quicksand', 'Ubuntu', sans-serif;
     font-size: clamp(17px, 1.8vw, 21px);
     font-weight: 800;
@@ -3441,8 +3447,8 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
     width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
     padding: 0;
     list-style: none;
 }
@@ -3492,14 +3498,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 240px;
+    min-height: 0;
+    min-width: 0;
 }
 
 .et-home__fun-egg-hero-img {
     display: block;
     width: auto;
-    max-width: min(250px, 100%);
-    max-height: 290px;
+    max-width: 100%;
+    max-height: 240px;
     object-fit: contain;
 }
 
@@ -3566,14 +3573,16 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    min-height: 220px;
+    min-height: 0;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .et-home__fun-egg-mascot-img {
     display: block;
     width: auto;
-    max-width: min(118px, 100%);
-    max-height: 190px;
+    max-width: 100%;
+    max-height: 160px;
     object-fit: contain;
     pointer-events: none;
 }
@@ -3717,7 +3726,7 @@
             "games games"
             "activities mascot";
         gap: 22px 24px;
-        margin: 0 40px;
+        margin: 0;
     }
 
     .et-home__fun-egg-games {
@@ -3768,19 +3777,24 @@
     }
 
     .et-home__fun-egg-panel {
-        padding: 22px 20px 20px;
+        padding: 22px 24px 20px;
         border-radius: 22px;
     }
 
     .et-home__fun-egg-panel-grid {
         grid-template-columns: 1fr;
-        justify-items: center;
+        justify-items: stretch;
         gap: 20px;
-        margin: 0 24px;
+        margin: 0;
     }
 
     .et-home__fun-egg-games {
-        max-width: 320px;
+        max-width: none;
+        text-align: center;
+    }
+
+    .et-home__fun-egg-games-head {
+        justify-content: center;
     }
 
     .et-home__fun-egg-hero {
