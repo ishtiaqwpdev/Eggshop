@@ -7,9 +7,9 @@
  * 1. Hero
  * 2. Choose Your Egg World
  * 3. Best Sellers
- * 4. Watch & Learn
- * 5. More Ways to Play & Learn
- * 6. Stories That Teach & Inspire
+ * 4. Stories That Teach & Inspire
+ * 5. Watch & Learn
+ * 6. More Ways to Play & Learn
  * 7. Why Parents Love Eggs Time + Certifications (one trust section)
  * 8. Become an Eggs Time Distributor
  * 9. Join the Eggs Time Community
@@ -29,11 +29,11 @@ get_header();
             <?php get_template_part( 'template-parts/home-v2', 'best-sellers' ); ?>
         </div>
 
+        <?php get_template_part( 'template-parts/home-v2', 'stories' ); ?>
+
         <?php get_template_part( 'template-parts/home-v2', 'youtube' ); ?>
 
         <?php get_template_part( 'template-parts/home-v2', 'products' ); ?>
-
-        <?php get_template_part( 'template-parts/home-v2', 'stories' ); ?>
 
         <?php get_template_part( 'template-parts/home-v2', 'parent-benefits' ); ?>
 
