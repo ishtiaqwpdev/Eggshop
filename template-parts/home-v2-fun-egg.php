@@ -53,12 +53,12 @@ $et_home_fun_egg_activities = array(
 
 $et_home_fun_egg_previews = array(
     array(
-        'label' => 'Maze Puzzle',
+        'label' => 'Paper Puzzle',
         'image' => $theme_uri . '/images/inside_image.jpg',
         'url'   => 'http://eggstime.com/upload/mazes/index.html',
     ),
     array(
-        'label' => 'Coloring Puzzle',
+        'label' => 'Coloring Page',
         'image' => $theme_uri . '/images/game_2.jpg',
         'url'   => 'http://eggstime.com/upload/index.html',
     ),
@@ -94,13 +94,17 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
     <div class="et-home__fun-egg-bg" aria-hidden="true"></div>
     <div class="et-home__section-inner center">
         <header class="et-home__fun-egg-head">
-            <p class="et-home__section-kicker et-home__section-kicker--stars">
+            <p class="et-home__section-kicker et-home__section-kicker--stars et-home__fun-egg-kicker">
                 <span class="et-home__section-star" aria-hidden="true">★</span>
-                Play, Learn &amp; Discover
+                To Play, Learn &amp; Discover
                 <span class="et-home__section-star" aria-hidden="true">★</span>
             </p>
             <h2 class="et-home__fun-egg-title" id="et-home-fun-egg-title">Fun in Every Egg!</h2>
-            <p class="et-home__fun-egg-lead">Games and fun activities make learning exciting — inside and outside the egg.</p>
+            <p class="et-home__fun-egg-lead et-home__fun-egg-lead--hearts">
+                <span class="et-home__fun-egg-heart" aria-hidden="true">♥</span>
+                Games and fun activities make learning exciting — inside and outside the egg!
+                <span class="et-home__fun-egg-heart" aria-hidden="true">♥</span>
+            </p>
         </header>
 
         <div class="et-home__fun-egg-panel">
@@ -112,7 +116,7 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                         </span>
                         <h3 class="et-home__fun-egg-games-title">Games Inside Every Egg</h3>
                     </div>
-                    <p class="et-home__fun-egg-games-desc">Collection of amazing games inside the surprise egg collection.</p>
+                    <p class="et-home__fun-egg-games-desc">Colorful and exciting games will have kids entertained for a long time!</p>
                     <ul class="et-home__fun-egg-previews">
                         <?php foreach ( $et_home_fun_egg_previews as $preview ) : ?>
                             <li class="et-home__fun-egg-preview-item">
@@ -124,8 +128,8 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                                             loading="lazy"
                                             decoding="async"
                                         />
+                                        <span class="et-home__fun-egg-preview-label"><?php echo esc_html( $preview['label'] ); ?></span>
                                     </span>
-                                    <span class="et-home__fun-egg-preview-label"><?php echo esc_html( $preview['label'] ); ?></span>
                                 </a>
                             </li>
                         <?php endforeach; ?>
@@ -142,7 +146,7 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                     />
                 </div>
 
-                <div class="et-home__fun-egg-side">
+                <div class="et-home__fun-egg-activities-col">
                     <ul class="et-home__fun-egg-activities">
                         <?php foreach ( $et_home_fun_egg_activities as $activity ) : ?>
                             <li class="et-home__fun-egg-activity-item">
@@ -156,10 +160,13 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                         <?php endforeach; ?>
                     </ul>
                     <a href="<?php echo esc_url( $games_url ); ?>" class="et-home__fun-egg-more">...and more</a>
+                </div>
+
+                <div class="et-home__fun-egg-mascot" aria-hidden="true">
                     <img
                         src="<?php echo esc_url( $happy_character ); ?>"
                         alt=""
-                        class="et-home__fun-egg-side-character"
+                        class="et-home__fun-egg-mascot-img"
                         loading="lazy"
                         decoding="async"
                     />
