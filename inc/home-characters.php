@@ -34,6 +34,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
     function et_get_home_core_egg_brand_meta() {
         $uploads_july = 'https://eggstime.com/wp-content/uploads/2026/07/';
         $uploads      = trailingslashit( home_url( '/wp-content/uploads' ) );
+        $showcase     = trailingslashit( get_template_directory_uri() ) . 'images/distributor/';
 
         return array(
             'happy'  => array(
@@ -41,7 +42,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
                 'character_image'  => $uploads_july . '3%D0%94_2.png',
                 'product_image'    => $uploads_july . '5-2.png',
                 'best_seller_image'=> 'https://eggstime.com/wp-content/uploads/2017/12/Happy-Eggs-4.png',
-                'showcase_image'   => $uploads . '2022/05/04-2.png',
+                'showcase_image'   => $showcase . 'happy-egg.png',
                 'tagline'          => 'Sunny surprises full of joy and laughter.',
                 'shop_url'         => home_url( '/products/happy-egg-surprises-gummies-vitamin-c-toy/' ),
                 'panel'            => '#fff0f6',
@@ -52,7 +53,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
                 'character_image'  => $uploads_july . '3%D0%94_8.png',
                 'product_image'    => $uploads_july . '9-1.png',
                 'best_seller_image'=> 'https://eggstime.com/wp-content/uploads/2017/12/Lucky-Eggs-2.png',
-                'showcase_image'   => $uploads . '2022/05/05.png',
+                'showcase_image'   => $showcase . 'lucky-egg.png',
                 'tagline'          => 'Lucky finds and playful discoveries await.',
                 'shop_url'         => home_url( '/products/lucky-egg-surprises-multivitamin-gummies-toy/' ),
                 'panel'            => '#fff8e6',
@@ -63,7 +64,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
                 'character_image'  => $uploads_july . '3%D0%94_3.png',
                 'product_image'    => $uploads_july . '2-4.png',
                 'best_seller_image'=> 'https://eggstime.com/wp-content/uploads/2017/12/King-Eggs.png',
-                'showcase_image'   => $uploads . '2022/05/01.png',
+                'showcase_image'   => $showcase . 'king-egg.png',
                 'tagline'          => 'Royal adventures with wisdom and courage.',
                 'shop_url'         => home_url( '/products/big-king-egg/' ),
                 'panel'            => '#e8f3fc',
@@ -74,7 +75,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
                 'character_image'  => $uploads_july . '3%D0%94_6.png',
                 'product_image'    => $uploads_july . '7-1.png',
                 'best_seller_image'=> 'https://eggstime.com/wp-content/uploads/2017/12/Magik-Eggs-3.png',
-                'showcase_image'   => $uploads . '2022/05/02.png',
+                'showcase_image'   => $showcase . 'magik-egg.png',
                 'tagline'          => 'Magical worlds of wonder and imagination.',
                 'shop_url'         => home_url( '/products/giant-magik-egg/' ),
                 'panel'            => '#f3eef9',
@@ -85,7 +86,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
                 'character_image'  => $uploads_july . '3%D0%94_10.png',
                 'product_image'    => $uploads_july . '8-2.png',
                 'best_seller_image'=> 'https://eggstime.com/wp-content/uploads/2017/12/Skazka-Eggs.png',
-                'showcase_image'   => $uploads . '2022/05/03.png',
+                'showcase_image'   => $showcase . 'skazka-egg.png',
                 'tagline'          => 'Fairytale stories that spark creativity.',
                 'shop_url'         => home_url( '/products/skazka-egg/' ),
                 'panel'            => '#eaf8ef',
@@ -96,7 +97,7 @@ if ( ! function_exists( 'et_get_home_core_egg_brand_meta' ) ) {
                 'character_image'  => $uploads_july . 'EmojiCharacter.png',
                 'product_image'    => $uploads_july . '1-4.png',
                 'best_seller_image'=> 'https://eggstime.com/wp-content/uploads/2017/12/Emojy-Eggs.png',
-                'showcase_image'   => $uploads . '2022/05/06-2.png',
+                'showcase_image'   => $showcase . 'emoji-egg.png',
                 'tagline'          => 'Expressive fun with playful emoji friends.',
                 'shop_url'         => home_url( '/products/emoji-egg/' ),
                 'panel'            => '#fff0f6',
