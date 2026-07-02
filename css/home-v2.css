@@ -3039,7 +3039,7 @@
 }
 
 .et-home__social-intro {
-    margin-bottom: 44px;
+    margin-bottom: 22px;
     text-align: center;
 }
 
@@ -3479,7 +3479,7 @@
 
 @media screen and (max-width: 767px) {
     .et-home__social-intro {
-        margin-bottom: 24px;
+        margin-bottom: 12px;
     }
 
     .et-home__social-grid {
