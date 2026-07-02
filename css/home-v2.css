@@ -3530,7 +3530,13 @@
     align-items: center;
     gap: 12px;
     padding: 7px 0;
-    text-decoration: none;
+    text-decoration: none !important;
+    color: var(--et-home-heading) !important;
+}
+
+.et-home__fun-egg-activity:hover,
+.et-home__fun-egg-activity:focus {
+    text-decoration: none !important;
     color: var(--et-home-heading) !important;
 }
 
@@ -3557,6 +3563,7 @@
 .et-home__fun-egg-activity-label {
     font-size: 15px;
     font-weight: 700;
+    text-decoration: none;
 }
 
 .et-home__fun-egg-more {
