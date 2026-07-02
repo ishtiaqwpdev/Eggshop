@@ -12,8 +12,8 @@
  * 6. More Ways to Play & Learn
  * 7. Why Parents Love Eggs Time + Certifications (one trust section)
  * 8. Join the Eggs Time Community
- * 9. Become an Eggs Time Distributor
- * 10. Interested in Our Products
+ * 9. Interested in Our Products
+ * 10. Learn and Joy + Eggs Time Games + Distributor (footer stack)
  */
 get_header();
 ?>
@@ -39,11 +39,11 @@ get_header();
 
         <?php get_template_part( 'template-parts/home-v2', 'social' ); ?>
 
-        <?php get_template_part( 'template-parts/home-v2', 'distributor' ); ?>
-
         <?php get_template_part( 'template-parts/home-v2', 'cta' ); ?>
 
         <?php get_template_part( 'template-parts/home-v2', 'games-extra' ); ?>
+
+        <?php get_template_part( 'template-parts/home-v2', 'distributor' ); ?>
     </div>
 </div>
 

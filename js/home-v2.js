@@ -326,6 +326,30 @@
         });
     }
 
+    function getGamesExtraSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
+        return getEggWorldSliderConfig($wrap, prevLabel, nextLabel, arrowClass, {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+            responsive: [
+                {
+                    breakpoint: 1199,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 767,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    }
+
     $(document).ready(function () {
         initEggWorldSlider(
             '.et-home__best-sellers-slider',
@@ -373,6 +397,16 @@
             'et-home__parent-trust-arrow',
             'resize.etHomeParentTrustCertsSlider',
             getParentTrustCertsSliderConfig
+        );
+
+        initEggWorldSlider(
+            '.et-home__games-extra-slider',
+            '.et-home__games-extra-slider-wrap',
+            'Previous games',
+            'Next games',
+            'et-home__games-extra-arrow',
+            getGamesExtraSliderConfig,
+            'resize.etHomeGamesExtraSlider'
         );
 
         initHeroVideo();

@@ -79,7 +79,7 @@ if ( empty( $et_home_distributor_brands ) ) {
                     Available for distribution worldwide.
                 </p>
                 <a href="<?php echo esc_url( $et_home_distributor_url ); ?>" class="et-home__distributor-btn">
-                    <span class="et-home__distributor-btn-label">Become a Distributor</span>
+                    <span class="et-home__distributor-btn-label">Learn More</span>
                     <span class="et-home__distributor-btn-icon" aria-hidden="true">
                         <i class="fas fa-angle-right"></i>
                     </span>
