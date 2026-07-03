@@ -3737,6 +3737,7 @@
 
 .et-home__fun-egg-app-copy {
     width: 100%;
+    max-width: 248px;
 }
 
 .et-home__fun-egg-app-right {
@@ -3768,42 +3769,57 @@
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     font-family: 'Quicksand', 'Ubuntu', sans-serif;
-    font-size: clamp(15px, 1.55vw, 19px);
+    font-size: clamp(16px, 1.65vw, 20px);
     font-weight: 800;
-    line-height: 1.25;
-    color: var(--et-home-blue) !important;
+    line-height: 1.2;
+    color: #1578b0 !important;
     text-transform: uppercase;
+    letter-spacing: 0.01em;
 }
 
 .et-home__fun-egg-app-kicker-text {
     flex: 1 1 auto;
     min-width: 0;
+    display: block;
 }
 
 .et-home__fun-egg-app-kicker-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
+    width: 34px;
+    height: 34px;
+    margin-top: 1px;
+    border-radius: 0;
     background: transparent;
-    color: #1a9fe0;
+    color: #1578b0;
     flex-shrink: 0;
 }
 
 .et-home__fun-egg-app-kicker-icon i {
-    font-size: 22px;
+    font-size: 28px;
+    line-height: 1;
 }
 
 .et-home__fun-egg-app-text {
     margin: 0;
+    padding-left: 44px;
+    text-align: center;
+}
+
+.et-home__fun-egg-app-text-line {
+    margin: 0;
     font-size: clamp(13px, 1.15vw, 15px);
     font-weight: 500;
-    line-height: 1.45;
-    color: #1e293b !important;
+    line-height: 1.5;
+    color: #111111 !important;
+}
+
+.et-home__fun-egg-app-text-line .et-home__fun-egg-heart {
+    font-size: 0.9em;
+    margin: 0 2px;
 }
 
 .et-home__fun-egg-app-games {
@@ -4055,8 +4071,16 @@
         align-items: center;
     }
 
+    .et-home__fun-egg-app-copy {
+        max-width: 280px;
+    }
+
     .et-home__fun-egg-app-kicker {
         justify-content: center;
+    }
+
+    .et-home__fun-egg-app-text {
+        padding-left: 0;
     }
 
     .et-home__fun-egg-app-games {

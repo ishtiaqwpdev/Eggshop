@@ -188,17 +188,26 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                 <div class="et-home__fun-egg-app-stage">
                     <div class="et-home__fun-egg-app-left">
                         <div class="et-home__fun-egg-app-copy">
-                            <p class="et-home__fun-egg-app-kicker">
+                            <div class="et-home__fun-egg-app-kicker">
                                 <span class="et-home__fun-egg-app-kicker-icon" aria-hidden="true">
                                     <?php echo et_home_icon( 'mobile' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </span>
-                                <span class="et-home__fun-egg-app-kicker-text">Something Fun and New: The Eggs Time App!</span>
-                            </p>
-                            <p class="et-home__fun-egg-app-text">
-                                <span class="et-home__fun-egg-heart" aria-hidden="true">♥</span>
-                                Play exciting games anytime, anywhere!
-                                <span class="et-home__fun-egg-heart" aria-hidden="true">♥</span>
-                            </p>
+                                <span class="et-home__fun-egg-app-kicker-text">
+                                    Something Fun and New<br />
+                                    The Eggz &amp; The App!
+                                </span>
+                            </div>
+                            <div class="et-home__fun-egg-app-text">
+                                <p class="et-home__fun-egg-app-text-line">
+                                    <span class="et-home__fun-egg-heart" aria-hidden="true">♥</span>
+                                    Play exciting games anytime,
+                                </p>
+                                <p class="et-home__fun-egg-app-text-line">
+                                    <span class="et-home__fun-egg-heart" aria-hidden="true">♥</span>
+                                    anywhere!
+                                    <span class="et-home__fun-egg-heart" aria-hidden="true">♥</span>
+                                </p>
+                            </div>
                         </div>
                         <img
                             src="<?php echo esc_url( $magik_character ); ?>"
