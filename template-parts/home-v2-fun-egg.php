@@ -198,13 +198,19 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                                 </span>
                                 <div class="et-home__fun-egg-app-text">
                                     <p class="et-home__fun-egg-app-text-line">
-                                        <span class="et-home__fun-egg-heart" aria-hidden="true">♥</span>
+                                        <span class="et-home__fun-egg-app-heart" aria-hidden="true">
+                                            <?php echo et_home_icon( 'heart' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                        </span>
                                         Play exciting games anytime,
                                     </p>
-                                    <p class="et-home__fun-egg-app-text-line et-home__fun-egg-app-text-line--center">
-                                        <span class="et-home__fun-egg-heart" aria-hidden="true">♥</span>
+                                    <p class="et-home__fun-egg-app-text-line">
+                                        <span class="et-home__fun-egg-app-heart" aria-hidden="true">
+                                            <?php echo et_home_icon( 'heart' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                        </span>
                                         anywhere!
-                                        <span class="et-home__fun-egg-heart" aria-hidden="true">♥</span>
+                                        <span class="et-home__fun-egg-app-heart" aria-hidden="true">
+                                            <?php echo et_home_icon( 'heart' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                        </span>
                                     </p>
                                 </div>
                             </div>
