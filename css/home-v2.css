@@ -3751,7 +3751,9 @@
     align-items: flex-end;
     justify-content: flex-end;
     min-width: 0;
-    padding-left: 0;
+    padding-left: 24px;
+    padding-right: 0;
+    margin-right: 0;
     position: relative;
     z-index: 3;
 }
@@ -3772,8 +3774,9 @@
 .et-home__fun-egg-app-character--right {
     max-width: 108px;
     max-height: 132px;
-    margin-left: 0;
-    transform: translateX(14px);
+    margin: 0;
+    padding: 0;
+    transform: none;
 }
 
 .et-home__fun-egg-app-copy {
