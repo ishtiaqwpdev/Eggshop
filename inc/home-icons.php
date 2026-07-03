@@ -41,6 +41,7 @@ if ( ! function_exists( 'et_home_get_fa_icon_class' ) ) {
             'pencil'        => 'fa-pencil-alt',
             'search'        => 'fa-search',
             'gamepad'       => 'fa-gamepad',
+            'file-play'     => 'fa-file-video',
             'dots'          => 'fa-braille',
         );
 

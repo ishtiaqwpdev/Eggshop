@@ -110,18 +110,20 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
         <div class="et-home__fun-egg-panel">
             <div class="et-home__fun-egg-panel-grid">
                 <div class="et-home__fun-egg-games">
-                    <div class="et-home__fun-egg-games-head">
+                    <div class="et-home__fun-egg-games-intro">
                         <span class="et-home__fun-egg-games-icon" aria-hidden="true">
-                            <?php echo et_home_icon( 'gamepad' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                            <?php echo et_home_icon( 'file-play' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </span>
-                        <h3 class="et-home__fun-egg-games-title">Games Inside Every Egg</h3>
+                        <div class="et-home__fun-egg-games-copy">
+                            <h3 class="et-home__fun-egg-games-title">Games Inside Every Egg</h3>
+                            <p class="et-home__fun-egg-games-desc">
+                                <span class="et-home__fun-egg-colorful" aria-label="<?php esc_attr_e( 'Colorful', 'eggs-shop' ); ?>">
+                                    <span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--dark">C</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--orange">o</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--blue">l</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--green">o</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--red">r</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--blue">f</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--orange">u</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--green">l</span>
+                                </span>
+                                fun and games to fuel young minds every day!
+                            </p>
+                        </div>
                     </div>
-                    <p class="et-home__fun-egg-games-desc">
-                        <span class="et-home__fun-egg-colorful" aria-label="<?php esc_attr_e( 'Colorful', 'eggs-shop' ); ?>">
-                            <span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--blue">C</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--green">o</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--orange">l</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--pink">o</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--blue">r</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--green">f</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--orange">u</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--pink">l</span>
-                        </span>
-                        fun and games to fuel young minds every day!
-                    </p>
                     <ul class="et-home__fun-egg-previews">
                         <?php foreach ( $et_home_fun_egg_previews as $preview ) : ?>
                             <li class="et-home__fun-egg-preview-item">

@@ -3398,21 +3398,25 @@
     text-align: left;
 }
 
-.et-home__fun-egg-games-head {
+.et-home__fun-egg-games-intro {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    flex-wrap: nowrap;
-    gap: 10px;
-    margin-bottom: 8px;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.et-home__fun-egg-games-copy {
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .et-home__fun-egg-games-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: #e91e8c;
     color: #ffffff;
@@ -3420,28 +3424,26 @@
 }
 
 .et-home__fun-egg-games-icon i {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .et-home__fun-egg-games-title {
-    margin: 0;
-    flex: 1 1 auto;
-    min-width: 0;
+    margin: 0 0 4px;
     font-family: 'Quicksand', 'Ubuntu', sans-serif;
-    font-size: clamp(16px, 1.65vw, 20px);
+    font-size: clamp(18px, 1.8vw, 22px);
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.15;
     color: #e91e8c !important;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
 }
 
 .et-home__fun-egg-games-desc {
-    margin: 0 0 16px;
-    font-size: clamp(13px, 1.15vw, 15px);
+    margin: 0;
+    font-size: clamp(13px, 1.1vw, 15px);
     font-weight: 500;
-    line-height: 1.5;
-    color: var(--et-home-heading) !important;
+    line-height: 1.35;
+    color: #1e293b !important;
 }
 
 @media screen and (min-width: 992px) {
@@ -3452,13 +3454,15 @@
 
 .et-home__fun-egg-colorful {
     display: inline;
-    font-weight: 700;
+    font-weight: 600;
 }
 
+.et-home__fun-egg-colorful-char--dark { color: #1e293b; }
 .et-home__fun-egg-colorful-char--blue { color: #1a9fe0; }
 .et-home__fun-egg-colorful-char--green { color: #27ae60; }
 .et-home__fun-egg-colorful-char--orange { color: #f39c12; }
 .et-home__fun-egg-colorful-char--pink { color: #e91e8c; }
+.et-home__fun-egg-colorful-char--red { color: #e74c3c; }
 
 .et-home__fun-egg-previews {
     display: grid;
@@ -3861,8 +3865,12 @@
         text-align: center;
     }
 
-    .et-home__fun-egg-games-head {
+    .et-home__fun-egg-games-intro {
         justify-content: center;
+    }
+
+    .et-home__fun-egg-games-copy {
+        text-align: left;
     }
 
     .et-home__fun-egg-hero {
