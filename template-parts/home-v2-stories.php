@@ -3,7 +3,7 @@
  * Home v2 — Stories That Teach & Inspire
  */
 
-$et_home_stories_url = 'https://eggstime.com/our-story/';
+$et_home_stories_url = 'https://eggstime.com/learn/';
 
 $et_home_stories = array(
     array(
