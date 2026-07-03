@@ -3876,8 +3876,14 @@
     border-radius: 18px;
     background: #ffffff;
     box-shadow: 0 6px 16px rgba(30, 58, 95, 0.08);
-    text-decoration: none;
+    text-decoration: none !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.et-home__fun-egg-app-game:hover,
+.et-home__fun-egg-app-game:focus,
+.et-home__fun-egg-app-game:active {
+    text-decoration: none !important;
 }
 
 .et-home__fun-egg-app-game:hover {
@@ -3910,6 +3916,7 @@
     font-weight: 700;
     line-height: 1.2;
     text-align: center;
+    text-decoration: none !important;
 }
 
 .et-home__fun-egg-app-game--blue .et-home__fun-egg-app-game-media {
