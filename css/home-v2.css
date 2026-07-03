@@ -5048,8 +5048,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 158px;
-    padding: 12px 10px;
+    min-height: 138px;
+    padding: 14px 10px;
     border-radius: 16px;
     background: #ffffff;
     border: 1px solid rgba(32, 77, 136, 0.06);
@@ -5061,7 +5061,7 @@
     width: auto;
     max-width: 100%;
     height: auto;
-    max-height: 132px;
+    max-height: 112px;
     margin: 0 auto;
     object-fit: contain;
     object-position: center center;

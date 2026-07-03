@@ -39,15 +39,15 @@ if ( function_exists( 'et_get_home_core_egg_brand_keys' ) && function_exists( 'e
 }
 
 if ( empty( $et_home_distributor_brands ) ) {
-    $showcase_base = trailingslashit( get_template_directory_uri() ) . 'images/distributor/';
+    $uploads_base = trailingslashit( home_url( '/wp-content/uploads' ) );
 
     $et_home_distributor_brands = array(
-        array( 'name' => 'Happy Egg', 'image' => $showcase_base . 'happy-egg.png' ),
-        array( 'name' => 'Lucky Egg', 'image' => $showcase_base . 'lucky-egg.png' ),
-        array( 'name' => 'King Egg', 'image' => $showcase_base . 'king-egg.png' ),
-        array( 'name' => 'Magik Egg', 'image' => $showcase_base . 'magik-egg.png' ),
-        array( 'name' => 'Skazka Egg', 'image' => $showcase_base . 'skazka-egg.png' ),
-        array( 'name' => 'Emoji Egg', 'image' => $showcase_base . 'emoji-egg.png' ),
+        array( 'name' => 'Happy Egg', 'image' => $uploads_base . '2022/05/04-2.png' ),
+        array( 'name' => 'Lucky Egg', 'image' => $uploads_base . '2022/05/05.png' ),
+        array( 'name' => 'King Egg', 'image' => $uploads_base . '2022/05/01.png' ),
+        array( 'name' => 'Magik Egg', 'image' => $uploads_base . '2022/05/02.png' ),
+        array( 'name' => 'Skazka Egg', 'image' => $uploads_base . '2022/05/03.png' ),
+        array( 'name' => 'Emoji Egg', 'image' => $uploads_base . '2022/05/06-2.png' ),
     );
 }
 ?>
