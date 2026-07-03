@@ -66,22 +66,26 @@ $et_home_fun_egg_previews = array(
 $et_home_fun_egg_app_games = array(
     array(
         'label' => 'Maze Game',
-        'image' => $theme_uri . '/images/fun-app-maze.png',
+        'image' => $theme_uri . '/images/fun-app-maze-thumb.png',
+        'tone'  => 'blue',
         'url'   => 'http://eggstime.com/upload/mazes/index.html',
     ),
     array(
         'label' => 'Coloring Game',
-        'image' => $theme_uri . '/images/fun-app-coloring.png',
+        'image' => $theme_uri . '/images/fun-app-coloring-thumb.png',
+        'tone'  => 'pink',
         'url'   => 'http://eggstime.com/upload/index.html',
     ),
     array(
         'label' => 'Puzzle Game',
-        'image' => $theme_uri . '/images/fun-app-puzzle.png',
+        'image' => $theme_uri . '/images/fun-app-puzzle-thumb.png',
+        'tone'  => 'green',
         'url'   => 'http://eggstime.com/upload/puzzles/index.html',
     ),
     array(
         'label' => 'Memory Game',
-        'image' => $theme_uri . '/images/fun-app-memory.png',
+        'image' => $theme_uri . '/images/fun-app-memory-thumb.png',
+        'tone'  => 'purple',
         'url'   => 'http://eggstime.com/upload/diff/index.html',
     ),
 );
@@ -208,7 +212,7 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                     <ul class="et-home__fun-egg-app-games">
                         <?php foreach ( $et_home_fun_egg_app_games as $game ) : ?>
                             <li class="et-home__fun-egg-app-game-item">
-                                <a href="<?php echo esc_url( $game['url'] ); ?>" class="et-home__fun-egg-app-game" target="_blank" rel="noopener noreferrer">
+                                <a href="<?php echo esc_url( $game['url'] ); ?>" class="et-home__fun-egg-app-game et-home__fun-egg-app-game--<?php echo esc_attr( $game['tone'] ); ?>" target="_blank" rel="noopener noreferrer">
                                     <span class="et-home__fun-egg-app-game-media">
                                         <img
                                             src="<?php echo esc_url( $game['image'] ); ?>"
@@ -217,6 +221,7 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                                             decoding="async"
                                         />
                                     </span>
+                                    <span class="et-home__fun-egg-app-game-label"><?php echo esc_html( $game['label'] ); ?></span>
                                 </a>
                             </li>
                         <?php endforeach; ?>
