@@ -65,7 +65,13 @@ if ( ! function_exists( 'et_home_icon' ) ) {
             return '';
         }
 
-        $classes = array( 'fas', $fa_class );
+        $classes = array( $fa_class );
+
+        if ( ! empty( $args['style'] ) && 'regular' === $args['style'] ) {
+            array_unshift( $classes, 'far' );
+        } else {
+            array_unshift( $classes, 'fas' );
+        }
 
         if ( ! empty( $args['size'] ) ) {
             $classes[] = 'fa-' . sanitize_html_class( $args['size'] );
