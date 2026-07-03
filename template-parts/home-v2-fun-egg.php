@@ -241,16 +241,6 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                             </li>
                         <?php endforeach; ?>
                     </ul>
-
-                    <div class="et-home__fun-egg-app-right" aria-hidden="true">
-                        <img
-                            src="<?php echo esc_url( $happy_character ); ?>"
-                            alt=""
-                            class="et-home__fun-egg-app-character et-home__fun-egg-app-character--right"
-                            loading="lazy"
-                            decoding="async"
-                        />
-                    </div>
                 </div>
 
                 <div class="et-home__fun-egg-app-stores">

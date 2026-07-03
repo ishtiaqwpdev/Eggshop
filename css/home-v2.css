@@ -3730,8 +3730,8 @@
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr) minmax(108px, 132px);
-    gap: 14px 36px;
+    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+    gap: 14px 28px;
     align-items: end;
 }
 
@@ -3878,7 +3878,7 @@
     flex-wrap: nowrap;
     gap: 16px;
     margin: 0 0 0 auto;
-    padding: 0 32px 4px 10px;
+    padding: 0 0 4px 10px;
     list-style: none;
     align-self: end;
     position: relative;
