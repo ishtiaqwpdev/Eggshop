@@ -3922,7 +3922,7 @@
 
 .et-home__fun-egg-app-copy {
     width: 100%;
-    max-width: 310px;
+    max-width: 340px;
 }
 
 .et-home__fun-egg-app-kicker {
@@ -3952,6 +3952,7 @@
 
 .et-home__fun-egg-app-kicker-line {
     display: block;
+    white-space: nowrap;
 }
 
 .et-home__fun-egg-app-kicker-icon {
