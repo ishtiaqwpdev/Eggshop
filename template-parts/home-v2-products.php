@@ -93,11 +93,13 @@ $et_home_products_url = home_url( '/product-category/toys/' );
                                                 <?php echo et_home_icon( 'puzzle' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                             <?php endif; ?>
                                         </span>
-                                        <h3 class="et-home__product-title"><?php echo esc_html( $item['title'] ); ?></h3>
+                                        <div class="et-home__product-copy">
+                                            <h3 class="et-home__product-title"><?php echo esc_html( $item['title'] ); ?></h3>
+                                            <?php if ( ! empty( $item['description'] ) ) : ?>
+                                                <p class="et-home__product-desc"><?php echo esc_html( $item['description'] ); ?></p>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
-                                    <?php if ( ! empty( $item['description'] ) ) : ?>
-                                        <p class="et-home__product-desc"><?php echo esc_html( $item['description'] ); ?></p>
-                                    <?php endif; ?>
                                     <a href="<?php echo esc_url( $item['url'] ); ?>" class="et-home__product-btn et-home__card-btn">
                                         <span class="et-home__product-btn-label et-home__card-btn-label">Explore Collection</span>
                                         <span class="et-home__product-btn-icon et-home__card-btn-icon" aria-hidden="true">

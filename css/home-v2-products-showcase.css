@@ -308,7 +308,7 @@
 
 .et-home__products--showcase .et-home__product-body {
     align-items: stretch;
-    gap: 6px;
+    gap: 12px;
     padding: 12px 14px 16px;
     text-align: left;
 }
@@ -316,26 +316,91 @@
 .et-home__product-heading {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    min-width: 0;
+}
+
+.et-home__product-copy {
+    flex: 1 1 auto;
     min-width: 0;
 }
 
 .et-home__products--showcase .et-home__product-icon {
-    align-self: auto;
-    width: 36px;
-    height: 36px;
+    align-self: center;
+    width: 40px;
+    height: 40px;
     margin: 0;
+    box-shadow: none;
 }
 
 .et-home__products--showcase .et-home__product-icon i,
 .et-home__products--showcase .et-home__product-icon-emoji {
-    font-size: 15px;
+    font-size: 16px;
+}
+
+.et-home__products--showcase .et-home__product-icon--pink {
+    background: #fde8f2;
+    color: #e91e8c;
+}
+
+.et-home__products--showcase .et-home__product-icon--pink i {
+    color: #e91e8c;
+}
+
+.et-home__products--showcase .et-home__product-icon--blue {
+    background: #e8f3fc;
+    color: #1a9fe0;
+}
+
+.et-home__products--showcase .et-home__product-icon--blue i {
+    color: #1a9fe0;
+}
+
+.et-home__products--showcase .et-home__product-icon--purple {
+    background: #f3ebf9;
+    color: #8e44ad;
+}
+
+.et-home__products--showcase .et-home__product-icon--purple i {
+    color: #8e44ad;
+}
+
+.et-home__products--showcase .et-home__product-icon--green {
+    background: #eaf8ef;
+    color: #27ae60;
+}
+
+.et-home__products--showcase .et-home__product-icon--green i {
+    color: #27ae60;
+}
+
+.et-home__products--showcase .et-home__product-icon--orange,
+.et-home__products--showcase .et-home__product-icon--yellow {
+    background: #fff4df;
+    color: #f39c12;
+}
+
+.et-home__products--showcase .et-home__product-icon--orange i,
+.et-home__products--showcase .et-home__product-icon--yellow i {
+    color: #f39c12;
 }
 
 .et-home__products--showcase .et-home__product-title {
+    margin: 0 0 4px;
     text-align: left;
-    flex: 1;
-    min-width: 0;
+    font-size: clamp(15px, 1.1vw, 17px);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1a3352 !important;
+}
+
+.et-home__products--showcase .et-home__product-desc {
+    margin: 0;
+    min-height: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #5a6f8c !important;
 }
 
 @media screen and (max-width: 1199px) {
