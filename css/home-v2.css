@@ -4877,6 +4877,7 @@
     max-width: var(--et-home-max);
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: var(--et-home-section-top-spacing);
 }
 
 .et-home__parent-benefits-intro {
