@@ -200,8 +200,8 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                                     <?php echo et_home_icon( 'mobile' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </span>
                                 <span class="et-home__fun-egg-app-kicker-text">
-                                    <span class="et-home__fun-egg-app-kicker-line">Continue Learning With</span>
-                                    <span class="et-home__fun-egg-app-kicker-line">The Eggs Time App</span>
+                                    <span class="et-home__fun-egg-app-kicker-line">Continue Learning with the</span>
+                                    <span class="et-home__fun-egg-app-kicker-line">Eggs Time App</span>
                                 </span>
                                 <div class="et-home__fun-egg-app-text">
                                     <p class="et-home__fun-egg-app-text-line">
