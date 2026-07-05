@@ -34,8 +34,9 @@
     --et-home-max: 1650px;
     --et-home-narrow: 1140px;
     --et-home-section-x: 20px;
-    --et-home-section-spacing: 36px;
-    --et-home-section-gap: var(--et-home-section-spacing);
+    /* Inter-section gap — matches hero banner → Choose Your Egg World spacing */
+    --et-home-section-gap: 36px;
+    --et-home-section-spacing: var(--et-home-section-gap);
     --et-home-panel-bg: #f0f7ff;
     --et-home-playful-bg-url: 'https://eggstime.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-28-2026-02_38_47-PM.png';
     --et-home-sparkle-gold: rgba(255, 212, 0, 0.85);
@@ -1149,12 +1150,15 @@
     width: 100%;
     max-width: var(--et-home-max);
     margin: 0 auto;
-    padding: var(--et-home-section-spacing) var(--et-home-section-x);
+    padding-top: var(--et-home-section-gap);
+    padding-bottom: 0;
+    padding-left: var(--et-home-section-x);
+    padding-right: var(--et-home-section-x);
 }
 
 @media screen and (min-width: 1200px) {
     .et-home {
-        --et-home-section-spacing: 40px;
+        --et-home-section-gap: 40px;
     }
 }
 
@@ -1520,8 +1524,8 @@
 /* ----- Eggs Time Games (footer-adjacent) ----- */
 .et-home__games-extra {
     width: 100%;
-    padding-top: var(--et-home-section-spacing);
-    padding-bottom: var(--et-home-section-spacing);
+    padding-top: var(--et-home-section-gap);
+    padding-bottom: var(--et-home-section-gap);
 }
 
 .et-home__games-extra-inside {
@@ -1817,8 +1821,6 @@
 .et-home__stories .et-home__section-inner {
     position: relative;
     z-index: 1;
-    padding-top: var(--et-home-section-spacing);
-    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__stories .et-home__section-kicker,
@@ -2165,8 +2167,6 @@
 .et-home__youtube .et-home__section-inner {
     position: relative;
     z-index: 1;
-    padding-top: var(--et-home-section-spacing);
-    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__youtube-panel {
@@ -2725,8 +2725,6 @@
 .et-home__products .et-home__section-inner {
     width: 100%;
     max-width: none;
-    padding-top: var(--et-home-section-spacing);
-    padding-bottom: var(--et-home-section-spacing);
     padding-left: var(--et-home-section-x);
     padding-right: var(--et-home-section-x);
 }
@@ -3435,8 +3433,6 @@
 .et-home__fun-egg .et-home__section-inner {
     position: relative;
     z-index: 1;
-    padding-top: var(--et-home-section-spacing);
-    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__fun-egg-head {
@@ -4366,8 +4362,6 @@
 .et-home__social .et-home__section-inner {
     position: relative;
     z-index: 1;
-    padding-top: var(--et-home-section-spacing);
-    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__social .et-home__section-kicker {
@@ -4883,7 +4877,6 @@
     max-width: var(--et-home-max);
     margin-left: auto;
     margin-right: auto;
-    padding: var(--et-home-section-spacing) var(--et-home-section-x);
 }
 
 .et-home__parent-benefits-intro {
@@ -5113,11 +5106,6 @@
     display: none !important;
 }
 
-.et-home__parent-trust .et-home__section-inner {
-    padding-top: var(--et-home-section-spacing);
-    padding-bottom: var(--et-home-section-spacing);
-}
-
 .et-home__parent-trust .et-home__section-kicker {
     margin-bottom: 14px;
     font-size: clamp(17px, 2.3vw, 23px);
@@ -5344,8 +5332,6 @@
 .et-home__distributor .et-home__section-inner {
     position: relative;
     z-index: 1;
-    padding-top: var(--et-home-section-spacing);
-    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__distributor-kicker {
@@ -5742,7 +5728,10 @@
     width: 100%;
     max-width: var(--et-home-max);
     margin: 0 auto;
-    padding: var(--et-home-section-spacing) var(--et-home-section-x);
+    padding-top: var(--et-home-section-gap);
+    padding-bottom: 0;
+    padding-left: var(--et-home-section-x);
+    padding-right: var(--et-home-section-x);
 }
 
 .et-home__cta-content {

@@ -8,8 +8,8 @@
 }
 
 .et-home__characters .et-home__section-inner {
-    padding-top: var(--et-home-section-spacing);
-    padding-bottom: var(--et-home-section-spacing);
+    padding-top: var(--et-home-section-gap);
+    padding-bottom: 0;
 }
 
 .et-home__characters-intro {
