@@ -34,7 +34,8 @@
     --et-home-max: 1650px;
     --et-home-narrow: 1140px;
     --et-home-section-x: 20px;
-    --et-home-section-gap: 68px;
+    --et-home-section-spacing: 36px;
+    --et-home-section-gap: var(--et-home-section-spacing);
     --et-home-panel-bg: #f0f7ff;
     --et-home-playful-bg-url: 'https://eggstime.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-28-2026-02_38_47-PM.png';
     --et-home-sparkle-gold: rgba(255, 212, 0, 0.85);
@@ -127,7 +128,7 @@
 
 .et-home__bg-band--playful {
     min-height: 0;
-    padding-bottom: 44px;
+    padding-bottom: 0;
 }
 
 .et-home__hero.et-home__playful-section::before {
@@ -1143,23 +1144,18 @@
     }
 }
 
-/* Tighter gap below video hero so Best Sellers peeks above fold */
-.et-home__hero--split-video + .et-home__characters .et-home__section-inner {
-    padding-top: 36px;
-}
-
-@media screen and (min-width: 1200px) {
-    .et-home__hero--split-video + .et-home__characters .et-home__section-inner {
-        padding-top: 40px;
-    }
-}
-
 /* ----- Shared section layout ----- */
 .et-home__section-inner {
     width: 100%;
     max-width: var(--et-home-max);
     margin: 0 auto;
-    padding: 0 var(--et-home-section-x) var(--et-home-section-gap);
+    padding: var(--et-home-section-spacing) var(--et-home-section-x);
+}
+
+@media screen and (min-width: 1200px) {
+    .et-home {
+        --et-home-section-spacing: 40px;
+    }
 }
 
 .main--home-v2 .et-home__section-inner.center {
@@ -1266,29 +1262,10 @@
     }
 }
 
-.et-home__fun-egg + .et-home__parent-benefits .et-home__section-inner,
-.et-home__parent-benefits + .et-home__social .et-home__section-inner,
-.et-home__social + .et-home__distributor .et-home__section-inner,
-.et-home__distributor + .et-home__cta .et-home__cta-inner {
-    padding-top: 24px;
-}
-
-.et-home__products + .et-home__fun-egg .et-home__section-inner {
-    padding-top: 80px;
-}
-
 /* ----- Best Sellers (license-style brand row) ----- */
 .et-home__best-sellers {
     background: transparent;
     width: 100%;
-}
-
-.et-home__best-sellers .et-home__section-inner {
-    padding-top: var(--et-home-section-gap);
-}
-
-.et-home__characters + .et-home__best-sellers .et-home__section-inner {
-    padding-top: 24px;
 }
 
 .et-home__best-sellers-head {
@@ -1543,6 +1520,8 @@
 /* ----- Eggs Time Games (footer-adjacent) ----- */
 .et-home__games-extra {
     width: 100%;
+    padding-top: var(--et-home-section-spacing);
+    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__games-extra-inside {
@@ -1838,8 +1817,8 @@
 .et-home__stories .et-home__section-inner {
     position: relative;
     z-index: 1;
-    padding-top: var(--et-home-section-gap);
-    padding-bottom: calc(var(--et-home-section-gap) * 0.9);
+    padding-top: var(--et-home-section-spacing);
+    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__stories .et-home__section-kicker,
@@ -2186,8 +2165,8 @@
 .et-home__youtube .et-home__section-inner {
     position: relative;
     z-index: 1;
-    padding-top: calc(var(--et-home-section-gap) * 0.65);
-    padding-bottom: calc(var(--et-home-section-gap) * 0.5);
+    padding-top: var(--et-home-section-spacing);
+    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__youtube-panel {
@@ -2746,8 +2725,8 @@
 .et-home__products .et-home__section-inner {
     width: 100%;
     max-width: none;
-    padding-top: calc(var(--et-home-section-gap) * 0.5);
-    padding-bottom: calc(var(--et-home-section-gap) * 1.05);
+    padding-top: var(--et-home-section-spacing);
+    padding-bottom: var(--et-home-section-spacing);
     padding-left: var(--et-home-section-x);
     padding-right: var(--et-home-section-x);
 }
@@ -3456,8 +3435,8 @@
 .et-home__fun-egg .et-home__section-inner {
     position: relative;
     z-index: 1;
-    padding-top: var(--et-home-section-gap);
-    padding-bottom: var(--et-home-section-gap);
+    padding-top: var(--et-home-section-spacing);
+    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__fun-egg-head {
@@ -4387,7 +4366,8 @@
 .et-home__social .et-home__section-inner {
     position: relative;
     z-index: 1;
-    padding-top: var(--et-home-section-gap);
+    padding-top: var(--et-home-section-spacing);
+    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__social .et-home__section-kicker {
@@ -4903,10 +4883,7 @@
     max-width: var(--et-home-max);
     margin-left: auto;
     margin-right: auto;
-    padding-top: var(--et-home-section-gap);
-    padding-bottom: var(--et-home-section-gap);
-    padding-left: var(--et-home-section-x);
-    padding-right: var(--et-home-section-x);
+    padding: var(--et-home-section-spacing) var(--et-home-section-x);
 }
 
 .et-home__parent-benefits-intro {
@@ -5137,7 +5114,8 @@
 }
 
 .et-home__parent-trust .et-home__section-inner {
-    padding-top: var(--et-home-section-gap);
+    padding-top: var(--et-home-section-spacing);
+    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__parent-trust .et-home__section-kicker {
@@ -5366,7 +5344,8 @@
 .et-home__distributor .et-home__section-inner {
     position: relative;
     z-index: 1;
-    padding-top: var(--et-home-section-gap);
+    padding-top: var(--et-home-section-spacing);
+    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__distributor-kicker {
@@ -5763,7 +5742,7 @@
     width: 100%;
     max-width: var(--et-home-max);
     margin: 0 auto;
-    padding: 52px 20px 44px;
+    padding: var(--et-home-section-spacing) var(--et-home-section-x);
 }
 
 .et-home__cta-content {
@@ -6011,10 +5990,6 @@
 }
 
 @media screen and (min-width: 1200px) {
-    .et-home__cta-inner {
-        padding: 60px 32px 52px;
-    }
-
     .et-home__cta-card {
         padding: 36px 30px 30px;
     }
@@ -6030,17 +6005,9 @@
     .et-home__cta-card {
         min-height: 0;
     }
-
-    .et-home__cta-inner {
-        padding-bottom: 40px;
-    }
 }
 
 @media screen and (max-width: 767px) {
-    .et-home__cta-inner {
-        padding: 40px 18px 36px;
-    }
-
     .et-home__cta-text {
         margin-bottom: 24px;
     }
@@ -6320,36 +6287,7 @@
 }
 
 /* ----- Final sizing & spacing polish ----- */
-@media screen and (max-width: 1199px) {
-    .et-home {
-        --et-home-section-gap: 60px;
-    }
-}
-
 @media screen and (max-width: 767px) {
-    .et-home {
-        --et-home-section-gap: 52px;
-    }
-
-    .et-home__bg-band--playful {
-        padding-bottom: 36px;
-    }
-
-    .et-home__fun-egg + .et-home__parent-benefits .et-home__section-inner,
-    .et-home__parent-benefits + .et-home__social .et-home__section-inner,
-    .et-home__social + .et-home__distributor .et-home__section-inner,
-    .et-home__distributor + .et-home__cta .et-home__cta-inner {
-        padding-top: 18px;
-    }
-
-    .et-home__products + .et-home__fun-egg .et-home__section-inner {
-        padding-top: 56px;
-    }
-
-    .et-home__characters + .et-home__best-sellers .et-home__section-inner {
-        padding-top: 18px;
-    }
-
     .et-home__fun-egg-activity-icon {
         width: 44px;
         height: 44px;

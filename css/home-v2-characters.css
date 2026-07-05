@@ -8,8 +8,8 @@
 }
 
 .et-home__characters .et-home__section-inner {
-    padding-top: var(--et-home-section-gap);
-    padding-bottom: 24px;
+    padding-top: var(--et-home-section-spacing);
+    padding-bottom: var(--et-home-section-spacing);
 }
 
 .et-home__characters-intro {
@@ -485,11 +485,5 @@
     .et-home__egg-carousel-arrow {
         width: 38px;
         height: 38px;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .et-home {
-        --et-home-section-gap: 64px;
     }
 }
