@@ -208,7 +208,10 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                                         <span class="et-home__fun-egg-app-heart" aria-hidden="true">
                                             <?php echo et_home_icon( 'heart' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                         </span>
-                                        Play exciting educational games inspired by your favorite egg characters anytime,
+                                        Play exciting educational games inspired
+                                    </p>
+                                    <p class="et-home__fun-egg-app-text-line">
+                                        by your favorite egg characters anytime,
                                     </p>
                                     <p class="et-home__fun-egg-app-text-line">
                                         <span class="et-home__fun-egg-app-heart" aria-hidden="true">
