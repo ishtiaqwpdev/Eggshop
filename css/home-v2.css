@@ -3569,7 +3569,7 @@
 .et-home__fun-egg-games-title {
     margin: 0 0 4px;
     font-family: 'Quicksand', 'Ubuntu', sans-serif;
-    font-size: clamp(18px, 1.8vw, 22px);
+    font-size: clamp(22px, 2.2vw, 28px);
     font-weight: 800;
     line-height: 1.15;
     color: #e91e8c !important;
