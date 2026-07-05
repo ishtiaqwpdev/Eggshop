@@ -11,6 +11,10 @@ if ( ! function_exists( 'et_home_icon' ) ) {
     require_once get_template_directory() . '/inc/home-icons.php';
 }
 
+if ( ! function_exists( 'et_home_get_fun_egg_app_games' ) ) {
+    require_once get_template_directory() . '/inc/home-games.php';
+}
+
 $theme_uri    = get_template_directory_uri();
 $brand_meta   = et_get_home_core_egg_brand_meta();
 $games_url    = function_exists( 'get_permalink' ) ? get_permalink( 617 ) : home_url( '/games/' );
@@ -69,32 +73,7 @@ $et_home_fun_egg_previews = array(
     ),
 );
 
-$et_home_fun_egg_app_games = array(
-    array(
-        'label' => 'Maze Time',
-        'image' => $theme_uri . '/images/fun-app-maze-thumb.png',
-        'tone'  => 'blue',
-        'url'   => 'http://eggstime.com/upload/mazes/index.html',
-    ),
-    array(
-        'label' => 'Coloring Time',
-        'image' => $theme_uri . '/images/fun-app-coloring-thumb.png',
-        'tone'  => 'pink',
-        'url'   => 'http://eggstime.com/upload/index.html',
-    ),
-    array(
-        'label' => 'Puzzle Time',
-        'image' => $theme_uri . '/images/fun-app-puzzle-thumb.png',
-        'tone'  => 'green',
-        'url'   => 'http://eggstime.com/upload/puzzles/index.html',
-    ),
-    array(
-        'label' => 'Difference Time',
-        'image' => $theme_uri . '/images/fun-app-memory-thumb.png',
-        'tone'  => 'purple',
-        'url'   => 'http://eggstime.com/upload/diff/index.html',
-    ),
-);
+$et_home_fun_egg_app_games = et_home_get_fun_egg_app_games( $theme_uri );
 
 $playmarket_url = 'https://play.google.com/store/apps/details?id=com.eggtime.colorings';
 $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id1263628877?mt=8';
