@@ -42,14 +42,14 @@ if ( $et_home_hero_use_video ) :
 
                 <div class="et-home__hero-actions">
                     <a href="<?php echo esc_url( home_url( '/shop' ) ); ?>" class="et-home__hero-btn et-home__hero-btn--primary">
-                        <span class="et-home__hero-btn-label">Shop Surprise Eggs</span>
+                        <span class="et-home__hero-btn-label">Explore Our Eggs</span>
                         <span class="et-home__hero-btn-icon" aria-hidden="true">
                             <?php echo $et_home_hero_btn_arrow; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </span>
                     </a>
 
                     <a href="#et-home-characters" class="et-home__hero-btn et-home__hero-btn--secondary">
-                        <span class="et-home__hero-btn-label">Explore Characters</span>
+                        <span class="et-home__hero-btn-label">Meet Our Characters</span>
                         <span class="et-home__hero-btn-icon" aria-hidden="true">
                             <?php echo $et_home_hero_btn_arrow; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </span>
@@ -189,14 +189,14 @@ else :
 
             <div class="et-home__hero-actions">
                 <a href="<?php echo esc_url( home_url( '/shop' ) ); ?>" class="et-home__hero-btn et-home__hero-btn--primary">
-                    <span class="et-home__hero-btn-label">Shop Surprise Eggs</span>
+                    <span class="et-home__hero-btn-label">Explore Our Eggs</span>
                     <span class="et-home__hero-btn-icon" aria-hidden="true">
                         <?php echo $et_home_hero_btn_arrow; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     </span>
                 </a>
 
                 <a href="#et-home-characters" class="et-home__hero-btn et-home__hero-btn--secondary">
-                    <span class="et-home__hero-btn-label">Explore Characters</span>
+                    <span class="et-home__hero-btn-label">Meet Our Characters</span>
                     <span class="et-home__hero-btn-icon" aria-hidden="true">
                         <?php echo $et_home_hero_btn_arrow; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     </span>
