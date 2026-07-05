@@ -3952,7 +3952,6 @@
 
 .et-home__fun-egg-app-kicker-line {
     display: block;
-    white-space: nowrap;
 }
 
 .et-home__fun-egg-app-kicker-icon {
@@ -3995,7 +3994,6 @@
     text-transform: none;
     letter-spacing: 0;
     text-align: center;
-    white-space: nowrap;
 }
 
 .et-home__fun-egg-app-heart {

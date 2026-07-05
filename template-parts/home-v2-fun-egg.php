@@ -200,11 +200,24 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                                     <?php echo et_home_icon( 'mobile' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </span>
                                 <span class="et-home__fun-egg-app-kicker-text">
-                                    <span class="et-home__fun-egg-app-kicker-line">Continue Learning with the Eggs Time App</span>
+                                    <span class="et-home__fun-egg-app-kicker-line">Continue Learning with the</span>
+                                    <span class="et-home__fun-egg-app-kicker-line">Eggs Time App</span>
                                 </span>
                                 <div class="et-home__fun-egg-app-text">
                                     <p class="et-home__fun-egg-app-text-line">
-                                        Play exciting educational games inspired by your favorite egg characters anytime, anywhere.
+                                        <span class="et-home__fun-egg-app-heart" aria-hidden="true">
+                                            <?php echo et_home_icon( 'heart' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                        </span>
+                                        Play exciting educational games inspired by your favorite egg characters anytime,
+                                    </p>
+                                    <p class="et-home__fun-egg-app-text-line">
+                                        <span class="et-home__fun-egg-app-heart" aria-hidden="true">
+                                            <?php echo et_home_icon( 'heart' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                        </span>
+                                        anywhere!
+                                        <span class="et-home__fun-egg-app-heart" aria-hidden="true">
+                                            <?php echo et_home_icon( 'heart' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                        </span>
                                     </p>
                                 </div>
                             </div>
