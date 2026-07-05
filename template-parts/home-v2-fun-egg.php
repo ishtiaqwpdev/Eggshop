@@ -43,10 +43,16 @@ $et_home_fun_egg_activities = array(
         'url'   => 'http://eggstime.com/upload/puzzles/index.html',
     ),
     array(
-        'label' => 'Dot & Join the Dots',
-        'icon'  => 'dots',
+        'label' => 'Difference Time',
+        'icon'  => 'search',
         'tone'  => 'purple',
-        'url'   => 'http://eggstime.com/upload/index.html',
+        'url'   => 'http://eggstime.com/upload/diff/index.html',
+    ),
+    array(
+        'label' => 'And More Educational Activities',
+        'icon'  => 'education',
+        'tone'  => 'pink',
+        'url'   => $games_url,
     ),
 );
 
