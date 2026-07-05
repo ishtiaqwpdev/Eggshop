@@ -3550,6 +3550,15 @@
     letter-spacing: 0.04em;
 }
 
+.et-home__fun-egg-games-subtitle {
+    margin: 0 0 8px;
+    font-family: 'Quicksand', 'Ubuntu', sans-serif;
+    font-size: clamp(12px, 1vw, 14px);
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--et-home-text) !important;
+}
+
 .et-home__fun-egg-games-desc {
     margin: 0;
     font-size: clamp(13px, 1.1vw, 15px);

@@ -119,6 +119,7 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                         </span>
                         <div class="et-home__fun-egg-games-copy">
                             <h3 class="et-home__fun-egg-games-title">Games Inside Every Egg</h3>
+                            <p class="et-home__fun-egg-games-subtitle">Educational activities designed to inspire creativity, problem-solving, and learning through play.</p>
                             <p class="et-home__fun-egg-games-desc">
                                 <span class="et-home__fun-egg-colorful" aria-label="<?php esc_attr_e( 'Colorful', 'eggs-shop' ); ?>">
                                     <span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--dark">C</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--orange">o</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--blue">l</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--green">o</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--red">r</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--blue">f</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--orange">u</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--green">l</span>
