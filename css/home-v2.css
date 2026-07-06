@@ -691,6 +691,26 @@
     background: transparent;
 }
 
+/* Hero poster: thumb_2EFFD4E7...png (360x360) */
+.et-home__hero--split-video {
+    --et-home-hero-poster-aspect-ratio: 1 / 1;
+}
+
+.et-home__hero--split-video .et-home__hero-video-wrap {
+    aspect-ratio: var(--et-home-hero-poster-aspect-ratio);
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    flex: none;
+}
+
+.et-home__hero--split-video .et-home__hero-video,
+.et-home__hero--split-video .et-home__hero-video-fallback {
+    object-fit: cover;
+    object-position: center center;
+}
+
 .et-home__hero--split-video .et-home__hero-badge {
     width: fit-content;
     max-width: 100%;
@@ -1012,7 +1032,7 @@
     .et-home__hero-media {
         flex: 0 1 50%;
         max-width: 50%;
-        align-self: stretch;
+        align-self: center;
         padding-left: 0;
     }
 
@@ -1031,6 +1051,13 @@
         min-height: 400px;
         height: auto;
         flex: none;
+    }
+
+    .et-home__hero--split-video .et-home__hero-video-wrap {
+        aspect-ratio: var(--et-home-hero-poster-aspect-ratio);
+        min-height: 0;
+        max-height: none;
+        height: auto;
     }
 
     .et-home__hero-media--dual-test .et-home__hero-video-wrap {
@@ -1058,7 +1085,7 @@
     .et-home__hero-media {
         flex: 0 1 52%;
         max-width: 52%;
-        align-self: stretch;
+        align-self: center;
     }
 
     .et-home__hero-media--dual-test {
@@ -1071,6 +1098,13 @@
         min-height: 460px;
         height: auto;
         border-radius: 20px;
+    }
+
+    .et-home__hero--split-video .et-home__hero-video-wrap {
+        aspect-ratio: var(--et-home-hero-poster-aspect-ratio);
+        min-height: 0;
+        max-height: none;
+        height: auto;
     }
 
     .et-home__hero--split-video .et-home__hero-title {
@@ -1107,6 +1141,15 @@
 
     .et-home__hero-media {
         max-width: 100%;
+    }
+
+    .et-home__hero--split-video .et-home__hero-video-wrap {
+        border-radius: 14px;
+        aspect-ratio: var(--et-home-hero-poster-aspect-ratio);
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        max-height: none;
     }
 
     .et-home__hero-video-wrap {
