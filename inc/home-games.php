@@ -151,24 +151,28 @@ if ( ! function_exists( 'et_home_get_game_theme_asset_map' ) ) {
                 'preview'  => $base . 'fun-egg-maze-preview.png',
                 'app_card' => $base . 'fun-app-maze.png',
                 'icon'     => $base . 'fun-app-maze-thumb.png',
+                'slider'   => $base . 'fun-egg-maze-preview.png',
             ),
             'coloring' => array(
                 'showcase' => $base . 'game_2.jpg',
                 'preview'  => $base . 'fun-egg-dot-preview.png',
                 'app_card' => $base . 'fun-app-coloring.png',
                 'icon'     => $base . 'fun-app-coloring-thumb.png',
+                'slider'   => $base . 'game_2.jpg',
             ),
             'puzzle' => array(
                 'showcase' => $base . 'game_1.jpg',
                 'preview'  => $base . 'game_1.jpg',
                 'app_card' => $base . 'fun-app-puzzle.png',
                 'icon'     => $base . 'fun-app-puzzle-thumb.png',
+                'slider'   => $base . 'game_1.jpg',
             ),
             'difference' => array(
                 'showcase' => $base . 'fun-app-memory.png',
                 'preview'  => $base . 'fun-app-memory.png',
                 'app_card' => $base . 'fun-app-memory.png',
                 'icon'     => $base . 'fun-app-memory-thumb.png',
+                'slider'   => $base . 'fun-app-memory.png',
             ),
         );
     }
@@ -187,7 +191,7 @@ if ( ! function_exists( 'et_home_get_game_brand_image' ) ) {
         $map = et_home_get_game_theme_asset_map( $theme_uri );
 
         // Portrait/square UI slots always use the illustrated card assets.
-        if ( in_array( $type, array( 'app_card', 'icon', 'preview' ), true ) ) {
+        if ( in_array( $type, array( 'app_card', 'icon', 'preview', 'slider' ), true ) ) {
             return isset( $map[ $key ][ $type ] ) ? $map[ $key ][ $type ] : '';
         }
 
@@ -378,7 +382,7 @@ if ( ! function_exists( 'et_home_get_games_extra_cards' ) ) {
         );
 
         foreach ( $items as &$item ) {
-            $item['image'] = et_home_get_game_brand_image( $item['key'], $theme_uri, 'showcase' );
+            $item['image'] = et_home_get_game_brand_image( $item['key'], $theme_uri, 'slider' );
             unset( $item['key'] );
         }
         unset( $item );

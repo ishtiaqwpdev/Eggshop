@@ -1774,17 +1774,41 @@
     margin: 0;
 }
 
-.et-home__games-extra-slide a {
+.et-home__games-extra-slide-link {
     display: block;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(30, 20, 40, 0.16);
+    text-decoration: none !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.et-home__games-extra-slide-link:hover,
+.et-home__games-extra-slide-link:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(30, 20, 40, 0.22);
+    text-decoration: none !important;
+}
+
+.et-home__games-extra-slide-media {
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+    aspect-ratio: 375 / 280;
+    background: #f7f7f7;
+    line-height: 0;
 }
 
 .et-home__games-extra-slide img {
     display: block;
     width: 100%;
-    max-width: 260px;
-    margin: 0 auto;
-    height: auto;
-    border-radius: 8px;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    object-fit: contain;
+    object-position: center;
 }
 
 .et-home__games-extra-slider-wrap .et-home__egg-carousel-arrow {

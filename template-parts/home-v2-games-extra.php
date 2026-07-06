@@ -92,13 +92,15 @@ if ( empty( $games_url ) || '#' === $games_url ) {
                     <ul class="et-home__games-extra-slider">
                         <?php foreach ( $et_home_games_cards as $game ) : ?>
                             <li class="et-home__games-extra-slide">
-                                <a href="<?php echo esc_url( $game['url'] ); ?>" target="_blank" rel="noopener noreferrer">
-                                    <img
-                                        src="<?php echo esc_url( $game['image'] ); ?>"
-                                        alt="<?php echo esc_attr( $game['title'] ); ?>"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
+                                <a href="<?php echo esc_url( $game['url'] ); ?>" class="et-home__games-extra-slide-link" target="_blank" rel="noopener noreferrer">
+                                    <span class="et-home__games-extra-slide-media">
+                                        <img
+                                            src="<?php echo esc_url( $game['image'] ); ?>"
+                                            alt="<?php echo esc_attr( $game['title'] ); ?>"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </span>
                                 </a>
                             </li>
                         <?php endforeach; ?>
