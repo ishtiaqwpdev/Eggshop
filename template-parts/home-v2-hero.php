@@ -6,7 +6,7 @@
  */
 $et_home_hero_use_video       = true;
 $et_home_hero_video_url       = 'https://eggstime.com/wp-content/uploads/2026/07/51be273fce2746bcbecc5fda78856c43.mp4';
-/* Low-res thumb (360x360) — loading placeholder only; JS replaces with a frame from the 1080p video. */
+/* Low-res thumb (360x360) — static poster shown before play. */
 $et_home_hero_video_poster    = 'https://eggstime.com/wp-content/uploads/2026/07/thumb_2EFFD4E7-CF51-4BA8-9584-AA1AF5255281-1.png';
 $et_home_hero_poster_width    = 360;
 $et_home_hero_poster_height   = 360;
@@ -119,7 +119,8 @@ if ( $et_home_hero_use_video ) :
                                 muted
                                 loop
                                 playsinline
-                                preload="auto"
+                                preload="metadata"
+                                poster="<?php echo esc_url( $et_home_hero_video_poster ); ?>"
                             ></video>
                             <img
                                 class="et-home__hero-video-fallback"
