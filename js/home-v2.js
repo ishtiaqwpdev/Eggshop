@@ -483,6 +483,7 @@
 
     function initHeroVideoWrap(videoWrap) {
         var video = videoWrap.querySelector('.et-home__hero-video');
+        var fallbackImg = videoWrap.querySelector('.et-home__hero-video-fallback');
         var playToggle = videoWrap.querySelector('.et-home__hero-video-play');
         var soundToggle = videoWrap.querySelector('.et-home__hero-video-sound');
 
@@ -490,7 +491,18 @@
             return;
         }
 
-        function applyMediaAspectRatio() {
+        function applyPosterAspectRatio() {
+            if (!fallbackImg || !fallbackImg.naturalWidth || !fallbackImg.naturalHeight) {
+                return;
+            }
+
+            videoWrap.style.setProperty(
+                '--et-home-hero-poster-aspect-ratio',
+                fallbackImg.naturalWidth + ' / ' + fallbackImg.naturalHeight
+            );
+        }
+
+        function applyVideoAspectRatio() {
             var videoWidth = video.videoWidth;
             var videoHeight = video.videoHeight;
 
@@ -499,7 +511,7 @@
             }
 
             videoWrap.style.setProperty(
-                '--et-home-hero-media-aspect-ratio',
+                '--et-home-hero-video-aspect-ratio',
                 videoWidth + ' / ' + videoHeight
             );
         }
@@ -521,7 +533,7 @@
         }
 
         function markVideoReady() {
-            applyMediaAspectRatio();
+            applyVideoAspectRatio();
             videoWrap.classList.remove('is-loading');
         }
 
@@ -582,12 +594,21 @@
         });
 
         markVideoLoading();
-        video.addEventListener('loadedmetadata', applyMediaAspectRatio);
+
+        if (fallbackImg) {
+            if (fallbackImg.complete) {
+                applyPosterAspectRatio();
+            }
+
+            fallbackImg.addEventListener('load', applyPosterAspectRatio);
+        }
+
+        video.addEventListener('loadedmetadata', applyVideoAspectRatio);
         video.addEventListener('loadeddata', markVideoReady);
         video.addEventListener('canplay', markVideoReady);
 
         if (video.readyState >= 1) {
-            applyMediaAspectRatio();
+            applyVideoAspectRatio();
         }
 
         if (video.readyState >= 2) {
