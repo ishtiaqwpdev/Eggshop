@@ -682,54 +682,26 @@
     position: relative;
     width: 100%;
     max-width: 100%;
-    flex: 1 1 auto;
-    min-height: 440px;
-    height: 100%;
-    aspect-ratio: 16 / 10;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: var(--et-home-hero-poster-aspect-ratio, 360 / 360);
     border-radius: 24px;
     overflow: hidden;
     background: transparent;
 }
 
-/* Hero media: shared frame — poster shows full image, video fits without cropping. */
+/* Poster (360x360) and video (1920x1080) each use their native aspect ratio. */
 .et-home__hero--split-video {
-    --et-home-hero-frame-aspect-ratio: 16 / 10;
-    --et-home-hero-poster-fill-color: #ff9616;
-    --et-home-hero-video-letterbox-color: #ff9616;
+    --et-home-hero-poster-aspect-ratio: 360 / 360;
+    --et-home-hero-video-aspect-ratio: 1920 / 1080;
 }
 
 .et-home__hero--split-video .et-home__hero-video-wrap {
-    aspect-ratio: var(--et-home-hero-frame-aspect-ratio);
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    max-height: none;
-    flex: none;
-    background: var(--et-home-hero-poster-fill-color);
-}
-
-.et-home__hero--split-video .et-home__hero-video-fallback {
-    object-fit: contain;
-    object-position: center center;
+    aspect-ratio: var(--et-home-hero-poster-aspect-ratio);
 }
 
 .et-home__hero--split-video .et-home__hero-video-wrap.is-playing {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--et-home-hero-video-letterbox-color);
-}
-
-.et-home__hero--split-video .et-home__hero-video-wrap.is-playing .et-home__hero-video {
-    position: relative;
-    inset: auto;
-    flex: 0 0 auto;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    object-position: center center;
+    aspect-ratio: var(--et-home-hero-video-aspect-ratio);
 }
 
 .et-home__hero--split-video .et-home__hero-video-wrap:not(.is-playing) .et-home__hero-video-fallback {
@@ -1087,22 +1059,12 @@
         display: block;
     }
 
-    .et-home__hero-video-wrap {
-        aspect-ratio: 4 / 3;
-        min-height: 400px;
-        height: auto;
-        flex: none;
-    }
-
     .et-home__hero--split-video .et-home__hero-video-wrap {
-        aspect-ratio: var(--et-home-hero-frame-aspect-ratio);
+        width: 100%;
+        height: auto;
         min-height: 0;
         max-height: none;
-        height: auto;
-    }
-
-    .et-home__hero-media--dual-test .et-home__hero-video-wrap {
-        min-height: 0;
+        flex: none;
     }
 }
 
@@ -1134,18 +1096,12 @@
         max-width: 54%;
     }
 
-    .et-home__hero-video-wrap {
-        aspect-ratio: 4 / 3;
-        min-height: 460px;
-        height: auto;
-        border-radius: 20px;
-    }
-
     .et-home__hero--split-video .et-home__hero-video-wrap {
-        aspect-ratio: var(--et-home-hero-frame-aspect-ratio);
+        width: 100%;
+        height: auto;
         min-height: 0;
         max-height: none;
-        height: auto;
+        border-radius: 20px;
     }
 
     .et-home__hero--split-video .et-home__hero-title {
@@ -1178,18 +1134,10 @@
 
     .et-home__hero--split-video .et-home__hero-video-wrap {
         border-radius: 14px;
-        aspect-ratio: var(--et-home-hero-frame-aspect-ratio);
         width: 100%;
         height: auto;
         min-height: 0;
         max-height: none;
-    }
-
-    .et-home__hero-video-wrap {
-        border-radius: 14px;
-        max-height: 340px;
-        min-height: 300px;
-        aspect-ratio: 16 / 10;
     }
 
     .et-home__hero--split-video {
@@ -1216,7 +1164,7 @@
 
     .et-home__hero--split-video .et-home__hero-video-fallback {
         display: block;
-        object-fit: contain;
+        object-fit: cover;
     }
 }
 

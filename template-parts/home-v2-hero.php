@@ -12,11 +12,6 @@ $et_home_hero_poster_width    = 360;
 $et_home_hero_poster_height   = 360;
 $et_home_hero_video_width     = 1920;
 $et_home_hero_video_height    = 1080;
-$et_home_hero_frame_width     = 16;
-$et_home_hero_frame_height    = 10;
-$et_home_hero_poster_fill_color = '#ff9616';
-/* Dominant edge tone behind video when it letterboxes inside the shared frame. */
-$et_home_hero_video_letterbox_color = '#ff9616';
 $et_home_hero_bg              = 'https://eggstime.com/wp-content/uploads/2026/07/thumb_2EFFD4E7-CF51-4BA8-9584-AA1AF5255281-1.png';
 $et_home_hero_btn_arrow       = '<svg class="et-home__hero-btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="none" d="M8 5l8 7-8 7" stroke="#098BE5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
@@ -114,7 +109,7 @@ if ( $et_home_hero_use_video ) :
                     <div class="et-home__hero-video-frame">
                         <div
                             class="et-home__hero-video-wrap"
-                            style="--et-home-hero-frame-aspect-ratio: <?php echo (int) $et_home_hero_frame_width; ?> / <?php echo (int) $et_home_hero_frame_height; ?>; --et-home-hero-poster-fill-color: <?php echo esc_attr( $et_home_hero_poster_fill_color ); ?>; --et-home-hero-video-letterbox-color: <?php echo esc_attr( $et_home_hero_video_letterbox_color ); ?>;"
+                            style="--et-home-hero-poster-aspect-ratio: <?php echo (int) $et_home_hero_poster_width; ?> / <?php echo (int) $et_home_hero_poster_height; ?>; --et-home-hero-video-aspect-ratio: <?php echo (int) $et_home_hero_video_width; ?> / <?php echo (int) $et_home_hero_video_height; ?>;"
                         >
                             <video
                                 class="et-home__hero-video"
@@ -123,7 +118,6 @@ if ( $et_home_hero_use_video ) :
                                 height="<?php echo (int) $et_home_hero_video_height; ?>"
                                 data-video-width="<?php echo (int) $et_home_hero_video_width; ?>"
                                 data-video-height="<?php echo (int) $et_home_hero_video_height; ?>"
-                                data-letterbox-color="<?php echo esc_attr( $et_home_hero_video_letterbox_color ); ?>"
                                 muted
                                 loop
                                 playsinline
