@@ -12,6 +12,8 @@ $et_home_hero_poster_width    = 360;
 $et_home_hero_poster_height   = 360;
 $et_home_hero_video_width     = 1920;
 $et_home_hero_video_height    = 1080;
+$et_home_hero_frame_width     = 16;
+$et_home_hero_frame_height    = 10;
 /* Dominant edge tone for letterboxing when 16:9 video plays inside the square poster frame. */
 $et_home_hero_video_letterbox_color = '#ffd200';
 $et_home_hero_bg              = 'https://eggstime.com/wp-content/uploads/2026/07/thumb_2EFFD4E7-CF51-4BA8-9584-AA1AF5255281-1.png';
@@ -111,7 +113,7 @@ if ( $et_home_hero_use_video ) :
                     <div class="et-home__hero-video-frame">
                         <div
                             class="et-home__hero-video-wrap"
-                            style="--et-home-hero-poster-aspect-ratio: <?php echo (int) $et_home_hero_poster_width; ?> / <?php echo (int) $et_home_hero_poster_height; ?>; --et-home-hero-video-letterbox-color: <?php echo esc_attr( $et_home_hero_video_letterbox_color ); ?>;"
+                            style="--et-home-hero-frame-aspect-ratio: <?php echo (int) $et_home_hero_frame_width; ?> / <?php echo (int) $et_home_hero_frame_height; ?>; --et-home-hero-video-letterbox-color: <?php echo esc_attr( $et_home_hero_video_letterbox_color ); ?>;"
                         >
                             <video
                                 class="et-home__hero-video"

@@ -492,17 +492,6 @@
             return;
         }
 
-        function applyPosterAspectRatio() {
-            if (!fallbackImg || !fallbackImg.naturalWidth || !fallbackImg.naturalHeight) {
-                return;
-            }
-
-            videoWrap.style.setProperty(
-                '--et-home-hero-poster-aspect-ratio',
-                fallbackImg.naturalWidth + ' / ' + fallbackImg.naturalHeight
-            );
-        }
-
         function applyConfiguredLetterboxColor() {
             if (!configuredLetterboxColor) {
                 return;
@@ -646,14 +635,7 @@
         });
 
         markVideoLoading();
-
-        if (fallbackImg) {
-            if (fallbackImg.complete) {
-                applyPosterAspectRatio();
-            }
-
-            fallbackImg.addEventListener('load', applyPosterAspectRatio);
-        }
+        applyConfiguredLetterboxColor();
 
         video.addEventListener('loadeddata', markVideoReady);
         video.addEventListener('canplay', markVideoReady);

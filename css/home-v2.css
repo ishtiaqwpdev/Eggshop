@@ -691,14 +691,14 @@
     background: transparent;
 }
 
-/* Hero media: one fixed frame — poster and video both fill it at the same height. */
+/* Hero media: shared shorter frame — poster and video both fill it at the same height. */
 .et-home__hero--split-video {
-    --et-home-hero-poster-aspect-ratio: 1 / 1;
+    --et-home-hero-frame-aspect-ratio: 16 / 10;
     --et-home-hero-video-letterbox-color: #ffd200;
 }
 
 .et-home__hero--split-video .et-home__hero-video-wrap {
-    aspect-ratio: var(--et-home-hero-poster-aspect-ratio);
+    aspect-ratio: var(--et-home-hero-frame-aspect-ratio);
     width: 100%;
     height: auto;
     min-height: 0;
@@ -1076,7 +1076,7 @@
     }
 
     .et-home__hero--split-video .et-home__hero-video-wrap {
-        aspect-ratio: var(--et-home-hero-poster-aspect-ratio);
+        aspect-ratio: var(--et-home-hero-frame-aspect-ratio);
         min-height: 0;
         max-height: none;
         height: auto;
@@ -1123,7 +1123,7 @@
     }
 
     .et-home__hero--split-video .et-home__hero-video-wrap {
-        aspect-ratio: var(--et-home-hero-poster-aspect-ratio);
+        aspect-ratio: var(--et-home-hero-frame-aspect-ratio);
         min-height: 0;
         max-height: none;
         height: auto;
@@ -1159,7 +1159,7 @@
 
     .et-home__hero--split-video .et-home__hero-video-wrap {
         border-radius: 14px;
-        aspect-ratio: var(--et-home-hero-poster-aspect-ratio);
+        aspect-ratio: var(--et-home-hero-frame-aspect-ratio);
         width: 100%;
         height: auto;
         min-height: 0;
