@@ -78,12 +78,16 @@ if ( empty( $et_home_distributor_brands ) ) {
                     </span>
                     Available for distribution worldwide.
                 </p>
-                <a href="<?php echo esc_url( $et_home_distributor_url ); ?>" class="et-home__distributor-btn">
-                    <span class="et-home__distributor-btn-label">Learn More</span>
-                    <span class="et-home__distributor-btn-icon" aria-hidden="true">
-                        <i class="fas fa-angle-right"></i>
-                    </span>
-                </a>
+                <div class="et-home__distributor-btn-wrap">
+                    <a href="<?php echo esc_url( $et_home_distributor_url ); ?>" class="et-home__distributor-btn">
+                        Learn More
+                        <span class="et-home__distributor-btn-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h12M13 7l5 5-5 5"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
             </div>
 
             <div class="et-home__distributor-visual">
