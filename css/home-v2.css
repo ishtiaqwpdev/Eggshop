@@ -1692,18 +1692,22 @@
 
 .et-home__games-extra-market-link {
     display: block;
-    background: no-repeat 50% 50% / contain;
+    line-height: 0;
+}
+
+.et-home__games-extra-market-link img {
+    display: block;
     height: 42px;
+    width: auto;
+    max-width: 100%;
 }
 
-.et-home__games-extra-market-link--play {
+.et-home__games-extra-market-link--play img {
     width: 148px;
-    background-image: url('../images/playmarket.png');
 }
 
-.et-home__games-extra-market-link--app {
+.et-home__games-extra-market-link--app img {
     width: 124px;
-    background-image: url('../images/appstore.png');
 }
 
 .et-home__games-extra-ratings {
@@ -1714,20 +1718,20 @@
     font-size: 0;
 }
 
-.et-home__games-extra-ratings span {
-    display: inline-block;
+.et-home__games-extra-ratings-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 27px;
     height: 28px;
-    background: no-repeat 50% 50% / contain;
 }
 
-.et-home__games-extra-ratings span:nth-child(1) { background-image: url('../images/games_badge_1.png'); }
-.et-home__games-extra-ratings span:nth-child(2) { background-image: url('../images/games_badge_2.png'); }
-.et-home__games-extra-ratings span:nth-child(3) { background-image: url('../images/games_badge_3.png'); }
-.et-home__games-extra-ratings span:nth-child(4) { background-image: url('../images/games_badge_4.png'); }
-.et-home__games-extra-ratings span:nth-child(5) { background-image: url('../images/games_badge_5.png'); }
-.et-home__games-extra-ratings span:nth-child(6) { background-image: url('../images/games_badge_6.png'); }
-.et-home__games-extra-ratings span:nth-child(7) { background-image: url('../images/games_badge_7.png'); }
+.et-home__games-extra-ratings-badge img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
 .et-home__games-extra-slider-wrap {
     position: relative;
@@ -1828,7 +1832,7 @@
         padding: 45px 0;
     }
 
-    .et-home__games-extra-ratings span {
+    .et-home__games-extra-ratings-badge {
         width: 35px;
         height: 36px;
         margin-right: 6px;
@@ -3615,14 +3619,15 @@
     justify-content: center;
     width: 46px;
     height: 46px;
-    border-radius: 50%;
-    background: #e91e8c;
-    color: #ffffff;
     flex-shrink: 0;
+    line-height: 0;
 }
 
-.et-home__fun-egg-games-icon i {
-    font-size: 18px;
+.et-home__fun-egg-games-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .et-home__fun-egg-games-title {
@@ -3810,19 +3815,19 @@
     justify-content: center;
     width: 48px;
     height: 48px;
-    border-radius: 50%;
     flex-shrink: 0;
-    color: #ffffff;
+    line-height: 0;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-.et-home__fun-egg-activity-icon i {
-    font-size: 19px;
+.et-home__fun-egg-activity-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
-
-.et-home__fun-egg-activity-icon--pink { background: #e91e8c; }
-.et-home__fun-egg-activity-icon--orange { background: #f39c12; }
-.et-home__fun-egg-activity-icon--green { background: #27ae60; }
-.et-home__fun-egg-activity-icon--purple { background: #8e44ad; }
 
 .et-home__fun-egg-activity-label {
     font-size: 15px;
@@ -4132,7 +4137,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 
@@ -4189,18 +4194,48 @@
 
 .et-home__fun-egg-store-link {
     display: block;
+    line-height: 0;
+}
+
+.et-home__fun-egg-store-link img {
+    display: block;
     height: 42px;
-    background: no-repeat 50% 50% / contain;
+    width: auto;
+    max-width: 100%;
 }
 
-.et-home__fun-egg-store-link--play {
+.et-home__fun-egg-store-link--play img {
     width: 148px;
-    background-image: url('../images/playmarket.png');
 }
 
-.et-home__fun-egg-store-link--app {
+.et-home__fun-egg-store-link--app img {
     width: 124px;
-    background-image: url('../images/appstore.png');
+}
+
+.et-home__fun-egg-ratings {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0 12px;
+    margin-top: 18px;
+    font-size: 0;
+}
+
+.et-home__fun-egg-ratings-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 28px;
+}
+
+.et-home__fun-egg-ratings-badge img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 @media screen and (max-width: 1199px) {
@@ -6444,17 +6479,15 @@
         height: 44px;
     }
 
-    .et-home__fun-egg-activity-icon i {
-        font-size: 17px;
-    }
-
     .et-home__fun-egg-games-icon {
         width: 42px;
         height: 42px;
     }
 
-    .et-home__fun-egg-games-icon i {
-        font-size: 17px;
+    .et-home__fun-egg-ratings-badge,
+    .et-home__games-extra-ratings-badge {
+        width: 24px;
+        height: 25px;
     }
 
     .et-home__product-icon {

@@ -3,38 +3,19 @@
  * Home v2 — Learn and Joy + Eggs Time Games (footer-adjacent stack)
  */
 
-$theme_uri   = get_template_directory_uri();
-$games_url   = function_exists( 'get_permalink' ) ? get_permalink( 617 ) : home_url( '/games/' );
+if ( ! function_exists( 'et_home_get_games_extra_cards' ) ) {
+    require_once get_template_directory() . '/inc/home-games.php';
+}
+
+$theme_uri                  = get_template_directory_uri();
+$games_url                  = function_exists( 'get_permalink' ) ? get_permalink( 617 ) : home_url( '/games/' );
+$et_home_games_cards        = et_home_get_games_extra_cards( $theme_uri );
+$et_home_game_store_badges  = et_home_get_game_app_store_badges( $theme_uri );
+$et_home_game_rating_badges = et_home_get_game_rating_badge_images( $theme_uri );
 
 if ( empty( $games_url ) || '#' === $games_url ) {
     $games_url = home_url( '/games/' );
 }
-
-$et_home_games_cards = array(
-    array(
-        'title' => 'Coloring Time',
-        'image' => $theme_uri . '/images/game_2.jpg',
-        'url'   => 'http://eggstime.com/upload/index.html',
-    ),
-    array(
-        'title' => 'Puzzle Time',
-        'image' => $theme_uri . '/images/game_1.jpg',
-        'url'   => 'http://eggstime.com/upload/puzzles/index.html',
-    ),
-    array(
-        'title' => 'Difference Time',
-        'image' => $theme_uri . '/images/game_1.jpg',
-        'url'   => 'http://eggstime.com/upload/diff/index.html',
-    ),
-    array(
-        'title' => 'Maze Time',
-        'image' => $theme_uri . '/images/game_2.jpg',
-        'url'   => 'http://eggstime.com/upload/mazes/index.html',
-    ),
-);
-
-$playmarket_url = 'https://play.google.com/store/apps/details?id=com.eggtime.colorings';
-$appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id1263628877?mt=8';
 ?>
 <section class="et-home__games-extra" aria-label="<?php esc_attr_e( 'Eggs Time Games', 'eggs-shop' ); ?>">
     <div class="et-home__games-extra-inside">
@@ -66,31 +47,44 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
 
                     <div class="et-home__games-extra-market">
                         <a
-                            href="<?php echo esc_url( $playmarket_url ); ?>"
+                            href="<?php echo esc_url( $et_home_game_store_badges['play']['url'] ); ?>"
                             class="et-home__games-extra-market-link et-home__games-extra-market-link--play"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <span class="screen-reader-text"><?php esc_html_e( 'Get it on Google Play', 'eggs-shop' ); ?></span>
+                            <img
+                                src="<?php echo esc_url( $et_home_game_store_badges['play']['image'] ); ?>"
+                                alt="<?php echo esc_attr( $et_home_game_store_badges['play']['label'] ); ?>"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </a>
                         <a
-                            href="<?php echo esc_url( $appstore_url ); ?>"
+                            href="<?php echo esc_url( $et_home_game_store_badges['app']['url'] ); ?>"
                             class="et-home__games-extra-market-link et-home__games-extra-market-link--app"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <span class="screen-reader-text"><?php esc_html_e( 'Download on the App Store', 'eggs-shop' ); ?></span>
+                            <img
+                                src="<?php echo esc_url( $et_home_game_store_badges['app']['image'] ); ?>"
+                                alt="<?php echo esc_attr( $et_home_game_store_badges['app']['label'] ); ?>"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </a>
                     </div>
 
                     <div class="et-home__games-extra-ratings" aria-hidden="true">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        <?php foreach ( $et_home_game_rating_badges as $badge_image ) : ?>
+                            <span class="et-home__games-extra-ratings-badge">
+                                <img
+                                    src="<?php echo esc_url( $badge_image ); ?>"
+                                    alt=""
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </span>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 

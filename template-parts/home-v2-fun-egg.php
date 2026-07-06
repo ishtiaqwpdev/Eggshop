@@ -15,68 +15,23 @@ if ( ! function_exists( 'et_home_get_fun_egg_app_games' ) ) {
     require_once get_template_directory() . '/inc/home-games.php';
 }
 
-$theme_uri    = get_template_directory_uri();
-$brand_meta   = et_get_home_core_egg_brand_meta();
-$games_url    = function_exists( 'get_permalink' ) ? get_permalink( 617 ) : home_url( '/games/' );
+$theme_uri                   = get_template_directory_uri();
+$brand_meta                  = et_get_home_core_egg_brand_meta();
+$games_url                   = function_exists( 'get_permalink' ) ? get_permalink( 617 ) : home_url( '/games/' );
+$et_home_fun_egg_section_icon = et_home_get_fun_egg_section_icon( $theme_uri );
+$et_home_fun_egg_previews    = et_home_get_fun_egg_previews( $theme_uri );
+$et_home_fun_egg_activities  = et_home_get_fun_egg_activities( $games_url, $theme_uri );
+$et_home_fun_egg_app_games   = et_home_get_fun_egg_app_games( $theme_uri );
+$et_home_game_store_badges   = et_home_get_game_app_store_badges( $theme_uri );
+$et_home_game_rating_badges  = et_home_get_game_rating_badge_images( $theme_uri );
 
 if ( empty( $games_url ) || '#' === $games_url ) {
     $games_url = home_url( '/games/' );
 }
 
-$king_character   = $brand_meta['king']['character_image'];
-$happy_character  = $brand_meta['happy']['character_image'];
-$magik_character  = $brand_meta['magik']['character_image'];
-
-$et_home_fun_egg_activities = array(
-    array(
-        'label' => 'Maze Time',
-        'icon'  => 'map',
-        'tone'  => 'pink',
-        'url'   => 'http://eggstime.com/upload/mazes/index.html',
-    ),
-    array(
-        'label' => 'Coloring Time',
-        'icon'  => 'pencil',
-        'tone'  => 'orange',
-        'url'   => 'http://eggstime.com/upload/index.html',
-    ),
-    array(
-        'label' => 'Puzzle Time',
-        'icon'  => 'star',
-        'tone'  => 'green',
-        'url'   => 'http://eggstime.com/upload/puzzles/index.html',
-    ),
-    array(
-        'label' => 'Difference Time',
-        'icon'  => 'search',
-        'tone'  => 'purple',
-        'url'   => 'http://eggstime.com/upload/diff/index.html',
-    ),
-    array(
-        'label' => 'And More Educational Activities',
-        'icon'  => 'education',
-        'tone'  => 'pink',
-        'url'   => $games_url,
-    ),
-);
-
-$et_home_fun_egg_previews = array(
-    array(
-        'label' => 'Maze Time',
-        'image' => $theme_uri . '/images/fun-egg-maze-preview.png',
-        'url'   => 'http://eggstime.com/upload/mazes/index.html',
-    ),
-    array(
-        'label' => 'Dot to Dot',
-        'image' => $theme_uri . '/images/fun-egg-dot-preview.png',
-        'url'   => 'http://eggstime.com/upload/index.html',
-    ),
-);
-
-$et_home_fun_egg_app_games = et_home_get_fun_egg_app_games( $theme_uri );
-
-$playmarket_url = 'https://play.google.com/store/apps/details?id=com.eggtime.colorings';
-$appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id1263628877?mt=8';
+$king_character  = $brand_meta['king']['character_image'];
+$happy_character = $brand_meta['happy']['character_image'];
+$magik_character = $brand_meta['magik']['character_image'];
 ?>
 <section class="et-home__fun-egg et-home__playful-section" id="et-home-fun-egg" aria-labelledby="et-home-fun-egg-title">
     <div class="et-home__fun-egg-bg" aria-hidden="true"></div>
@@ -100,7 +55,12 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                 <div class="et-home__fun-egg-games">
                     <div class="et-home__fun-egg-games-intro">
                         <span class="et-home__fun-egg-games-icon" aria-hidden="true">
-                            <?php echo et_home_icon( 'file-play' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                            <img
+                                src="<?php echo esc_url( $et_home_fun_egg_section_icon ); ?>"
+                                alt=""
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </span>
                         <div class="et-home__fun-egg-games-copy">
                             <h3 class="et-home__fun-egg-games-title">Games Inside Every Egg</h3>
@@ -146,8 +106,13 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                         <?php foreach ( $et_home_fun_egg_activities as $activity ) : ?>
                             <li class="et-home__fun-egg-activity-item">
                                 <a href="<?php echo esc_url( $activity['url'] ); ?>" class="et-home__fun-egg-activity" target="_blank" rel="noopener noreferrer">
-                                    <span class="et-home__fun-egg-activity-icon et-home__fun-egg-activity-icon--<?php echo esc_attr( $activity['tone'] ); ?>" aria-hidden="true">
-                                        <?php echo et_home_icon( $activity['icon'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    <span class="et-home__fun-egg-activity-icon" aria-hidden="true">
+                                        <img
+                                            src="<?php echo esc_url( $activity['icon'] ); ?>"
+                                            alt=""
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
                                     </span>
                                     <span class="et-home__fun-egg-activity-label"><?php echo esc_html( $activity['label'] ); ?></span>
                                 </a>
@@ -233,23 +198,46 @@ $appstore_url   = 'https://itunes.apple.com/us/app/eggs-time-coloring-books/id12
                 </div>
 
                 <div class="et-home__fun-egg-app-stores">
-                <a
-                    href="<?php echo esc_url( $appstore_url ); ?>"
-                    class="et-home__fun-egg-store-link et-home__fun-egg-store-link--app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <span class="screen-reader-text"><?php esc_html_e( 'Download on the App Store', 'eggs-shop' ); ?></span>
-                </a>
-                <a
-                    href="<?php echo esc_url( $playmarket_url ); ?>"
-                    class="et-home__fun-egg-store-link et-home__fun-egg-store-link--play"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <span class="screen-reader-text"><?php esc_html_e( 'Get it on Google Play', 'eggs-shop' ); ?></span>
-                </a>
-            </div>
+                    <a
+                        href="<?php echo esc_url( $et_home_game_store_badges['app']['url'] ); ?>"
+                        class="et-home__fun-egg-store-link et-home__fun-egg-store-link--app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            src="<?php echo esc_url( $et_home_game_store_badges['app']['image'] ); ?>"
+                            alt="<?php echo esc_attr( $et_home_game_store_badges['app']['label'] ); ?>"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </a>
+                    <a
+                        href="<?php echo esc_url( $et_home_game_store_badges['play']['url'] ); ?>"
+                        class="et-home__fun-egg-store-link et-home__fun-egg-store-link--play"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            src="<?php echo esc_url( $et_home_game_store_badges['play']['image'] ); ?>"
+                            alt="<?php echo esc_attr( $et_home_game_store_badges['play']['label'] ); ?>"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </a>
+                </div>
+
+                <div class="et-home__fun-egg-ratings" aria-hidden="true">
+                    <?php foreach ( $et_home_game_rating_badges as $badge_image ) : ?>
+                        <span class="et-home__fun-egg-ratings-badge">
+                            <img
+                                src="<?php echo esc_url( $badge_image ); ?>"
+                                alt=""
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </span>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </div>

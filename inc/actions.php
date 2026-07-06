@@ -137,7 +137,7 @@ function add_single_product_css()
  * First request after deploy purges theme transients and common page caches.
  */
 if ( ! defined( 'ET_HOME_V2_CACHE_REV' ) ) {
-    define( 'ET_HOME_V2_CACHE_REV', '2025070618' );
+    define( 'ET_HOME_V2_CACHE_REV', '2025070619' );
 }
 
 /**
@@ -154,6 +154,9 @@ function et_home_v2_asset_version( $relative_path ) {
         '/page-home-v2.php',
         '/template-parts/home-v2-hero.php',
         '/template-parts/home-v2-products.php',
+        '/template-parts/home-v2-fun-egg.php',
+        '/template-parts/home-v2-games-extra.php',
+        '/inc/home-games.php',
     );
 
     $marker_mtime = 0;
