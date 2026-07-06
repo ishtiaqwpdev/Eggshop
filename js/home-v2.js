@@ -498,6 +498,60 @@
             }
 
             videoWrap.style.setProperty('--et-home-hero-video-letterbox-color', configuredLetterboxColor);
+            videoWrap.style.setProperty('--et-home-hero-poster-fill-color', configuredLetterboxColor);
+        }
+
+        function samplePosterFillColor() {
+            var imgWidth;
+            var imgHeight;
+            var canvas;
+            var ctx;
+            var samplePoints;
+            var red = 0;
+            var green = 0;
+            var blue = 0;
+            var index;
+            var pixel;
+
+            if (!fallbackImg || !fallbackImg.naturalWidth || !fallbackImg.naturalHeight) {
+                return;
+            }
+
+            imgWidth = fallbackImg.naturalWidth;
+            imgHeight = fallbackImg.naturalHeight;
+            canvas = document.createElement('canvas');
+            canvas.width = imgWidth;
+            canvas.height = imgHeight;
+
+            try {
+                ctx = canvas.getContext('2d');
+                ctx.drawImage(fallbackImg, 0, 0, imgWidth, imgHeight);
+            } catch (error) {
+                return;
+            }
+
+            samplePoints = [
+                [0, 0],
+                [imgWidth - 1, 0],
+                [0, imgHeight - 1],
+                [imgWidth - 1, imgHeight - 1]
+            ];
+
+            for (index = 0; index < samplePoints.length; index += 1) {
+                pixel = ctx.getImageData(samplePoints[index][0], samplePoints[index][1], 1, 1).data;
+                red += pixel[0];
+                green += pixel[1];
+                blue += pixel[2];
+            }
+
+            red = Math.round(red / samplePoints.length);
+            green = Math.round(green / samplePoints.length);
+            blue = Math.round(blue / samplePoints.length);
+
+            videoWrap.style.setProperty(
+                '--et-home-hero-poster-fill-color',
+                'rgb(' + red + ', ' + green + ', ' + blue + ')'
+            );
         }
 
         function sampleVideoLetterboxColor() {
@@ -636,6 +690,14 @@
 
         markVideoLoading();
         applyConfiguredLetterboxColor();
+
+        if (fallbackImg) {
+            if (fallbackImg.complete) {
+                samplePosterFillColor();
+            }
+
+            fallbackImg.addEventListener('load', samplePosterFillColor);
+        }
 
         video.addEventListener('loadeddata', markVideoReady);
         video.addEventListener('canplay', markVideoReady);
