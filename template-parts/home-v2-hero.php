@@ -109,7 +109,7 @@ if ( $et_home_hero_use_video ) :
                     <div class="et-home__hero-video-frame">
                         <div
                             class="et-home__hero-video-wrap"
-                            style="--et-home-hero-video-aspect-ratio: <?php echo (int) $et_home_hero_video_width; ?> / <?php echo (int) $et_home_hero_video_height; ?>;"
+                            style="--et-home-hero-media-aspect-ratio: <?php echo (int) $et_home_hero_video_width; ?> / <?php echo (int) $et_home_hero_video_height; ?>;"
                         >
                             <video
                                 class="et-home__hero-video"

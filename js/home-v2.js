@@ -490,7 +490,7 @@
             return;
         }
 
-        function applyVideoAspectRatio() {
+        function applyMediaAspectRatio() {
             var videoWidth = video.videoWidth;
             var videoHeight = video.videoHeight;
 
@@ -499,7 +499,7 @@
             }
 
             videoWrap.style.setProperty(
-                '--et-home-hero-video-aspect-ratio',
+                '--et-home-hero-media-aspect-ratio',
                 videoWidth + ' / ' + videoHeight
             );
         }
@@ -521,7 +521,7 @@
         }
 
         function markVideoReady() {
-            applyVideoAspectRatio();
+            applyMediaAspectRatio();
             videoWrap.classList.remove('is-loading');
         }
 
@@ -582,12 +582,12 @@
         });
 
         markVideoLoading();
-        video.addEventListener('loadedmetadata', applyVideoAspectRatio);
+        video.addEventListener('loadedmetadata', applyMediaAspectRatio);
         video.addEventListener('loadeddata', markVideoReady);
         video.addEventListener('canplay', markVideoReady);
 
         if (video.readyState >= 1) {
-            applyVideoAspectRatio();
+            applyMediaAspectRatio();
         }
 
         if (video.readyState >= 2) {
