@@ -184,13 +184,18 @@ if ( ! function_exists( 'et_home_get_game_brand_image' ) ) {
      * @return string
      */
     function et_home_get_game_brand_image( $key, $theme_uri, $type = 'showcase' ) {
+        $map = et_home_get_game_theme_asset_map( $theme_uri );
+
+        // Portrait/square UI slots always use the illustrated card assets.
+        if ( in_array( $type, array( 'app_card', 'icon', 'preview' ), true ) ) {
+            return isset( $map[ $key ][ $type ] ) ? $map[ $key ][ $type ] : '';
+        }
+
         $wp_images = et_home_get_games_category_images();
 
         if ( ! empty( $wp_images[ $key ] ) ) {
             return $wp_images[ $key ];
         }
-
-        $map = et_home_get_game_theme_asset_map( $theme_uri );
 
         if ( isset( $map[ $key ][ $type ] ) ) {
             return $map[ $key ][ $type ];
