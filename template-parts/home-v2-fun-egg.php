@@ -190,7 +190,6 @@ $magik_character = $brand_meta['magik']['character_image'];
                                             decoding="async"
                                         />
                                     </span>
-                                    <span class="et-home__fun-egg-app-game-label"><?php echo esc_html( $game['label'] ); ?></span>
                                 </a>
                             </li>
                         <?php endforeach; ?>
