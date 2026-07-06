@@ -230,7 +230,7 @@ if ( ! function_exists( 'et_home_get_collect_play_learn_products' ) ) {
         return array(
             array(
                 'title'       => 'Happy Toy™ — Find inside Happy Egg®',
-                'description' => 'Creative puzzles, dress-up activities and educational play for curious minds.',
+                'description' => 'Creative surprises found inside every Happy Egg®.',
                 'image'       => $uploads . '5-2.png',
                 'url'         => home_url( '/products/happy-toys/' ),
                 'panel'       => '#fde8f2',
@@ -240,7 +240,7 @@ if ( ! function_exists( 'et_home_get_collect_play_learn_products' ) ) {
             ),
             array(
                 'title'       => 'Lucky Toy™ — Find inside Lucky Egg®',
-                'description' => 'Collect adorable animal friends and discover fun surprises in every Lucky Egg.',
+                'description' => 'Collect adorable animal friends found inside every Lucky Egg®.',
                 'image'       => $uploads . 'Lucky.png',
                 'url'         => $brands['lucky']['shop_url'],
                 'panel'       => '#fde8f2',
@@ -250,7 +250,7 @@ if ( ! function_exists( 'et_home_get_collect_play_learn_products' ) ) {
             ),
             array(
                 'title'       => 'King Toy™ — Find inside King Egg®',
-                'description' => 'Play with colorful finger puppets and imaginative King Egg characters.',
+                'description' => 'Fun finger puppets found inside every King Egg®.',
                 'image'       => $uploads . 'King.jpg.jpeg',
                 'url'         => $brands['king']['shop_url'],
                 'panel'       => '#e8f3fc',
@@ -260,7 +260,7 @@ if ( ! function_exists( 'et_home_get_collect_play_learn_products' ) ) {
             ),
             array(
                 'title'       => 'Magik Toy™ — Find inside Magik Egg®',
-                'description' => 'Meet funny little monsters and build your own magical collection.',
+                'description' => 'Collect magical monster friends found inside every Magik Egg®.',
                 'image'       => $uploads . 'Magik.png',
                 'url'         => $brands['magik']['shop_url'],
                 'panel'       => '#f3ebf9',
@@ -270,7 +270,7 @@ if ( ! function_exists( 'et_home_get_collect_play_learn_products' ) ) {
             ),
             array(
                 'title'       => 'Skazka Toy™ — Find inside Skazka Egg®',
-                'description' => 'Step into fairy tales with magical characters, puzzles and collectible toys.',
+                'description' => 'Fairy tale characters found inside every Skazka Egg®.',
                 'image'       => $uploads . 'Skazka.png',
                 'url'         => $brands['skazka']['shop_url'],
                 'panel'       => '#eaf8ef',
@@ -350,7 +350,7 @@ if ( ! function_exists( 'et_home_get_quality_products' ) ) {
      * @return array<int, array<string, string>>
      */
     function et_home_get_quality_products() {
-        $cache_key = 'et_home_quality_products_v13';
+        $cache_key = 'et_home_quality_products_v14';
         $cached    = get_transient( $cache_key );
 
         if ( is_array( $cached ) && ! empty( $cached ) ) {
