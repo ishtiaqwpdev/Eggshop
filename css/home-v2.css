@@ -691,10 +691,9 @@
     background: transparent;
 }
 
-/* Hero poster and video each use their native aspect ratio with object-fit: cover. */
+/* Hero media: one container aspect ratio (poster) for both image and video — no layout shift on play. */
 .et-home__hero--split-video {
     --et-home-hero-poster-aspect-ratio: 1 / 1;
-    --et-home-hero-video-aspect-ratio: 16 / 9;
 }
 
 .et-home__hero--split-video .et-home__hero-video-wrap {
@@ -705,10 +704,6 @@
     max-height: none;
     flex: none;
     background: transparent;
-}
-
-.et-home__hero--split-video .et-home__hero-video-wrap.is-playing {
-    aspect-ratio: var(--et-home-hero-video-aspect-ratio);
 }
 
 .et-home__hero--split-video .et-home__hero-video,
@@ -1086,10 +1081,6 @@
         height: auto;
     }
 
-    .et-home__hero--split-video .et-home__hero-video-wrap.is-playing {
-        aspect-ratio: var(--et-home-hero-video-aspect-ratio);
-    }
-
     .et-home__hero-media--dual-test .et-home__hero-video-wrap {
         min-height: 0;
     }
@@ -1137,10 +1128,6 @@
         height: auto;
     }
 
-    .et-home__hero--split-video .et-home__hero-video-wrap.is-playing {
-        aspect-ratio: var(--et-home-hero-video-aspect-ratio);
-    }
-
     .et-home__hero--split-video .et-home__hero-title {
         font-size: clamp(42px, 3.9vw, 58px);
     }
@@ -1176,10 +1163,6 @@
         height: auto;
         min-height: 0;
         max-height: none;
-    }
-
-    .et-home__hero--split-video .et-home__hero-video-wrap.is-playing {
-        aspect-ratio: var(--et-home-hero-video-aspect-ratio);
     }
 
     .et-home__hero-video-wrap {

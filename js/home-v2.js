@@ -502,20 +502,6 @@
             );
         }
 
-        function applyVideoAspectRatio() {
-            var videoWidth = video.videoWidth;
-            var videoHeight = video.videoHeight;
-
-            if (!videoWidth || !videoHeight) {
-                return;
-            }
-
-            videoWrap.style.setProperty(
-                '--et-home-hero-video-aspect-ratio',
-                videoWidth + ' / ' + videoHeight
-            );
-        }
-
         function updatePlayButtonLabel() {
             if (!playToggle) {
                 return;
@@ -533,7 +519,6 @@
         }
 
         function markVideoReady() {
-            applyVideoAspectRatio();
             videoWrap.classList.remove('is-loading');
         }
 
@@ -603,13 +588,8 @@
             fallbackImg.addEventListener('load', applyPosterAspectRatio);
         }
 
-        video.addEventListener('loadedmetadata', applyVideoAspectRatio);
         video.addEventListener('loadeddata', markVideoReady);
         video.addEventListener('canplay', markVideoReady);
-
-        if (video.readyState >= 1) {
-            applyVideoAspectRatio();
-        }
 
         if (video.readyState >= 2) {
             markVideoReady();
