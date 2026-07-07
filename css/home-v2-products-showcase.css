@@ -317,6 +317,7 @@
 .et-home__product-heading {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     min-width: 0;
 }
@@ -324,14 +325,11 @@
 .et-home__product-copy {
     flex: 1 1 auto;
     min-width: 0;
+    text-align: center;
 }
 
 .et-home__products--showcase .et-home__product-icon {
-    align-self: center;
-    width: 40px;
-    height: 40px;
-    margin: 0;
-    box-shadow: none;
+    display: none;
 }
 
 .et-home__products--showcase .et-home__product-icon i,
@@ -388,7 +386,7 @@
 
 .et-home__products--showcase .et-home__product-title {
     margin: 0 0 2px;
-    text-align: left;
+    text-align: center;
     font-size: clamp(15px, 1.1vw, 17px);
     font-weight: 800;
     line-height: 1.22;
@@ -398,6 +396,7 @@
 .et-home__products--showcase .et-home__product-desc {
     margin: 0;
     min-height: 0;
+    text-align: center;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.58;
