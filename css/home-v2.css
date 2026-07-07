@@ -685,17 +685,17 @@
     max-width: 100%;
     height: auto;
     min-height: 0;
-    aspect-ratio: var(--et-home-hero-poster-aspect-ratio, 360 / 360);
+    aspect-ratio: var(--et-home-hero-video-aspect-ratio, 1920 / 1080);
     border-radius: 24px;
     overflow: hidden;
     background: transparent;
 }
 
 /*
- * Poster (square 360x360) and video (16:9) each use their OWN native ratio so
- * object-fit: cover fills the box with zero cropping and zero empty space in
- * both states. The container reshapes from 1:1 to 16:9 when the video plays.
- * Width is capped so the derived height never exceeds the viewport budget.
+ * Poster and video share the SAME 16:9 box so there is no layout shift when the
+ * video starts. The poster image is adjusted with object-fit: cover to fill the
+ * 16:9 frame edge-to-edge (no empty space). Width is capped so the derived
+ * height never exceeds the viewport budget.
  */
 .et-home__hero--split-video {
     --et-home-hero-poster-aspect-ratio: 360 / 360;
@@ -703,17 +703,13 @@
     --et-home-hero-media-max-h: calc(100svh - var(--et-home-header-h, 110px) - 96px);
 }
 
-.et-home__hero--split-video .et-home__hero-video-wrap {
-    aspect-ratio: var(--et-home-hero-poster-aspect-ratio);
-    width: 100%;
-    max-width: min(100%, var(--et-home-hero-media-max-h));
-    height: auto;
-    margin-inline: auto;
-}
-
+.et-home__hero--split-video .et-home__hero-video-wrap,
 .et-home__hero--split-video .et-home__hero-video-wrap.is-playing {
     aspect-ratio: var(--et-home-hero-video-aspect-ratio);
+    width: 100%;
     max-width: min(100%, calc(var(--et-home-hero-media-max-h) * 16 / 9));
+    height: auto;
+    margin-inline: auto;
 }
 
 .et-home__hero--split-video .et-home__hero-video-wrap:not(.is-playing) .et-home__hero-video-fallback {

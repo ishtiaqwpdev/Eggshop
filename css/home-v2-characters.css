@@ -12,6 +12,11 @@
     padding-bottom: var(--et-home-section-top-spacing);
 }
 
+/* Guarantee visible bottom spacing below the character cards. */
+.main--home-v2 .et-home__characters .et-home__section-inner.center {
+    padding-bottom: 40px;
+}
+
 .et-home__characters-intro {
     margin: 0 0 28px;
     text-align: center;
