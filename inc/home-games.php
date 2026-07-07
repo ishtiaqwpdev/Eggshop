@@ -246,15 +246,17 @@ if ( ! function_exists( 'et_home_get_fun_egg_previews' ) ) {
      * @return array<int, array<string, string>>
      */
     function et_home_get_fun_egg_previews( $theme_uri ) {
+        $scenes = trailingslashit( $theme_uri ) . 'images/';
+
         return array(
             array(
                 'label' => 'Maze Time',
-                'image' => et_home_get_game_brand_image( 'maze', $theme_uri, 'preview' ),
+                'image' => $scenes . 'fun-egg-scene-maze.jpg',
                 'url'   => 'http://eggstime.com/upload/mazes/index.html',
             ),
             array(
                 'label' => 'Coloring Time',
-                'image' => et_home_get_game_brand_image( 'coloring', $theme_uri, 'preview' ),
+                'image' => $scenes . 'fun-egg-scene-band.jpg',
                 'url'   => 'http://eggstime.com/upload/index.html',
             ),
         );
