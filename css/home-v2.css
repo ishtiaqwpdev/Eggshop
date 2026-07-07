@@ -613,7 +613,8 @@
 .et-home__hero--split-video {
     display: flex;
     align-items: center;
-    min-height: auto;
+    min-height: calc(100vh - var(--et-home-header-h, 110px));
+    min-height: calc(100svh - var(--et-home-header-h, 110px));
     background-color: #eef7fc;
 }
 
@@ -622,7 +623,7 @@
     align-items: center;
     width: 100%;
     padding-top: var(--et-home-section-top-spacing);
-    padding-bottom: 100px;
+    padding-bottom: 40px;
     margin-bottom: 0;
 }
 
@@ -684,24 +685,31 @@
     max-width: 100%;
     height: auto;
     min-height: 0;
-    aspect-ratio: var(--et-home-hero-poster-aspect-ratio, 360 / 360);
+    aspect-ratio: var(--et-home-hero-media-aspect-ratio, 1920 / 1080);
     border-radius: 24px;
     overflow: hidden;
     background: transparent;
 }
 
-/* Poster (360x360) and video (1920x1080) each use their native aspect ratio. */
+/*
+ * Poster and video share the video's exact 16:9 ratio, so both render at the
+ * identical size (no layout shift) and object-fit: cover fills the box with
+ * zero cropping and zero empty space. The width is capped so the derived
+ * height (width * 9 / 16) never exceeds the vertical budget that keeps the
+ * whole hero inside one viewport height.
+ */
 .et-home__hero--split-video {
-    --et-home-hero-poster-aspect-ratio: 360 / 360;
-    --et-home-hero-video-aspect-ratio: 1920 / 1080;
+    --et-home-hero-media-aspect-ratio: 1920 / 1080;
+    --et-home-hero-media-max-h: calc(100svh - var(--et-home-header-h, 110px) - 96px);
 }
 
-.et-home__hero--split-video .et-home__hero-video-wrap {
-    aspect-ratio: var(--et-home-hero-poster-aspect-ratio);
-}
-
+.et-home__hero--split-video .et-home__hero-video-wrap,
 .et-home__hero--split-video .et-home__hero-video-wrap.is-playing {
-    aspect-ratio: var(--et-home-hero-video-aspect-ratio);
+    aspect-ratio: var(--et-home-hero-media-aspect-ratio);
+    width: 100%;
+    max-width: min(100%, calc(var(--et-home-hero-media-max-h) * 16 / 9));
+    height: auto;
+    margin-inline: auto;
 }
 
 .et-home__hero--split-video .et-home__hero-video-wrap:not(.is-playing) .et-home__hero-video-fallback {
@@ -1000,7 +1008,7 @@
 
 @media screen and (min-width: 768px) {
     .et-home__hero--split-video .et-home__hero-inner {
-        padding-bottom: 120px;
+        padding-bottom: 40px;
     }
 }
 
@@ -1020,11 +1028,12 @@
 
 @media screen and (min-width: 992px) {
     .et-home__hero--split-video {
-        min-height: clamp(560px, 72vh, 820px);
+        min-height: calc(100vh - var(--et-home-header-h, 110px));
+        min-height: calc(100svh - var(--et-home-header-h, 110px));
     }
 
     .et-home__hero--split-video .et-home__hero-inner {
-        padding-bottom: 140px;
+        padding-bottom: 48px;
     }
 
     .et-home__hero-grid {
@@ -1070,11 +1079,12 @@
 
 @media screen and (min-width: 1200px) {
     .et-home__hero--split-video {
-        min-height: clamp(600px, 74vh, 860px);
+        min-height: calc(100vh - var(--et-home-header-h, 110px));
+        min-height: calc(100svh - var(--et-home-header-h, 110px));
     }
 
     .et-home__hero--split-video .et-home__hero-inner {
-        padding-bottom: 160px;
+        padding-bottom: 56px;
     }
 
     .et-home__hero-grid {
@@ -1110,6 +1120,10 @@
 }
 
 @media screen and (max-width: 991px) {
+    .et-home__hero--split-video {
+        min-height: auto;
+    }
+
     .et-home__hero-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1120,6 +1134,11 @@
         max-width: 520px;
         margin: 0 auto;
         width: 100%;
+    }
+
+    .et-home__hero--split-video .et-home__hero-video-wrap,
+    .et-home__hero--split-video .et-home__hero-video-wrap.is-playing {
+        max-width: 100%;
     }
 
     .et-home__hero--split-video .et-home__hero-inner {
