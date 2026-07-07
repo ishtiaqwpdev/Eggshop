@@ -466,7 +466,7 @@
 
     .et-home__products--showcase .et-home__products-all {
         width: 100%;
-        justify-content: space-between !important;
+        justify-content: center !important;
     }
 
     .et-home__products--showcase .et-home__products-slider-wrap {
