@@ -114,6 +114,92 @@
     background-image: none;
 }
 
+.et-license-home-hero__title {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0 0 24px;
+}
+
+.et-license-home-hero__title-kicker {
+    display: block;
+    font-size: clamp(36px, 4.5vw, 52px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--et-lic-navy, #1a3352) !important;
+}
+
+.et-license-home-hero__title-brand {
+    display: block;
+    font-size: clamp(40px, 5.2vw, 58px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--et-lic-pink, #ff3da5) !important;
+}
+
+.et-license-home-hero__text {
+    margin-bottom: 36px !important;
+    max-width: 540px;
+    color: var(--et-lic-navy, #1a3352) !important;
+}
+
+.et-license-home-hero__actions {
+    margin-bottom: 0;
+}
+
+.et-license-home-hero__btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 56px;
+    padding: 18px 40px !important;
+    border: none !important;
+    border-radius: 999px !important;
+    background: linear-gradient(
+        135deg,
+        var(--et-lic-pink, #ff3da5) 0%,
+        var(--et-lic-pink-dark, #e63593) 58%,
+        var(--et-lic-pink-deep, #c91d7a) 100%
+    ) !important;
+    color: #ffffff !important;
+    font-family: 'Quicksand', 'Ubuntu', sans-serif !important;
+    font-size: clamp(14px, 1.3vw, 16px) !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    box-shadow: 0 14px 36px rgba(255, 61, 165, 0.42);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.et-license-home-hero__btn:hover,
+.et-license-home-hero__btn:focus {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 42px rgba(255, 61, 165, 0.5);
+}
+
+.et-license-home-hero__btn svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+@media screen and (max-width: 991px) {
+    .et-license-home-hero__btn {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
 /* Primary CTA button — contact form submit */
 .et-license__form-submit {
     display: inline-flex !important;
