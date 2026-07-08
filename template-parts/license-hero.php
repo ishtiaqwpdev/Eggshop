@@ -13,8 +13,13 @@ $et_license_hero_characters = function_exists( 'et_get_license_hero_characters' 
     <div class="et-license__hero-inner center">
         <div class="et-license__hero-layout">
             <div class="et-license__hero-content">
-                <p class="et-license__hero-kicker">License</p>
-                <h1 class="et-license__hero-title">Eggs Time Brands</h1>
+                <h1 class="et-license__hero-title">
+                    <span class="et-license__hero-title-line">
+                        <span class="et-license__hero-title-kicker">License</span>
+                        <span class="et-license__hero-title-pink">Eggs Time</span>
+                    </span>
+                    <span class="et-license__hero-title-line et-license__hero-title-pink">Brands</span>
+                </h1>
                 <p class="et-license__hero-text">
                     Partner with Eggs Time to bring our beloved characters, surprise eggs, toys, and educational products to more families around the world. Great brands. Happy kids. Strong business.
                 </p>

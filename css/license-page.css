@@ -102,11 +102,11 @@
     min-height: clamp(600px, 74vh, 840px);
     display: flex;
     align-items: center;
-    background:
-        radial-gradient(circle at 18% 18%, rgba(var(--et-brand-yellow-rgb), 0.22) 0, transparent 28%),
-        radial-gradient(circle at 82% 24%, rgba(var(--et-brand-pink-rgb), 0.14) 0, transparent 26%),
-        radial-gradient(circle at 72% 78%, rgba(var(--et-brand-blue-rgb), 0.12) 0, transparent 30%),
-        linear-gradient(135deg, #fff8fc 0%, #f3f8ff 48%, #fff9ef 100%);
+    background-color: #e8f4ea;
+    background-image: url('https://eggstime.com/wp-content/uploads/2017/12/banner3-min.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     overflow: hidden;
     width: 100%;
 }
@@ -115,7 +115,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.9;
+    opacity: 0.35;
     background-image:
         radial-gradient(circle, rgba(var(--et-brand-pink-rgb), 0.55) 0 2px, transparent 3px),
         radial-gradient(circle, rgba(var(--et-brand-blue-rgb), 0.5) 0 2px, transparent 3px),
@@ -232,9 +232,20 @@
     margin: 0 0 28px;
     font-size: clamp(44px, 6vw, 68px);
     font-weight: var(--et-lic-fw-display);
-    line-height: 1.02;
+    line-height: 1.05;
     letter-spacing: 0.02em;
     text-transform: uppercase;
+}
+
+.et-license__hero-title-line {
+    display: block;
+}
+
+.et-license__hero-title-kicker {
+    color: var(--et-lic-navy) !important;
+}
+
+.et-license__hero-title-pink {
     color: var(--et-lic-pink) !important;
 }
 
@@ -305,6 +316,7 @@
 @media screen and (max-width: 991px) {
     .et-license__hero {
         min-height: auto;
+        background-position: 70% center;
     }
 
     .et-license__hero-layout {
