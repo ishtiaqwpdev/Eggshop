@@ -137,9 +137,16 @@ function add_license_page_css()
         );
 
         wp_enqueue_style(
+            'home-v2-characters',
+            TEMPLATEURI . '/css/home-v2-characters.css',
+            array( 'home-v2' ),
+            et_home_v2_asset_version( 'css/home-v2-characters.css' )
+        );
+
+        wp_enqueue_style(
             'license-page',
             TEMPLATEURI . '/css/license-page.css',
-            array( 'style-all', 'header-new', 'home-v2', 'et-brand-colors' ),
+            array( 'style-all', 'header-new', 'home-v2', 'home-v2-characters', 'et-brand-colors' ),
             '1.0.' . filemtime( get_template_directory() . '/css/license-page.css' )
         );
 

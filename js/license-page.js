@@ -3,6 +3,13 @@
 
     var DESKTOP_BREAKPOINT = 1200;
 
+    function buildEggCarouselArrows(prevLabel, nextLabel) {
+        return {
+            prevArrow: '<button class="slick-prev et-home__egg-carousel-arrow et-home__egg-carousel-arrow--prev" aria-label="' + prevLabel + '" type="button"></button>',
+            nextArrow: '<button class="slick-next et-home__egg-carousel-arrow et-home__egg-carousel-arrow--next" aria-label="' + nextLabel + '" type="button"></button>'
+        };
+    }
+
     function getSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
         return {
             slidesToShow: 3,
@@ -46,6 +53,8 @@
     }
 
     function getProductsSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
+        var arrows = buildEggCarouselArrows(prevLabel, nextLabel);
+
         return {
             slidesToShow: 4,
             slidesToScroll: 1,
@@ -61,8 +70,8 @@
             draggable: true,
             touchMove: true,
             speed: 350,
-            prevArrow: '<button class="slick-prev ' + arrowClass + '" aria-label="' + prevLabel + '" type="button"></button>',
-            nextArrow: '<button class="slick-next ' + arrowClass + '" aria-label="' + nextLabel + '" type="button"></button>',
+            prevArrow: arrows.prevArrow,
+            nextArrow: arrows.nextArrow,
             responsive: [
                 {
                     breakpoint: 1400,
