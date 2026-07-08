@@ -144,17 +144,9 @@ function add_license_page_css()
         );
 
         wp_enqueue_script(
-            'home-v2',
-            TEMPLATEURI . '/js/home-v2.js',
-            array( 'jquery', 'slick' ),
-            et_home_v2_asset_version( 'js/home-v2.js' ),
-            true
-        );
-
-        wp_enqueue_script(
             'license-page',
             TEMPLATEURI . '/js/license-page.js',
-            array( 'jquery', 'slick', 'home-v2' ),
+            array( 'jquery', 'slick' ),
             '1.0.' . filemtime( get_template_directory() . '/js/license-page.js' ),
             true
         );

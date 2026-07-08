@@ -121,6 +121,20 @@
     color: var(--et-lic-pink) !important;
 }
 
+.et-license__hero-wrap .et-license__hero-media-static .et-home__hero-video,
+.et-license__hero-wrap .et-license__hero-media-static .et-home__hero-video-play,
+.et-license__hero-wrap .et-license__hero-media-static .et-home__hero-video-sound {
+    display: none !important;
+}
+
+.et-license__hero-wrap .et-license__hero-media-static .et-license__hero-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
 .et-license *,
 .et-license *::before,
 .et-license *::after {
