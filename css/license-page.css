@@ -51,7 +51,7 @@
 /* ----- Hero banner ----- */
 .et-license__hero {
     position: relative;
-    min-height: 460px;
+    min-height: clamp(520px, 68vh, 720px);
     display: flex;
     align-items: center;
     background-color: #e8f4ea;
@@ -82,7 +82,7 @@
     width: 100%;
     max-width: var(--et-lic-max);
     margin: 0 auto;
-    padding: 48px 20px 56px;
+    padding: 72px 20px 80px;
     font-size: 16px;
     text-align: left;
 }
@@ -94,13 +94,13 @@
 
 @media screen and (min-width: 768px) {
     .et-license__hero-inner {
-        padding: 52px 28px 60px;
+        padding: 88px 28px 96px;
     }
 }
 
 @media screen and (min-width: 1200px) {
     .et-license__hero-inner {
-        padding: 56px 32px 64px;
+        padding: 104px 32px 112px;
     }
 }
 
@@ -115,7 +115,7 @@
 }
 
 .et-license__hero-title {
-    margin: 0 0 20px;
+    margin: 0 0 26px;
     font-size: clamp(38px, 5.5vw, 56px);
     font-weight: 700;
     line-height: 1.05;
@@ -125,7 +125,7 @@
 }
 
 .et-license__hero-text {
-    margin: 0 0 30px;
+    margin: 0 0 40px;
     font-size: clamp(15px, 1.8vw, 18px);
     line-height: 1.65;
     color: var(--et-lic-navy) !important;
@@ -136,14 +136,14 @@
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 15px 30px !important;
+    gap: 12px;
+    padding: 20px 44px !important;
     border: none !important;
-    border-radius: 50px !important;
+    border-radius: 999px !important;
     background: var(--et-lic-pink) !important;
     color: #ffffff !important;
     font-family: 'Ubuntu', sans-serif !important;
-    font-size: 14px !important;
+    font-size: 17px !important;
     font-weight: 700 !important;
     line-height: 1.2 !important;
     letter-spacing: 0.04em;
@@ -151,7 +151,7 @@
     text-decoration: none !important;
     cursor: pointer;
     transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 16px rgba(233, 30, 140, 0.35);
+    box-shadow: 0 10px 28px rgba(233, 30, 140, 0.4);
     visibility: visible !important;
     opacity: 1 !important;
 }
@@ -161,14 +161,14 @@
     background: var(--et-lic-pink-dark) !important;
     color: #ffffff !important;
     text-decoration: none !important;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(233, 30, 140, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(233, 30, 140, 0.46);
 }
 
 .et-license__hero-btn svg {
     flex-shrink: 0;
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     fill: currentColor;
 }
 
@@ -194,13 +194,13 @@
     }
 
     .et-license__hero-inner {
-        padding: 36px 16px 40px;
+        padding: 56px 16px 60px;
     }
 
     .et-license__hero-btn {
         width: 100%;
-        font-size: 13px !important;
-        padding: 14px 20px !important;
+        font-size: 15px !important;
+        padding: 18px 24px !important;
     }
 }
 
