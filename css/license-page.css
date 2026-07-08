@@ -58,7 +58,9 @@
     --et-lic-product-image-size: 68%;
     --et-lic-font-category-label: clamp(14px, 1.15vw, 16px);
     --et-lic-font-partner-label: 16px;
-    --et-lic-font-process-label: clamp(17px, 1.5vw, 20px);
+    --et-lic-font-process-label: clamp(15px, 1.35vw, 18px);
+    --et-lic-process-label-line-height: 1.35;
+    --et-lic-process-label-lines: 3;
     --et-lic-font-caption: 15px;
     --et-lic-fw-display: var(--et-brand-fw-display);
     --et-lic-fw-heading: var(--et-brand-fw-heading);
@@ -986,6 +988,16 @@
     width: 100%;
 }
 
+@media screen and (min-width: 1200px) {
+    .et-license__info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .et-license__info-card--process {
+        grid-column: 1 / -1;
+    }
+}
+
 .et-license__info-card {
     display: flex;
     flex-direction: column;
@@ -1011,6 +1023,10 @@
 .et-license__info-card--partners {
     background: #fdf8f0;
     border-color: #efe8da;
+}
+
+.et-license__info-card--process {
+    overflow: visible;
 }
 
 .et-license__info-card-title {
@@ -1160,17 +1176,21 @@
     flex: 1;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
 }
 
 .et-license__process-steps {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 0;
+    gap: 4px;
 }
 
 .et-license__process-step {
@@ -1178,8 +1198,9 @@
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    flex: 0 1 118px;
+    flex: 1 1 0;
     min-width: 0;
+    max-width: 168px;
     text-align: center;
 }
 
@@ -1220,10 +1241,14 @@
     display: block;
     width: 100%;
     margin: 0;
-    padding: 0 2px;
+    padding: 0 4px;
+    min-height: calc(var(--et-lic-process-label-lines) * var(--et-lic-process-label-line-height) * 1em);
     font-size: var(--et-lic-font-process-label);
     font-weight: var(--et-lic-fw-heading);
-    line-height: 1.35;
+    line-height: var(--et-lic-process-label-line-height);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
     color: var(--et-step-color) !important;
 }
 
@@ -1231,8 +1256,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 44px;
-    min-width: 28px;
+    flex: 0 0 clamp(18px, 2.2vw, 28px);
+    min-width: 16px;
     margin-top: 63px;
     padding: 0;
     color: var(--et-lic-blue-muted);
@@ -1435,17 +1460,13 @@
         padding: 30px 24px 28px;
     }
 
-    .et-license__process-step {
-        flex: 0 1 108px;
-    }
-
     .et-license__process-connector {
-        flex: 0 0 36px;
+        flex: 0 0 24px;
         margin-top: 60px;
     }
 
     .et-license__process-label {
-        font-size: var(--et-lic-font-body);
+        font-size: var(--et-lic-font-body-sm);
         font-weight: var(--et-lic-fw-heading);
     }
 
