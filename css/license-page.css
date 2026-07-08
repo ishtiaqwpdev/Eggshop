@@ -1733,105 +1733,43 @@
 }
 
 .et-license__cta-visual-stage {
-    position: relative;
-    width: min(100%, 620px);
-    min-height: clamp(260px, 32vw, 360px);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(6px, 1.2vw, 14px);
+    width: min(100%, 680px);
+    min-height: clamp(180px, 22vw, 260px);
     margin: 0 auto;
 }
 
-.et-license__cta-characters {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: clamp(8px, 1.6vw, 18px);
-    list-style: none;
-    margin: 0;
-    padding: 0 0 4px;
-    width: 100%;
-}
-
-.et-license__cta-character {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    flex: 1 1 0;
-    min-width: 0;
-    max-width: 34%;
-}
-
-.et-license__cta-character-img {
-    display: block;
-    width: 100%;
-    max-width: 180px;
-    height: auto;
-    max-height: clamp(200px, 24vw, 280px);
-    object-fit: contain;
-    object-position: center bottom;
-    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.18));
-}
-
-.et-license__cta-character--2 .et-license__cta-character-img {
-    max-height: clamp(220px, 26vw, 300px);
-}
-
+.et-license__cta-characters,
 .et-license__cta-products {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
+    display: contents;
     list-style: none;
     margin: 0;
     padding: 0;
-    pointer-events: none;
 }
 
+.et-license__cta-character,
 .et-license__cta-product {
-    position: absolute;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
+    flex: 0 1 clamp(64px, 11vw, 100px);
+    min-width: 0;
+    max-width: 100px;
 }
 
+.et-license__cta-character-img,
 .et-license__cta-product-img {
     display: block;
-    width: auto;
+    width: 100%;
     height: auto;
+    max-height: clamp(130px, 16vw, 200px);
     object-fit: contain;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.22));
-}
-
-.et-license__cta-product--1 {
-    top: 4%;
-    left: 0;
-    width: 34%;
-}
-
-.et-license__cta-product--1 .et-license__cta-product-img {
-    max-height: clamp(120px, 14vw, 168px);
-    transform: rotate(-10deg);
-}
-
-.et-license__cta-product--2 {
-    top: 0;
-    right: 2%;
-    width: 32%;
-}
-
-.et-license__cta-product--2 .et-license__cta-product-img {
-    max-height: clamp(112px, 13vw, 156px);
-    transform: rotate(8deg);
-}
-
-.et-license__cta-product--3 {
-    bottom: 8%;
-    right: 8%;
-    width: 30%;
-}
-
-.et-license__cta-product--3 .et-license__cta-product-img {
-    max-height: clamp(104px, 12vw, 148px);
-    transform: rotate(12deg);
+    object-position: center bottom;
+    filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.18));
 }
 
 @media screen and (max-width: 1199px) {
@@ -1876,15 +1814,19 @@
 
     .et-license__cta-visual-stage {
         width: min(100%, 520px);
-        min-height: 300px;
+        min-height: 200px;
+        gap: 8px;
     }
 
-    .et-license__cta-character-img {
-        max-height: 220px;
+    .et-license__cta-character,
+    .et-license__cta-product {
+        flex: 0 1 clamp(56px, 14vw, 84px);
+        max-width: 84px;
     }
 
-    .et-license__cta-character--2 .et-license__cta-character-img {
-        max-height: 240px;
+    .et-license__cta-character-img,
+    .et-license__cta-product-img {
+        max-height: 170px;
     }
 }
 
@@ -1911,27 +1853,19 @@
     }
 
     .et-license__cta-visual-stage {
-        min-height: 260px;
+        min-height: 170px;
+        gap: 6px;
     }
 
-    .et-license__cta-character-img {
-        max-height: 180px;
+    .et-license__cta-character,
+    .et-license__cta-product {
+        flex: 0 1 clamp(48px, 15vw, 72px);
+        max-width: 72px;
     }
 
-    .et-license__cta-character--2 .et-license__cta-character-img {
-        max-height: 196px;
-    }
-
-    .et-license__cta-product--1 .et-license__cta-product-img {
-        max-height: 108px;
-    }
-
-    .et-license__cta-product--2 .et-license__cta-product-img {
-        max-height: 100px;
-    }
-
-    .et-license__cta-product--3 .et-license__cta-product-img {
-        max-height: 96px;
+    .et-license__cta-character-img,
+    .et-license__cta-product-img {
+        max-height: 140px;
     }
 }
 

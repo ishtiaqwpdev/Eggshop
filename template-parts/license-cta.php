@@ -32,22 +32,6 @@ $et_license_cta_products = function_exists( 'et_get_license_cta_products' )
 
             <div class="et-license__cta-visual">
                 <div class="et-license__cta-visual-stage">
-                    <?php if ( ! empty( $et_license_cta_products ) ) : ?>
-                        <ul class="et-license__cta-products" aria-hidden="true">
-                            <?php foreach ( $et_license_cta_products as $index => $product ) : ?>
-                                <li class="et-license__cta-product et-license__cta-product--<?php echo esc_attr( (string) ( $index + 1 ) ); ?>">
-                                    <img
-                                        src="<?php echo esc_url( $product['image'] ); ?>"
-                                        alt=""
-                                        class="et-license__cta-product-img"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    <?php endif; ?>
-
                     <?php if ( ! empty( $et_license_cta_characters ) ) : ?>
                         <ul class="et-license__cta-characters">
                             <?php foreach ( $et_license_cta_characters as $index => $character ) : ?>
@@ -56,6 +40,22 @@ $et_license_cta_products = function_exists( 'et_get_license_cta_products' )
                                         src="<?php echo esc_url( $character['image'] ); ?>"
                                         alt="<?php echo esc_attr( $character['name'] ); ?>"
                                         class="et-license__cta-character-img"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+
+                    <?php if ( ! empty( $et_license_cta_products ) ) : ?>
+                        <ul class="et-license__cta-products" aria-hidden="true">
+                            <?php foreach ( $et_license_cta_products as $index => $product ) : ?>
+                                <li class="et-license__cta-product et-license__cta-product--<?php echo esc_attr( (string) ( $index + 1 ) ); ?>">
+                                    <img
+                                        src="<?php echo esc_url( $product['image'] ); ?>"
+                                        alt=""
+                                        class="et-license__cta-product-img"
                                         loading="lazy"
                                         decoding="async"
                                     />
