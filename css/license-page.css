@@ -360,6 +360,11 @@
     padding-bottom: var(--et-lic-section-pad-y);
 }
 
+/* Tighter gap above Why / Partners / Process cards */
+.et-license__info .et-license__section-inner {
+    padding-top: calc(var(--et-lic-section-pad-y) * 0.22);
+}
+
 @media screen and (min-width: 768px) {
     .et-license {
         --et-lic-section-x: 28px;
@@ -882,7 +887,7 @@
 
 .et-license__categories .et-license__section-inner {
     padding-top: calc(var(--et-lic-section-pad-y) * 0.4);
-    padding-bottom: calc(var(--et-lic-section-pad-y) * 0.55);
+    padding-bottom: calc(var(--et-lic-section-pad-y) * 0.32);
 }
 
 .et-license__categories .et-license__section-title {
