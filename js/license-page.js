@@ -45,6 +45,57 @@
         };
     }
 
+    function getProductsSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
+        return {
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            arrows: true,
+            appendArrows: $wrap,
+            autoplay: true,
+            autoplaySpeed: 4500,
+            pauseOnHover: true,
+            pauseOnFocus: true,
+            infinite: true,
+            swipe: true,
+            swipeToSlide: true,
+            draggable: true,
+            touchMove: true,
+            speed: 350,
+            prevArrow: '<button class="slick-prev ' + arrowClass + '" aria-label="' + prevLabel + '" type="button"></button>',
+            nextArrow: '<button class="slick-next ' + arrowClass + '" aria-label="' + nextLabel + '" type="button"></button>',
+            responsive: [
+                {
+                    breakpoint: 1400,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        };
+    }
+
     function toggleResponsiveSlider($slider, wrapClass, prevLabel, nextLabel, arrowClass) {
         var $wrap = $slider.closest(wrapClass);
 
@@ -90,6 +141,41 @@
         });
     }
 
+    function initAlwaysOnSlider(selector, wrapClass, prevLabel, nextLabel, arrowClass, configBuilder, resizeEvent) {
+        var $sliders = $(selector);
+        var resizeTimer;
+
+        if (!$sliders.length || typeof $.fn.slick !== 'function') {
+            return;
+        }
+
+        function initOne($el) {
+            var $wrap = $el.closest(wrapClass);
+
+            $wrap.addClass('is-slider-active');
+
+            if ($el.hasClass('slick-initialized')) {
+                $el.slick('setPosition');
+                return;
+            }
+
+            $el.slick(configBuilder($wrap, prevLabel, nextLabel, arrowClass));
+        }
+
+        function refresh() {
+            $sliders.each(function () {
+                initOne($(this));
+            });
+        }
+
+        refresh();
+
+        $(window).on(resizeEvent, function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(refresh, 150);
+        });
+    }
+
     $(document).ready(function () {
         bindResponsiveSlider(
             '.et-license__brands-slider',
@@ -100,12 +186,13 @@
             'resize.etLicenseBrandsSlider'
         );
 
-        bindResponsiveSlider(
+        initAlwaysOnSlider(
             '.et-license__products-slider',
             '.et-license__products-slider-wrap',
             'Previous products',
             'Next products',
             'et-license__slider-arrow',
+            getProductsSliderConfig,
             'resize.etLicenseProductsSlider'
         );
 
