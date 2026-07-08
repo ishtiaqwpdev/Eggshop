@@ -683,6 +683,7 @@
 .et-license__category-item {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 .et-license__category-card {
@@ -690,10 +691,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 16px;
     height: 100%;
-    min-height: 148px;
-    padding: 22px 10px 18px;
+    min-height: 172px;
+    padding: 28px 16px 24px;
     background: #ffffff;
     border: 1px solid #e6e6e6;
     border-radius: 14px;
@@ -711,10 +712,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    flex: 0 0 auto;
+    width: 52px;
+    height: 52px;
     color: var(--et-cat-color);
-    font-size: 34px;
+    font-size: 40px;
     line-height: 1;
 }
 
@@ -725,16 +727,22 @@
 
 .et-license__category-svg {
     display: block;
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
 }
 
 .et-license__category-label {
-    display: block;
-    max-width: 9.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 2.8em;
+    margin: 0;
+    padding: 0 6px;
     font-size: clamp(12px, 0.95vw, 14px);
     font-weight: 700;
     line-height: 1.35;
+    text-align: center;
     color: var(--et-cat-color) !important;
 }
 
@@ -758,19 +766,23 @@
     }
 
     .et-license__category-card {
-        min-height: 136px;
-        padding: 20px 10px 16px;
+        min-height: 160px;
+        padding: 24px 14px 20px;
     }
 
     .et-license__category-icon {
-        font-size: 30px;
+        font-size: 36px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .et-license__category-svg {
         width: 40px;
         height: 40px;
     }
 
-    .et-license__category-svg {
-        width: 34px;
-        height: 34px;
+    .et-license__category-label {
+        min-height: 2.7em;
     }
 }
 
@@ -780,32 +792,36 @@
     }
 
     .et-license__category-card {
-        min-height: 124px;
-        padding: 18px 8px 14px;
-        gap: 12px;
+        min-height: 148px;
+        padding: 22px 12px 18px;
+        gap: 14px;
         border-radius: 12px;
     }
 
     .et-license__category-icon {
-        font-size: 28px;
+        font-size: 34px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .et-license__category-svg {
         width: 36px;
         height: 36px;
     }
 
-    .et-license__category-svg {
-        width: 30px;
-        height: 30px;
+    .et-license__category-label {
+        min-height: 2.6em;
     }
 }
 
 @media screen and (max-width: 575px) {
     .et-license__category-card {
-        min-height: 112px;
-        padding: 16px 6px 12px;
+        min-height: 136px;
+        padding: 20px 10px 16px;
     }
 
     .et-license__category-label {
-        max-width: 100%;
+        min-height: 2.5em;
         font-size: 12px;
     }
 }
