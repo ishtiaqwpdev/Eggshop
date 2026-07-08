@@ -52,7 +52,7 @@
     --et-lic-font-product-desc: clamp(15px, 1.3vw, 16px);
     --et-lic-product-title-line-height: 1.28;
     --et-lic-product-desc-line-height: 1.55;
-    --et-lic-product-title-lines: 2;
+    --et-lic-product-title-lines: 1;
     --et-lic-product-desc-lines: 3;
     --et-lic-product-image-inset: 16%;
     --et-lic-product-image-size: 68%;
@@ -789,13 +789,14 @@
     flex: 1 1 auto;
     align-items: center;
     justify-content: flex-start;
-    padding: 24px 18px 30px;
+    padding: 20px 18px 24px;
     text-align: center;
+    gap: 4px;
 }
 
 .et-license__product-title {
     width: 100%;
-    margin: 0 0 10px;
+    margin: 0;
     min-height: calc(var(--et-lic-product-title-lines) * var(--et-lic-product-title-line-height) * 1em);
     font-size: clamp(18px, 1.5vw, 21px);
     font-weight: var(--et-lic-fw-display);
