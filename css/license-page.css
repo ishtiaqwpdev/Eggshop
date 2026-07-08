@@ -155,20 +155,50 @@
     grid-column: 1;
 }
 
+.et-license__hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 12px;
+    padding: 7px 16px;
+    border-radius: 50px;
+    background: var(--et-lic-yellow);
+    color: var(--et-lic-navy) !important;
+    font-family: 'Quicksand', 'Ubuntu', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+}
+
+.et-license__hero-badge-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    color: #e6a800;
+}
+
+.et-license__hero-badge-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
 .et-license__hero-title {
     display: flex;
     flex-direction: column;
     gap: 2px;
     margin: 0 0 20px;
+    font-family: 'Quicksand', 'Ubuntu', sans-serif;
 }
 
 .et-license__hero-title-kicker,
 .et-license__hero-title-brand {
     display: block;
     font-size: clamp(36px, 4.6vw, 54px);
-    font-weight: var(--et-lic-fw-display);
-    line-height: 1.02;
-    letter-spacing: 0.03em;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
 }
 
@@ -183,8 +213,9 @@
 .et-license__hero-text {
     margin: 0 0 28px;
     max-width: 520px;
-    font-size: clamp(17px, 1.75vw, 19px);
-    font-weight: var(--et-lic-fw-body);
+    font-family: 'Quicksand', 'Ubuntu', sans-serif;
+    font-size: clamp(15px, 1.7vw, 17px);
+    font-weight: 500;
     line-height: 1.65;
     color: var(--et-lic-text) !important;
 }
@@ -193,32 +224,38 @@
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    min-height: 52px;
-    padding: 16px 30px !important;
-    border: none !important;
-    border-radius: 999px !important;
-    background: var(--et-lic-pink) !important;
+    gap: 12px;
+    min-height: 46px;
+    padding: 12px 22px 12px 24px !important;
+    border: 2px solid #e63593 !important;
+    border-radius: 50px !important;
+    background: #e63593 !important;
     color: #ffffff !important;
-    font-family: 'Ubuntu', sans-serif !important;
-    font-size: clamp(13px, 1.15vw, 15px) !important;
-    font-weight: var(--et-lic-fw-display) !important;
-    line-height: 1.15 !important;
-    letter-spacing: 0.06em;
+    font-family: 'Quicksand', 'Ubuntu', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none !important;
-    box-shadow: 0 12px 28px rgba(var(--et-brand-pink-rgb), 0.38);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+    box-shadow: 0 12px 28px rgba(var(--et-brand-pink-rgb), 0.32);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     cursor: pointer;
 }
 
 .et-license__hero-btn:hover,
 .et-license__hero-btn:focus {
     background: var(--et-lic-pink-dark) !important;
+    border-color: var(--et-lic-pink-dark) !important;
     color: #ffffff !important;
     text-decoration: none !important;
-    transform: translateY(-2px);
-    box-shadow: 0 16px 34px rgba(var(--et-brand-pink-rgb), 0.44);
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px rgba(var(--et-brand-pink-rgb), 0.4);
+}
+
+.et-license__hero-btn-label {
+    display: inline-block;
 }
 
 .et-license__hero-btn-icon {
@@ -226,15 +263,23 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 22px;
-    height: 22px;
+    width: auto;
+    height: auto;
 }
 
 .et-license__hero-btn-icon svg {
     display: block;
-    width: 100%;
-    height: 100%;
-    stroke: currentColor;
+    width: 14px;
+    height: 14px;
+}
+
+.et-license__hero-btn-arrow,
+.et-license__hero-btn-arrow path {
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 @media screen and (min-width: 768px) {
@@ -276,6 +321,7 @@
     .et-license__hero-btn {
         width: 100%;
         max-width: 420px;
+        white-space: normal;
     }
 }
 
