@@ -633,16 +633,20 @@
 
 /* ----- License page sliders ----- */
 .et-license__brands-slider-wrap,
-.et-license__products-slider-wrap,
 .et-license__categories-slider-wrap {
     position: relative;
     overflow: visible;
 }
 
 .et-license__products-slider-wrap {
-    display: flex;
-    align-items: center;
-    padding: 0 52px;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+}
+
+.et-license__products-slider-wrap .et-license__products-slider {
+    width: 100%;
+    min-width: 0;
 }
 
 .et-license__brands-slider-wrap,
@@ -652,7 +656,6 @@
 
 @media screen and (max-width: 1199px) {
     .et-license__brands-slider-wrap,
-    .et-license__products-slider-wrap,
     .et-license__categories-slider-wrap {
         padding: 0 48px;
     }
@@ -768,36 +771,10 @@
     }
 }
 
-/* Products slider — pink arrows like home best sellers */
-.et-license__products-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
-.et-license__products-slider-wrap .slick-next.et-home__egg-carousel-arrow {
-    display: inline-flex !important;
-    visibility: visible !important;
-    opacity: 1;
-}
-
-.et-license__products-slider-wrap .slick-prev.et-home__egg-carousel-arrow {
-    left: -4px;
-}
-
-.et-license__products-slider-wrap .slick-next.et-home__egg-carousel-arrow {
-    right: -4px;
-}
-
-.et-license__products-slider-wrap .slick-prev.et-home__egg-carousel-arrow::before,
-.et-license__products-slider-wrap .slick-next.et-home__egg-carousel-arrow::before {
+/* Products slider — no arrows; autoplay + swipe only */
+.et-license__products-slider-wrap .slick-arrow,
+.et-license__products-slider-wrap .et-home__egg-carousel-arrow {
     display: none !important;
-    content: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
-    border: 0 !important;
-}
-
-.et-license__products-slider-wrap .slick-prev.et-home__egg-carousel-arrow.slick-disabled,
-.et-license__products-slider-wrap .slick-next.et-home__egg-carousel-arrow.slick-disabled {
-    opacity: 0.45;
 }
 
 .et-license__products-slider-wrap.is-slider-active .slick-list {
@@ -810,7 +787,6 @@
 
 @media screen and (max-width: 767px) {
     .et-license__brands-slider-wrap,
-    .et-license__products-slider-wrap,
     .et-license__categories-slider-wrap {
         padding: 0 40px;
     }
@@ -825,7 +801,6 @@
 
 @media screen and (max-width: 575px) {
     .et-license__brands-slider-wrap,
-    .et-license__products-slider-wrap,
     .et-license__categories-slider-wrap {
         padding: 0 40px;
     }

@@ -3,11 +3,19 @@
 
     var DESKTOP_BREAKPOINT = 1200;
 
-    function buildEggCarouselArrows(prevLabel, nextLabel) {
-        return {
-            prevArrow: '<button class="slick-prev et-home__egg-carousel-arrow et-home__egg-carousel-arrow--prev" aria-label="' + prevLabel + '" type="button"></button>',
-            nextArrow: '<button class="slick-next et-home__egg-carousel-arrow et-home__egg-carousel-arrow--next" aria-label="' + nextLabel + '" type="button"></button>'
-        };
+    /* Duplicate slides so infinite + autoplay work with only 6 merchandise cards. */
+    function prepareProductsSliderForLoop($el) {
+        if ($el.data('et-loop-prepared')) {
+            return;
+        }
+
+        var $items = $el.children('li');
+
+        if ($items.length > 1) {
+            $items.clone().appendTo($el);
+        }
+
+        $el.data('et-loop-prepared', true);
     }
 
     function getSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
@@ -53,13 +61,10 @@
     }
 
     function getProductsSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
-        var arrows = buildEggCarouselArrows(prevLabel, nextLabel);
-
         return {
             slidesToShow: 4,
             slidesToScroll: 1,
-            arrows: true,
-            appendArrows: $wrap,
+            arrows: false,
             autoplay: true,
             autoplaySpeed: 4500,
             pauseOnHover: true,
@@ -70,35 +75,37 @@
             draggable: true,
             touchMove: true,
             speed: 350,
-            prevArrow: arrows.prevArrow,
-            nextArrow: arrows.nextArrow,
             responsive: [
                 {
                     breakpoint: 1400,
                     settings: {
                         slidesToShow: 4,
-                        slidesToScroll: 1
+                        slidesToScroll: 1,
+                        infinite: true
                     }
                 },
                 {
                     breakpoint: 1200,
                     settings: {
                         slidesToShow: 3,
-                        slidesToScroll: 1
+                        slidesToScroll: 1,
+                        infinite: true
                     }
                 },
                 {
                     breakpoint: 992,
                     settings: {
                         slidesToShow: 2,
-                        slidesToScroll: 1
+                        slidesToScroll: 1,
+                        infinite: true
                     }
                 },
                 {
                     breakpoint: 576,
                     settings: {
                         slidesToShow: 1,
-                        slidesToScroll: 1
+                        slidesToScroll: 1,
+                        infinite: true
                     }
                 }
             ]
@@ -161,23 +168,37 @@
         function initOne($el) {
             var $wrap = $el.closest(wrapClass);
 
-            $wrap.addClass('is-slider-active');
-
             if ($el.hasClass('slick-initialized')) {
                 $el.slick('setPosition');
-                return;
+                return true;
             }
 
+            prepareProductsSliderForLoop($el);
+            $wrap.addClass('is-slider-active');
             $el.slick(configBuilder($wrap, prevLabel, nextLabel, arrowClass));
+            $el.slick('slickPlay');
+            return true;
         }
 
         function refresh() {
+            var initialized = true;
+
             $sliders.each(function () {
-                initOne($(this));
+                if (!initOne($(this))) {
+                    initialized = false;
+                }
             });
+
+            return initialized;
         }
 
-        refresh();
+        if (!refresh()) {
+            $(window).on('load.etLicenseProductsSlider', function () {
+                if (refresh()) {
+                    $(window).off('load.etLicenseProductsSlider');
+                }
+            });
+        }
 
         $(window).on(resizeEvent, function () {
             clearTimeout(resizeTimer);
