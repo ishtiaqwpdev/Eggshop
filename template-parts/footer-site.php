@@ -80,9 +80,22 @@ $et_footer_logo    = trailingslashit( get_template_directory_uri() ) . 'images/e
         </div>
 
         <div class="et-footer__bottom">
-            <p class="et-footer__copyright">
-                Copyright &copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> Sweets Choice. All rights reserved.
-            </p>
+            <div class="et-footer__bottom-bar">
+                <p class="et-footer__copyright">
+                    Copyright &copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> Sweets Choice. All rights reserved.
+                </p>
+                <div class="et-footer__payments">
+                    <img
+                        src="<?php echo esc_url( trailingslashit( get_template_directory_uri() ) . 'images/cc.png' ); ?>"
+                        alt="<?php esc_attr_e( 'Accepted payment methods', 'eggs-shop' ); ?>"
+                        class="et-footer__payments-img"
+                        width="220"
+                        height="28"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </div>
+            </div>
             <p class="et-footer__legal">
                 Copying any part of this website without written permission from the owner is a violation of federal law and may result in criminal prosecution and civil liability.
             </p>
