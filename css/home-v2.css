@@ -1333,11 +1333,11 @@
     padding-bottom: 50px;
 }
 
-/* Choose Your Egg World — 50px top/bottom padding. */
+/* Choose Your Egg World — 50px top, 0 bottom. */
 .et-home__bg-band--playful .et-home__characters .et-home__section-inner,
 .main--home-v2 .et-home__characters .et-home__section-inner {
     padding-top: 50px !important;
-    padding-bottom: 50px !important;
+    padding-bottom: 0 !important;
 }
 
 .et-home__bg-band--playful .et-home__best-sellers .et-home__section-inner {
@@ -2837,7 +2837,7 @@
     max-width: none;
     padding-left: var(--et-home-section-x);
     padding-right: var(--et-home-section-x);
-    padding-top: 50px;
+    padding-top: 0;
     padding-bottom: 50px;
 }
 
@@ -6633,7 +6633,7 @@
 
 .main--home-v2 .et-home__products .et-home__section-inner,
 .main--home-v2 .et-home__products .et-home__section-inner.center {
-    padding-top: 50px !important;
+    padding-top: 0 !important;
     padding-bottom: 50px !important;
     margin-top: 0 !important;
 }
