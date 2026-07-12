@@ -1325,7 +1325,13 @@
 }
 
 .et-home__best-sellers .et-home__section-inner {
+    padding-top: 12px;
     padding-bottom: var(--et-home-section-top-spacing);
+}
+
+.et-home__bg-band--playful .et-home__best-sellers .et-home__section-inner {
+    padding-top: 12px;
+    margin-top: 0;
 }
 
 .et-home__best-sellers-head {

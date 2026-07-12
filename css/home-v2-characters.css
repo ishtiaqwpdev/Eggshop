@@ -9,12 +9,12 @@
 
 .et-home__characters .et-home__section-inner {
     padding-top: var(--et-home-section-top-spacing);
-    padding-bottom: var(--et-home-section-top-spacing);
+    padding-bottom: 12px;
 }
 
-/* Keep character-card bottom spacing aligned with the shared section rhythm. */
+/* Characters + Best Sellers share one playful band — keep the junction tight. */
 .main--home-v2 .et-home__characters .et-home__section-inner.center {
-    padding-bottom: var(--et-home-section-top-spacing);
+    padding-bottom: 12px;
 }
 
 .et-home__characters-intro {
