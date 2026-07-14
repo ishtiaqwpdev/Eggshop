@@ -246,18 +246,16 @@ if ( ! function_exists( 'et_home_get_fun_egg_previews' ) ) {
      * @return array<int, array<string, string>>
      */
     function et_home_get_fun_egg_previews( $theme_uri ) {
-        $scenes = trailingslashit( $theme_uri ) . 'images/';
-
         return array(
             array(
-                'label' => 'Maze Time',
-                'image' => $scenes . 'fun-egg-scene-maze.jpg',
-                'url'   => 'http://eggstime.com/upload/mazes/index.html',
+                'label' => 'Coloring Time',
+                'image' => 'https://eggstime.com/wp-content/uploads/2017/12/IMG_05012019_114533_0.png',
+                'url'   => 'http://eggstime.com/upload/index.html',
             ),
             array(
-                'label' => 'Coloring Time',
-                'image' => $scenes . 'fun-egg-scene-band.jpg',
-                'url'   => 'http://eggstime.com/upload/index.html',
+                'label' => 'Puzzle Time',
+                'image' => 'https://eggstime.com/wp-content/uploads/2017/12/IMG_05012019_114538_0.png',
+                'url'   => 'http://eggstime.com/upload/puzzles/index.html',
             ),
         );
     }
