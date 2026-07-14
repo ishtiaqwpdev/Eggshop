@@ -1333,10 +1333,10 @@
     padding-bottom: 100px;
 }
 
-/* Choose Your Egg World — 50px top, 0 bottom. */
+/* Choose Your Egg World — 100px top, 0 bottom. */
 .et-home__bg-band--playful .et-home__characters .et-home__section-inner,
 .main--home-v2 .et-home__characters .et-home__section-inner {
-    padding-top: 50px !important;
+    padding-top: 100px !important;
     padding-bottom: 0 !important;
 }
 
