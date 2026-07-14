@@ -510,6 +510,11 @@
 .et-license__brands .et-license__section-title {
     margin-bottom: 40px;
     font-size: clamp(32px, 3.8vw, 46px);
+    color: #e53935 !important;
+}
+
+.et-license__brands .et-license__section-title-icon {
+    color: #e53935;
 }
 
 .et-license__section-title {
