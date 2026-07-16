@@ -5394,6 +5394,18 @@
         margin-top: 0;
     }
 
+    .et-home__fun-egg-mobile-footer .et-home__fun-egg-details-btn {
+        width: auto !important;
+        max-width: min(100%, 240px);
+        min-height: 36px;
+        padding: 7px 12px !important;
+        font-size: 8px !important;
+        letter-spacing: 0.06em;
+        line-height: 1.25 !important;
+        text-align: center;
+        white-space: normal;
+    }
+
     .et-home__fun-egg-app {
         padding-top: 0;
         padding-bottom: 0;
