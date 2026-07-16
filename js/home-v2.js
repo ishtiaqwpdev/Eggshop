@@ -512,7 +512,7 @@
                     {
                         breakpoint: 768,
                         settings: {
-                            slidesToShow: MOBILE_SLIDES_TO_SHOW,
+                            slidesToShow: 2,
                             slidesToScroll: 1
                         }
                     }

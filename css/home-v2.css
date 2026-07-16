@@ -2557,7 +2557,8 @@
     }
 
     .et-home__stories-slider:not(.slick-initialized) .et-home__story-item {
-        flex: 0 0 100%;
+        flex: 0 0 calc((100% - 16px) / 2);
+        min-width: 0;
     }
 
     .et-home__story-body {
@@ -2651,8 +2652,8 @@
 
     .et-home__stories--mobile-card .et-home__story-title {
         margin: 0;
-        font-size: 11px;
-        line-height: 1.15;
+        font-size: 12px;
+        line-height: 1.2;
         -webkit-text-stroke: 0;
     }
 
@@ -2663,8 +2664,8 @@
     .et-home__stories--mobile-card .et-home__story-meta-line {
         display: block;
         margin: 0;
-        font-size: 9px;
-        line-height: 1.2;
+        font-size: 10px;
+        line-height: 1.25;
         color: #6b7f9a !important;
     }
 
