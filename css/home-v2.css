@@ -6119,101 +6119,90 @@
 
 @media screen and (max-width: 768px) {
     .et-home__social-slider-wrap {
-        max-width: 100%;
-        width: 100%;
-        padding: 0 24px;
+        max-width: min(100%, 300px);
+        margin: 0 auto;
+        padding: 0 var(--et-home-slider-inset-sm);
     }
 
     .et-home__social-grid:not(.slick-initialized) {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow: hidden;
-        gap: 8px;
-        grid-template-columns: none;
-    }
-
-    .et-home__social-grid:not(.slick-initialized) .et-home__social-item {
-        flex: 0 0 calc((100% - 16px) / 3);
-        min-width: 0;
+        gap: 10px;
     }
 
     .et-home__social-grid.slick-initialized .slick-list {
-        margin: 0 -2px;
-        padding: 0 0 4px;
+        margin: 0 -4px;
     }
 
     .et-home__social-grid.slick-initialized .slick-slide {
-        padding: 0 2px;
+        padding: 0 4px;
     }
 
     .et-home__social-card {
         min-height: 0;
-        border-radius: 12px;
+        border-radius: 16px;
     }
 
     .et-home__social-head {
-        gap: 6px;
-        padding: 6px 6px 2px;
+        gap: 10px;
+        padding: 10px 10px 4px;
     }
 
     .et-home__social-brand {
-        width: 28px;
-        height: 28px;
-        border-radius: 8px;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
     }
 
     .et-home__social-brand svg {
-        width: 14px;
-        height: 14px;
+        width: 20px;
+        height: 20px;
     }
 
     .et-home__social-name {
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .et-home__social-handle {
-        font-size: 9px;
+        font-size: 12px;
     }
 
     .et-home__social-type {
-        padding: 0 6px 4px;
-        font-size: 8px;
+        padding: 0 10px 6px;
+        font-size: 10px;
     }
 
     .et-home__social-media {
-        padding: 0 4px;
+        min-height: 0;
+        padding: 0 8px;
     }
 
     .et-home__social-media-link,
     .et-home__social-media-link--single {
-        min-height: 72px;
-        border-radius: 8px;
+        min-height: 140px;
+        border-radius: 10px;
     }
 
     .et-home__social-play {
-        width: 28px;
-        height: 28px;
+        width: 44px;
+        height: 44px;
     }
 
     .et-home__social-play svg {
-        width: 12px;
-        height: 12px;
+        width: 18px;
+        height: 18px;
     }
 
     .et-home__social-foot {
-        gap: 6px;
-        padding: 6px 4px 6px;
+        gap: 10px;
+        padding: 10px 8px 10px;
     }
 
     .et-home__social-copy {
-        font-size: 9px;
-        line-height: 1.25;
         padding: 0;
     }
 
     .et-home__social-slider-wrap.is-slider-active .slick-arrow {
-        width: 28px;
-        height: 28px;
+        width: 32px;
+        height: 32px;
     }
 
     .et-home__social-desc {
@@ -6237,11 +6226,6 @@
     .et-home__social-cta-icon svg {
         width: 12px;
         height: 12px;
-    }
-
-    .et-home__social-slider-wrap.is-slider-active .slick-arrow {
-        width: 32px;
-        height: 32px;
     }
 }
 
