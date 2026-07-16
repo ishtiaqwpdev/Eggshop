@@ -48,12 +48,18 @@
     color: var(--et-home-text) !important;
 }
 
-/* Slider wrap — side padding must fit full arrow circles (parent band clips overflow). */
-.et-home__characters-slider-wrap {
+/*
+ * Slider wrap — flex row keeps arrows in-flow (not absolute).
+ * Absolute edge arrows get clipped by .et-home__bg-band--playful { overflow: hidden }.
+ */
+.et-home__characters-slider-wrap,
+.et-home__best-sellers-slider-wrap {
     position: relative;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    padding: 0 56px;
+    gap: 10px;
+    padding: 0;
     overflow: visible;
 }
 
@@ -80,6 +86,7 @@
     width: 100%;
     flex: 1 1 auto;
     min-width: 0;
+    order: 2;
 }
 
 .et-home__characters-slider.slick-initialized .slick-slide {
@@ -192,16 +199,40 @@
     border: 0 !important;
 }
 
+/* In-flow arrows: prev | track | next (avoids overflow clipping on playful band) */
 .et-home__characters-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
 .et-home__best-sellers-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
+.et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow,
+.et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    flex: 0 0 40px;
+    align-self: center;
+}
+
+.et-home__characters-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
+.et-home__best-sellers-slider-wrap .slick-prev.et-home__egg-carousel-arrow {
+    order: 1;
+}
+
+.et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow,
+.et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow {
+    order: 3;
+}
+
+/* Products keep absolute arrows (different section, no playful overflow clip). */
 .et-home__products-slider-wrap .slick-prev.et-home__egg-carousel-arrow {
+    position: absolute !important;
     left: 8px !important;
     right: auto !important;
 }
 
-.et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow,
-.et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow,
 .et-home__products-slider-wrap .slick-next.et-home__egg-carousel-arrow {
+    position: absolute !important;
     right: 8px !important;
     left: auto !important;
 }
@@ -443,11 +474,6 @@
 }
 
 @media screen and (max-width: 1199px) {
-    .et-home__characters-slider-wrap,
-    .et-home__best-sellers-slider-wrap {
-        padding: 0 52px;
-    }
-
     .et-home__characters-slider:not(.slick-initialized) {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -458,11 +484,6 @@
 }
 
 @media screen and (max-width: 991px) {
-    .et-home__characters-slider-wrap,
-    .et-home__best-sellers-slider-wrap {
-        padding: 0 48px;
-    }
-
     .et-home__characters-slider:not(.slick-initialized) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -476,8 +497,7 @@
 @media screen and (max-width: 767px) {
     .et-home__characters-slider-wrap,
     .et-home__best-sellers-slider-wrap {
-        padding: 0 48px;
-        overflow: visible;
+        gap: 8px;
     }
 
     .et-home__characters-slider:not(.slick-initialized) {
@@ -516,16 +536,7 @@
     }
 
     .et-home__characters-slider-wrap {
-        padding: 0 48px;
-        overflow: visible;
-    }
-
-    .et-home__characters-slider-wrap .slick-prev.et-home__egg-carousel-arrow {
-        left: 6px !important;
-    }
-
-    .et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow {
-        right: 6px !important;
+        gap: 8px;
     }
 
     .et-home__characters-slider .slick-list {
@@ -598,6 +609,12 @@
     .et-home__characters-slider-wrap .et-home__egg-carousel-arrow {
         width: 28px;
         height: 28px;
+        flex: 0 0 28px;
+    }
+
+    .et-home__characters-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
+    .et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow {
+        flex: 0 0 28px;
     }
 
     .et-home__characters-slider-wrap .et-home__egg-carousel-angle {
@@ -608,23 +625,17 @@
 @media screen and (max-width: 479px) {
     .et-home__characters-slider-wrap,
     .et-home__best-sellers-slider-wrap {
-        padding: 0 44px;
-        overflow: visible;
-    }
-
-    .et-home__characters-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
-    .et-home__best-sellers-slider-wrap .slick-prev.et-home__egg-carousel-arrow {
-        left: 6px !important;
-    }
-
-    .et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow,
-    .et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow {
-        right: 6px !important;
+        gap: 6px;
     }
 
     .et-home__characters-slider-wrap .et-home__egg-carousel-arrow,
-    .et-home__best-sellers-slider-wrap .et-home__egg-carousel-arrow {
+    .et-home__best-sellers-slider-wrap .et-home__egg-carousel-arrow,
+    .et-home__characters-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
+    .et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow,
+    .et-home__best-sellers-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
+    .et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow {
         width: 32px;
         height: 32px;
+        flex: 0 0 32px;
     }
 }
