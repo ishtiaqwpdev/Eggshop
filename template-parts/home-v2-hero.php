@@ -25,7 +25,7 @@ if ( $et_home_hero_use_video ) :
     <div class="et-home__hero-inner center">
         <div class="et-home__hero-grid">
             <div class="et-home__hero-content">
-                <p class="et-home__hero-badge">
+                <p class="et-home__hero-badge et-home__hero--desktop-detail">
                     <span class="et-home__hero-badge-icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 18.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/>
@@ -41,27 +41,32 @@ if ( $et_home_hero_use_video ) :
                     </span>
                 </h1>
 
-                <p class="et-home__hero-text">
+                <p class="et-home__hero-text et-home__hero--desktop-detail">
                     Discover educational surprises, interactive games, fun videos and lovable characters that inspire children to play, learn and grow.
+                </p>
+                <p class="et-home__hero-text et-home__hero-text--mobile">
+                    Educational surprises, interactive games, fun videos and lovable characters.
                 </p>
 
                 <div class="et-home__hero-actions">
                     <a href="<?php echo esc_url( home_url( '/shop' ) ); ?>" class="et-home__hero-btn et-home__hero-btn--primary">
-                        <span class="et-home__hero-btn-label">Explore Our Eggs</span>
+                        <span class="et-home__hero-btn-label et-home__hero-btn-label--desktop">Explore Our Eggs</span>
+                        <span class="et-home__hero-btn-label et-home__hero-btn-label--mobile">Explore Eggs</span>
                         <span class="et-home__hero-btn-icon" aria-hidden="true">
                             <?php echo $et_home_hero_btn_arrow; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </span>
                     </a>
 
                     <a href="#et-home-characters" class="et-home__hero-btn et-home__hero-btn--secondary">
-                        <span class="et-home__hero-btn-label">Meet Our Characters</span>
+                        <span class="et-home__hero-btn-label et-home__hero-btn-label--desktop">Meet Our Characters</span>
+                        <span class="et-home__hero-btn-label et-home__hero-btn-label--mobile">Meet Characters</span>
                         <span class="et-home__hero-btn-icon" aria-hidden="true">
                             <?php echo $et_home_hero_btn_arrow; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </span>
                     </a>
                 </div>
 
-                <ul class="et-home__hero-trust">
+                <ul class="et-home__hero-trust et-home__hero--desktop-detail">
                     <li class="et-home__hero-trust-item">
                         <span class="et-home__hero-trust-icon" aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
