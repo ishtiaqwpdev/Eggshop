@@ -31,7 +31,9 @@
     width: 100%;
 }
 
-.et-home__characters-intro .et-home__section-title {
+.et-home__characters-intro .et-home__section-title,
+.et-home__characters-title,
+#et-home-characters-title {
     margin: 0;
     font-family: 'Quicksand', 'Ubuntu', sans-serif;
     font-size: clamp(30px, 3.8vw, 42px);
@@ -41,7 +43,7 @@
     text-transform: uppercase;
     text-align: center;
     color: #000000 !important;
-    -webkit-text-stroke: 0;
+    -webkit-text-stroke: 0 !important;
     paint-order: initial;
 }
 
