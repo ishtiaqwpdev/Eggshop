@@ -42,9 +42,9 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     text-align: center;
-    color: #000000 !important;
-    -webkit-text-stroke: 0 !important;
-    paint-order: normal !important;
+    color: var(--et-home-heading) !important;
+    -webkit-text-stroke: 0;
+    paint-order: initial;
 }
 
 .et-home__characters-lead {
