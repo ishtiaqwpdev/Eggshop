@@ -461,7 +461,42 @@
             'resize.etHomeCharactersSlider'
         );
 
-        (function initStoriesMobileList() {
+        function getStoriesSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
+            return {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                arrows: true,
+                appendArrows: $wrap,
+                autoplay: false,
+                pauseOnHover: true,
+                pauseOnFocus: true,
+                infinite: true,
+                swipe: true,
+                draggable: true,
+                touchMove: true,
+                adaptiveHeight: false,
+                prevArrow: '<button class="slick-prev ' + arrowClass + '" aria-label="' + prevLabel + '" type="button"></button>',
+                nextArrow: '<button class="slick-next ' + arrowClass + '" aria-label="' + nextLabel + '" type="button"></button>',
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            };
+        }
+
+        (function initStoriesSlider() {
             var MOBILE_MAX = 768;
             var $sliders = $('.et-home__stories-slider');
             var resizeTimer;
@@ -476,7 +511,7 @@
 
                 if (window.innerWidth >= DESKTOP_BREAKPOINT) {
                     $wrap.removeClass('is-slider-active');
-                    $section.removeClass('et-home__stories--mobile-list');
+                    $section.removeClass('et-home__stories--mobile-card');
 
                     if ($slider.hasClass('slick-initialized')) {
                         $slider.slick('unslick');
@@ -485,18 +520,7 @@
                     return;
                 }
 
-                if (window.innerWidth <= MOBILE_MAX) {
-                    $wrap.removeClass('is-slider-active');
-                    $section.addClass('et-home__stories--mobile-list');
-
-                    if ($slider.hasClass('slick-initialized')) {
-                        $slider.slick('unslick');
-                    }
-
-                    return;
-                }
-
-                $section.removeClass('et-home__stories--mobile-list');
+                $section.toggleClass('et-home__stories--mobile-card', window.innerWidth <= MOBILE_MAX);
                 $wrap.addClass('is-slider-active');
 
                 if ($slider.hasClass('slick-initialized')) {
@@ -504,7 +528,7 @@
                     return;
                 }
 
-                $slider.slick(getSliderConfig(
+                $slider.slick(getStoriesSliderConfig(
                     $wrap,
                     'Previous stories',
                     'Next stories',
