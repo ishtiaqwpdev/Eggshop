@@ -19,8 +19,8 @@ $theme_uri                   = get_template_directory_uri();
 $brand_meta                  = et_get_home_core_egg_brand_meta();
 $games_url                   = function_exists( 'get_permalink' ) ? get_permalink( 617 ) : home_url( '/games/' );
 $et_home_fun_egg_section_icon = et_home_get_fun_egg_section_icon( $theme_uri );
-$et_home_fun_egg_previews    = et_home_get_fun_egg_previews( $theme_uri );
-$et_home_fun_egg_activities  = et_home_get_fun_egg_activities( $games_url, $theme_uri );
+$et_home_fun_egg_previews    = et_home_get_fun_egg_previews( $theme_uri, $games_url );
+$et_home_fun_egg_preview_count = count( $et_home_fun_egg_previews );
 $et_home_fun_egg_app_games   = et_home_get_fun_egg_app_games( $theme_uri );
 $et_home_game_store_badges   = et_home_get_game_app_store_badges( $theme_uri );
 $et_home_game_rating_badges  = et_home_get_game_rating_badge_images( $theme_uri );
@@ -73,22 +73,29 @@ $magik_character = $brand_meta['magik']['character_image'];
                             </p>
                         </div>
                     </div>
-                    <ul class="et-home__fun-egg-previews">
-                        <?php foreach ( $et_home_fun_egg_previews as $preview ) : ?>
-                            <li class="et-home__fun-egg-preview-item">
-                                <a href="<?php echo esc_url( $preview['url'] ); ?>" class="et-home__fun-egg-preview" target="_blank" rel="noopener noreferrer">
-                                    <span class="et-home__fun-egg-preview-media">
-                                        <img
-                                            src="<?php echo esc_url( $preview['image'] ); ?>"
-                                            alt="<?php echo esc_attr( $preview['label'] ); ?>"
-                                            loading="lazy"
-                                            decoding="async"
-                                        />
-                                    </span>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
+                    <?php if ( $et_home_fun_egg_preview_count >= 2 ) : ?>
+                    <div class="et-home__fun-egg-previews-slider-wrap et-home__fun-egg-previews-slider-wrap--count-<?php echo esc_attr( $et_home_fun_egg_preview_count ); ?>">
+                        <ul
+                            class="et-home__fun-egg-previews et-home__fun-egg-previews-slider"
+                            data-et-preview-count="<?php echo esc_attr( $et_home_fun_egg_preview_count ); ?>"
+                        >
+                            <?php foreach ( $et_home_fun_egg_previews as $preview ) : ?>
+                                <li class="et-home__fun-egg-preview-item">
+                                    <a href="<?php echo esc_url( $preview['url'] ); ?>" class="et-home__fun-egg-preview" target="_blank" rel="noopener noreferrer">
+                                        <span class="et-home__fun-egg-preview-media">
+                                            <img
+                                                src="<?php echo esc_url( $preview['image'] ); ?>"
+                                                alt="<?php echo esc_attr( $preview['label'] ); ?>"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </span>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                    <?php endif; ?>
                 </div>
 
                 <div class="et-home__fun-egg-hero" aria-hidden="true">
@@ -99,27 +106,6 @@ $magik_character = $brand_meta['magik']['character_image'];
                         loading="lazy"
                         decoding="async"
                     />
-                </div>
-
-                <div class="et-home__fun-egg-activities-col">
-                    <ul class="et-home__fun-egg-activities">
-                        <?php foreach ( $et_home_fun_egg_activities as $index => $activity ) : ?>
-                            <li class="et-home__fun-egg-activity-item<?php echo $index >= 4 ? ' et-home__fun-egg-activity-item--mobile-hidden' : ''; ?>">
-                                <a href="<?php echo esc_url( $activity['url'] ); ?>" class="et-home__fun-egg-activity" target="_blank" rel="noopener noreferrer">
-                                    <span class="et-home__fun-egg-activity-icon" aria-hidden="true">
-                                        <img
-                                            src="<?php echo esc_url( $activity['icon'] ); ?>"
-                                            alt=""
-                                            loading="lazy"
-                                            decoding="async"
-                                        />
-                                    </span>
-                                    <span class="et-home__fun-egg-activity-label"><?php echo esc_html( $activity['label'] ); ?></span>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                    <a href="<?php echo esc_url( $games_url ); ?>" class="et-home__fun-egg-more et-home__fun-egg--desktop-detail">...and more!</a>
                 </div>
 
                 <div class="et-home__fun-egg-mascot" aria-hidden="true">

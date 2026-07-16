@@ -221,87 +221,113 @@ if ( ! function_exists( 'et_home_get_fun_egg_section_icon' ) ) {
     }
 }
 
-if ( ! function_exists( 'et_home_get_fun_egg_activity_icon' ) ) {
+if ( ! function_exists( 'et_home_get_fun_egg_preview_items_config' ) ) {
     /**
-     * Branded activity-list icon badge for a game.
+     * Configurable catalog for Games Inside Every Egg preview cards (2–5 items).
      *
-     * @param string $key       Game key or "education".
-     * @param string $theme_uri Theme directory URI.
-     * @return string
+     * Each item supports:
+     * - key   Game slug for branded image lookup (coloring, puzzle, maze, difference, …)
+     * - label Accessible title
+     * - url   Destination link
+     * - image Optional explicit image URL (overrides key lookup)
+     *
+     * Filter `et_home_fun_egg_preview_items_config` to add, remove, or reorder items.
+     *
+     * @param string $games_url Games landing page URL.
+     * @return array<int, array<string, string>>
      */
-    function et_home_get_fun_egg_activity_icon( $key, $theme_uri ) {
-        if ( 'education' === $key ) {
-            return trailingslashit( $theme_uri ) . 'images/games-icon_2.png';
-        }
-
-        return et_home_get_game_brand_image( $key, $theme_uri, 'icon' );
+    function et_home_get_fun_egg_preview_items_config( $games_url ) {
+        return apply_filters(
+            'et_home_fun_egg_preview_items_config',
+            array(
+                array(
+                    'key'   => 'coloring',
+                    'label' => 'Coloring Time',
+                    'url'   => 'http://eggstime.com/upload/index.html',
+                ),
+                array(
+                    'key'   => 'puzzle',
+                    'label' => 'Puzzle Time',
+                    'url'   => 'http://eggstime.com/upload/puzzles/index.html',
+                ),
+                array(
+                    'key'   => 'maze',
+                    'label' => 'Maze Time',
+                    'url'   => 'http://eggstime.com/upload/mazes/index.html',
+                ),
+                array(
+                    'key'   => 'difference',
+                    'label' => 'Difference Time',
+                    'url'   => 'http://eggstime.com/upload/diff/index.html',
+                ),
+            ),
+            $games_url
+        );
     }
 }
 
 if ( ! function_exists( 'et_home_get_fun_egg_previews' ) ) {
     /**
-     * Preview cards for the Games Inside Every Egg panel.
+     * Preview cards for the Games Inside Every Egg panel (2–5 items).
      *
      * @param string $theme_uri Theme directory URI.
-     * @return array<int, array<string, string>>
-     */
-    function et_home_get_fun_egg_previews( $theme_uri ) {
-        return array(
-            array(
-                'label' => 'Coloring Time',
-                'image' => 'http://eggstime.com/wp-content/uploads/2017/12/IMG_05012019_114533_0.png',
-                'url'   => 'http://eggstime.com/upload/index.html',
-            ),
-            array(
-                'label' => 'Puzzle Time',
-                'image' => 'http://eggstime.com/wp-content/uploads/2017/12/IMG_05012019_114538_0.png',
-                'url'   => 'http://eggstime.com/upload/puzzles/index.html',
-            ),
-        );
-    }
-}
-
-if ( ! function_exists( 'et_home_get_fun_egg_activities' ) ) {
-    /**
-     * Activity list items with branded icon badges.
-     *
      * @param string $games_url Games landing page URL.
-     * @param string $theme_uri Theme directory URI.
      * @return array<int, array<string, string>>
      */
-    function et_home_get_fun_egg_activities( $games_url, $theme_uri ) {
-        return array(
-            array(
-                'key'   => 'maze',
-                'label' => 'Maze Time',
-                'icon'  => et_home_get_fun_egg_activity_icon( 'maze', $theme_uri ),
-                'url'   => 'http://eggstime.com/upload/mazes/index.html',
-            ),
-            array(
-                'key'   => 'coloring',
-                'label' => 'Coloring Time',
-                'icon'  => et_home_get_fun_egg_activity_icon( 'coloring', $theme_uri ),
-                'url'   => 'http://eggstime.com/upload/index.html',
-            ),
-            array(
-                'key'   => 'puzzle',
-                'label' => 'Puzzle Time',
-                'icon'  => et_home_get_fun_egg_activity_icon( 'puzzle', $theme_uri ),
-                'url'   => 'http://eggstime.com/upload/puzzles/index.html',
-            ),
-            array(
-                'key'   => 'difference',
-                'label' => 'Difference Time',
-                'icon'  => et_home_get_fun_egg_activity_icon( 'difference', $theme_uri ),
-                'url'   => 'http://eggstime.com/upload/diff/index.html',
-            ),
-            array(
-                'key'   => 'education',
-                'label' => 'And More Educational Activities',
-                'icon'  => et_home_get_fun_egg_activity_icon( 'education', $theme_uri ),
-                'url'   => $games_url,
-            ),
-        );
+    function et_home_get_fun_egg_previews( $theme_uri, $games_url = '' ) {
+        if ( empty( $games_url ) ) {
+            $games_url = function_exists( 'get_permalink' ) ? get_permalink( 617 ) : home_url( '/games/' );
+        }
+
+        if ( empty( $games_url ) || '#' === $games_url ) {
+            $games_url = home_url( '/games/' );
+        }
+
+        $catalog  = et_home_get_fun_egg_preview_items_config( $games_url );
+        $previews = array();
+
+        foreach ( $catalog as $item ) {
+            if ( count( $previews ) >= 5 ) {
+                break;
+            }
+
+            if ( empty( $item['label'] ) ) {
+                continue;
+            }
+
+            $image = '';
+
+            if ( ! empty( $item['image'] ) ) {
+                $image = (string) $item['image'];
+            } elseif ( ! empty( $item['key'] ) ) {
+                $key       = (string) $item['key'];
+                $wp_images = et_home_get_games_category_images();
+
+                if ( ! empty( $wp_images[ $key ] ) ) {
+                    $image = $wp_images[ $key ];
+                } else {
+                    $image = et_home_get_game_brand_image( $key, $theme_uri, 'preview' );
+                }
+            }
+
+            if ( '' === $image ) {
+                continue;
+            }
+
+            $previews[] = array(
+                'label' => (string) $item['label'],
+                'image' => $image,
+                'url'   => ! empty( $item['url'] ) ? (string) $item['url'] : $games_url,
+            );
+        }
+
+        $previews = apply_filters( 'et_home_fun_egg_previews', $previews, $theme_uri, $games_url );
+
+        if ( count( $previews ) > 5 ) {
+            $previews = array_slice( $previews, 0, 5 );
+        }
+
+        return $previews;
     }
 }
 

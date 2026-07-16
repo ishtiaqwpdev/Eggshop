@@ -343,6 +343,35 @@
         });
     }
 
+    function getFunEggPreviewsSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
+        var count = parseInt($wrap.find('.et-home__fun-egg-previews-slider').data('etPreviewCount'), 10) || 2;
+        var desktopShow = Math.min(count, 2);
+
+        return getEggWorldSliderConfig($wrap, prevLabel, nextLabel, arrowClass, {
+            slidesToShow: desktopShow,
+            slidesToScroll: 1,
+            infinite: count > desktopShow,
+            responsive: [
+                {
+                    breakpoint: 991,
+                    settings: {
+                        slidesToShow: Math.min(count, 2),
+                        slidesToScroll: 1,
+                        infinite: count > 2
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        infinite: count > 1
+                    }
+                }
+            ]
+        });
+    }
+
     function getGamesExtraSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
         return getEggWorldSliderConfig($wrap, prevLabel, nextLabel, arrowClass, {
             slidesToShow: 3,
@@ -540,6 +569,65 @@
             getGamesExtraSliderConfig,
             'resize.etHomeGamesExtraSlider'
         );
+
+        /* Games Inside Every Egg previews: static 2-up grid for 2 items; carousel for 3–5. */
+        (function initFunEggPreviewsSlider() {
+            var $sliders = $('.et-home__fun-egg-previews-slider');
+            var resizeTimer;
+
+            if (!$sliders.length || typeof $.fn.slick !== 'function') {
+                return;
+            }
+
+            function toggle($slider) {
+                var $wrap = $slider.closest('.et-home__fun-egg-previews-slider-wrap');
+                var count = parseInt($slider.data('etPreviewCount'), 10) || 0;
+
+                if (count <= 2) {
+                    $wrap.removeClass('is-slider-active');
+
+                    if ($slider.hasClass('slick-initialized')) {
+                        $slider.slick('unslick');
+                    }
+
+                    return;
+                }
+
+                $wrap.addClass('is-slider-active');
+
+                if ($slider.hasClass('slick-initialized')) {
+                    $slider.slick('setPosition');
+                    return;
+                }
+
+                prepareEggWorldSliderForLoop($slider);
+                $slider.slick(
+                    getFunEggPreviewsSliderConfig(
+                        $wrap,
+                        'Previous game previews',
+                        'Next game previews',
+                        'et-home__fun-egg-preview-arrow'
+                    )
+                );
+                $slider.find('img').attr('draggable', 'false');
+                $slider.on('dragstart', 'img', function (event) {
+                    event.preventDefault();
+                });
+            }
+
+            function refresh() {
+                $sliders.each(function () {
+                    toggle($(this));
+                });
+            }
+
+            refresh();
+
+            $(window).on('resize.etHomeFunEggPreviewsSlider', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(refresh, 150);
+            });
+        })();
 
         /* Fun Egg app game cards: static grid on desktop/tablet; slider on mobile. */
         (function initFunEggAppGamesMobileSlider() {
@@ -800,6 +888,7 @@
         var video = videoWrap.querySelector('.et-home__hero-video');
         var playToggle = videoWrap.querySelector('.et-home__hero-video-play');
         var soundToggle = videoWrap.querySelector('.et-home__hero-video-sound');
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         if (!video) {
             return;
@@ -829,6 +918,12 @@
             videoWrap.classList.add('is-loading');
         }
 
+        function markVideoError() {
+            videoWrap.classList.add('has-video-error');
+            videoWrap.classList.remove('is-loading');
+            setPlayingState(false);
+        }
+
         function setSoundState(isUnmuted) {
             if (!soundToggle) {
                 return;
@@ -844,8 +939,33 @@
             }
         }
 
-        video.pause();
-        setPlayingState(false);
+        function startAutoplay() {
+            if (prefersReducedMotion) {
+                video.pause();
+                setPlayingState(false);
+                markVideoReady();
+                return;
+            }
+
+            video.muted = true;
+            var playPromise = video.play();
+
+            if (!playPromise || typeof playPromise.then !== 'function') {
+                setPlayingState(!video.paused);
+                markVideoReady();
+                return;
+            }
+
+            playPromise
+                .then(function () {
+                    setPlayingState(true);
+                    markVideoReady();
+                })
+                .catch(function () {
+                    setPlayingState(false);
+                    markVideoReady();
+                });
+        }
 
         video.addEventListener('play', function () {
             setPlayingState(true);
@@ -885,6 +1005,7 @@
 
         video.addEventListener('loadeddata', markVideoReady);
         video.addEventListener('canplay', markVideoReady);
+        video.addEventListener('error', markVideoError);
 
         if (video.readyState >= 2) {
             markVideoReady();
@@ -896,6 +1017,8 @@
                 setSoundState(!soundToggle.classList.contains('is-unmuted'));
             });
         }
+
+        startAutoplay();
     }
 
     function initHeroVideo() {

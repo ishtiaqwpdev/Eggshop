@@ -2,6 +2,7 @@
     'use strict';
 
     var DESKTOP_BREAKPOINT = 1200;
+    var STATIC_GRID_BREAKPOINT = 1200;
 
     /* Duplicate slides so infinite + autoplay work with few cards. */
     function prepareProductsSliderForLoop($el) {
@@ -21,7 +22,7 @@
 
     function getBrandsSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
         return {
-            slidesToShow: 5,
+            slidesToShow: 6,
             slidesToScroll: 1,
             arrows: true,
             appendArrows: $wrap,
@@ -40,6 +41,13 @@
                 {
                     breakpoint: 1400,
                     settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 1200,
+                    settings: {
                         slidesToShow: 4,
                         slidesToScroll: 1
                     }
@@ -54,14 +62,14 @@
                 {
                     breakpoint: 768,
                     settings: {
-                        slidesToShow: 2,
+                        slidesToShow: 2.4,
                         slidesToScroll: 1
                     }
                 },
                 {
                     breakpoint: 576,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: 2,
                         slidesToScroll: 1
                     }
                 }
@@ -353,15 +361,60 @@
     $(document).ready(function () {
         initLicenseHeroVideo();
 
-        initAlwaysOnSlider(
-            '.et-license__brands-slider',
-            '.et-license__brands-slider-wrap',
-            'Previous brands',
-            'Next brands',
-            'et-license__slider-arrow',
-            getBrandsSliderConfig,
-            'resize.etLicenseBrandsSlider'
-        );
+        /* Brands: static single row at 1200px+; carousel below that. */
+        (function initBrandsWideDesktopSlider() {
+            var $sliders = $('.et-license__brands-slider');
+            var resizeTimer;
+
+            if (!$sliders.length || typeof $.fn.slick !== 'function') {
+                return;
+            }
+
+            function toggle($slider) {
+                var $wrap = $slider.closest('.et-license__brands-slider-wrap');
+
+                if (window.innerWidth >= STATIC_GRID_BREAKPOINT) {
+                    $wrap.removeClass('is-slider-active');
+
+                    if ($slider.hasClass('slick-initialized')) {
+                        $slider.slick('unslick');
+                    }
+
+                    return;
+                }
+
+                $wrap.addClass('is-slider-active');
+
+                if ($slider.hasClass('slick-initialized')) {
+                    $slider.slick('setPosition');
+                    return;
+                }
+
+                prepareProductsSliderForLoop($slider);
+                $slider.slick(
+                    getBrandsSliderConfig(
+                        $wrap,
+                        'Previous brands',
+                        'Next brands',
+                        'et-license__slider-arrow'
+                    )
+                );
+                $slider.slick('slickPlay');
+            }
+
+            function refresh() {
+                $sliders.each(function () {
+                    toggle($(this));
+                });
+            }
+
+            refresh();
+
+            $(window).on('resize.etLicenseBrandsSlider', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(refresh, 150);
+            });
+        })();
 
         /* Products: static grid on tablet/desktop; slick slider on mobile only. */
         (function initProductsMobileSlider() {
@@ -392,10 +445,9 @@
                 }
 
                 $slider.slick({
-                    slidesToShow: 1,
+                    slidesToShow: 1.35,
                     slidesToScroll: 1,
-                    arrows: true,
-                    appendArrows: $wrap,
+                    arrows: false,
                     autoplay: true,
                     autoplaySpeed: 4500,
                     pauseOnHover: true,
@@ -405,8 +457,16 @@
                     swipeToSlide: true,
                     draggable: true,
                     touchMove: true,
-                    prevArrow: '<button class="slick-prev et-license__slider-arrow" aria-label="Previous products" type="button"></button>',
-                    nextArrow: '<button class="slick-next et-license__slider-arrow" aria-label="Next products" type="button"></button>'
+                    speed: 350,
+                    responsive: [
+                        {
+                            breakpoint: 576,
+                            settings: {
+                                slidesToShow: 1.2,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
                 });
             }
 
@@ -424,13 +484,32 @@
             });
         })();
 
-        bindResponsiveSlider(
-            '.et-license__categories-slider',
-            '.et-license__categories-slider-wrap',
-            'Previous categories',
-            'Next categories',
-            'et-license__slider-arrow',
-            'resize.etLicenseCategoriesSlider'
-        );
+        /* Categories: static grid at all breakpoints (2-col mobile, 4-col tablet, 8-col desktop). */
+        (function initCategoriesStaticGrid() {
+            var $sliders = $('.et-license__categories-slider');
+
+            if (!$sliders.length || typeof $.fn.slick !== 'function') {
+                return;
+            }
+
+            function unslickAll() {
+                $sliders.each(function () {
+                    var $slider = $(this);
+                    var $wrap = $slider.closest('.et-license__categories-slider-wrap');
+
+                    $wrap.removeClass('is-slider-active');
+
+                    if ($slider.hasClass('slick-initialized')) {
+                        $slider.slick('unslick');
+                    }
+                });
+            }
+
+            unslickAll();
+
+            $(window).on('resize.etLicenseCategoriesGrid', function () {
+                unslickAll();
+            });
+        })();
     });
 })(jQuery);

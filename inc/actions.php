@@ -66,6 +66,12 @@ function et_enqueue_cookie_banner_assets()
         file_exists($cookie_js) ? filemtime($cookie_js) : '1.0',
         true
     );
+
+    wp_add_inline_script(
+        'et-cookie-banner',
+        "(function(){try{if(localStorage.getItem('et_cookie_consent')||/(?:^|; )CookieLawInfoConsent=/.test(document.cookie)){document.documentElement.classList.add('et-cookie-consent-given');}}catch(e){}})();",
+        'before'
+    );
 }
 
 add_action('wp_enqueue_scripts', 'add_et_brand_colors_css', 99997);

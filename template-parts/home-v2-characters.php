@@ -18,10 +18,8 @@ $et_home_characters = function_exists( 'et_home_get_characters' )
 <section id="et-home-characters" class="et-home__characters" aria-labelledby="et-home-characters-title">
     <div class="et-home__section-inner center">
         <div class="et-home__characters-intro">
-            <h2 class="et-home__section-title et-home__section-title--stars et-home__characters-title" id="et-home-characters-title">
-                <span class="et-home__section-star" aria-hidden="true">★</span>
+            <h2 class="et-home__section-title et-home__characters-title" id="et-home-characters-title">
                 Choose Your Egg World
-                <span class="et-home__section-star" aria-hidden="true">★</span>
             </h2>
             <p class="et-home__characters-lead">Meet each egg world&rsquo;s personality and story.</p>
         </div>
