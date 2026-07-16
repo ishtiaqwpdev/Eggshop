@@ -199,6 +199,17 @@
     border: 0 !important;
 }
 
+/* Kill legacy -4px edge offsets on Egg World + Best Sellers arrows. */
+.et-home__characters-slider-wrap .slick-prev,
+.et-home__best-sellers-slider-wrap .slick-prev {
+    left: 0 !important;
+}
+
+.et-home__characters-slider-wrap .slick-next,
+.et-home__best-sellers-slider-wrap .slick-next {
+    right: 0 !important;
+}
+
 /* In-flow arrows: prev | track | next (avoids overflow clipping on playful band) */
 .et-home__characters-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
 .et-home__best-sellers-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
@@ -688,8 +699,8 @@
     .et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow,
     .et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow {
         position: relative !important;
-        left: auto !important;
-        right: auto !important;
+        left: 0 !important;
+        right: 0 !important;
         top: auto !important;
         bottom: auto !important;
         transform: none !important;
@@ -724,5 +735,19 @@
         height: 7px;
         border-top-width: 2px;
         border-right-width: 2px;
+    }
+
+    .et-home__characters-slider-wrap .slick-prev,
+    .et-home__characters-slider-wrap .slick-next,
+    .et-home__best-sellers-slider-wrap .slick-prev,
+    .et-home__best-sellers-slider-wrap .slick-next {
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 }

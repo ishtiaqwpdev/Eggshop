@@ -8730,8 +8730,8 @@
     .main--home-v2 .et-home__best-sellers-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
     .main--home-v2 .et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow {
         position: relative !important;
-        left: auto !important;
-        right: auto !important;
+        left: 0 !important;
+        right: 0 !important;
         top: auto !important;
         bottom: auto !important;
         width: 28px !important;
@@ -8762,5 +8762,19 @@
     .main--home-v2 .et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow,
     .main--home-v2 .et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow {
         order: 3 !important;
+    }
+
+    .main--home-v2 .et-home__characters-slider-wrap .slick-prev,
+    .main--home-v2 .et-home__characters-slider-wrap .slick-next,
+    .main--home-v2 .et-home__best-sellers-slider-wrap .slick-prev,
+    .main--home-v2 .et-home__best-sellers-slider-wrap .slick-next {
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 }
