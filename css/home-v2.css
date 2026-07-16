@@ -2582,7 +2582,8 @@
 
 @media screen and (max-width: 768px) {
     .et-home__stories-head .et-home__stories-all {
-        display: none;
+        display: inline-flex !important;
+        width: 100%;
     }
 
     .et-home__stories--mobile-card .et-home__stories-head {
@@ -2686,9 +2687,7 @@
     }
 
     .et-home__stories-mobile-footer {
-        display: flex;
-        justify-content: center;
-        margin-top: 14px;
+        display: none !important;
     }
 }
 
