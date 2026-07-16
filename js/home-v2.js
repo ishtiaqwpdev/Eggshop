@@ -2,6 +2,7 @@
     'use strict';
 
     var DESKTOP_BREAKPOINT = 1200;
+    var MOBILE_SLIDES_TO_SHOW = 3;
 
     function getSliderConfig($wrap, prevLabel, nextLabel, arrowClass, options) {
         var settings = $.extend({
@@ -18,14 +19,14 @@
                 {
                     breakpoint: 768,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: MOBILE_SLIDES_TO_SHOW,
                         slidesToScroll: 1
                     }
                 },
                 {
                     breakpoint: 576,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: MOBILE_SLIDES_TO_SHOW,
                         slidesToScroll: 1
                     }
                 }
@@ -67,7 +68,7 @@
                 {
                     breakpoint: 768,
                     settings: {
-                        slidesToShow: 2,
+                        slidesToShow: MOBILE_SLIDES_TO_SHOW,
                         slidesToScroll: 1
                     }
                 }
@@ -84,7 +85,7 @@
                 {
                     breakpoint: 768,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: MOBILE_SLIDES_TO_SHOW,
                         slidesToScroll: 1
                     }
                 }
@@ -145,9 +146,16 @@
                     }
                 },
                 {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: MOBILE_SLIDES_TO_SHOW,
+                        slidesToScroll: 1
+                    }
+                },
+                {
                     breakpoint: 576,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: MOBILE_SLIDES_TO_SHOW,
                         slidesToScroll: 1
                     }
                 }
@@ -388,9 +396,16 @@
                     }
                 },
                 {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: MOBILE_SLIDES_TO_SHOW,
+                        slidesToScroll: 1
+                    }
+                },
+                {
                     breakpoint: 576,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: MOBILE_SLIDES_TO_SHOW,
                         slidesToScroll: 1
                     }
                 }
@@ -497,7 +512,7 @@
                     {
                         breakpoint: 768,
                         settings: {
-                            slidesToShow: 1,
+                            slidesToShow: MOBILE_SLIDES_TO_SHOW,
                             slidesToScroll: 1
                         }
                     }
@@ -677,7 +692,7 @@
                 }
 
                 $slider.slick({
-                    slidesToShow: 1,
+                    slidesToShow: MOBILE_SLIDES_TO_SHOW,
                     slidesToScroll: 1,
                     arrows: true,
                     appendArrows: $wrap,
@@ -738,7 +753,7 @@
                 }
 
                 $slider.slick({
-                    slidesToShow: 1,
+                    slidesToShow: MOBILE_SLIDES_TO_SHOW,
                     slidesToScroll: 1,
                     arrows: true,
                     appendArrows: $wrap,
@@ -868,7 +883,7 @@
                 }
 
                 $slider.slick({
-                    slidesToShow: 1.12,
+                    slidesToShow: MOBILE_SLIDES_TO_SHOW,
                     slidesToScroll: 1,
                     arrows: true,
                     appendArrows: $wrap,
