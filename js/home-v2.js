@@ -67,7 +67,7 @@
                 {
                     breakpoint: 768,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: 2,
                         slidesToScroll: 1
                     }
                 }
@@ -543,7 +543,7 @@
 
         /* Fun Egg app game cards: static grid on desktop/tablet; slider on mobile. */
         (function initFunEggAppGamesMobileSlider() {
-            var MOBILE_MAX = 767;
+            var MOBILE_MAX = 768;
             var $sliders = $('.et-home__fun-egg-app-games-slider');
             var resizeTimer;
 
@@ -604,7 +604,7 @@
 
         /* Community social cards: static grid on desktop/tablet; slider on mobile. */
         (function initSocialCardsMobileSlider() {
-            var MOBILE_MAX = 767;
+            var MOBILE_MAX = 768;
             var $sliders = $('.et-home__social-slider');
             var resizeTimer;
 
@@ -665,7 +665,7 @@
 
         /* Distributor brand logos: CSS scroll carousel on mobile (no slick — avoids overflow). */
         (function initDistributorBrandsScrollCarousel() {
-            var MOBILE_MAX = 767;
+            var MOBILE_MAX = 768;
             var $wraps = $('.et-home__distributor-showcase-slider-wrap');
 
             if (!$wraps.length) {
@@ -732,9 +732,9 @@
             });
         })();
 
-        /* Partnership CTA cards: grid on desktop; slider on mobile. */
+        /* Partnership CTA cards: grid on desktop; compact slider on mobile. */
         (function initCtaCardsMobileSlider() {
-            var MOBILE_MAX = 767;
+            var MOBILE_MAX = 768;
             var $sliders = $('.et-home__cta-cards-slider');
             var resizeTimer;
 
@@ -761,7 +761,7 @@
                 }
 
                 $slider.slick({
-                    slidesToShow: 1,
+                    slidesToShow: 1.12,
                     slidesToScroll: 1,
                     arrows: true,
                     appendArrows: $wrap,

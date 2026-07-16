@@ -82,8 +82,11 @@ if ( empty( $et_home_distributor_brands ) ) {
                         <span class="et-home__distributor-title-line--navy">Eggs Time</span><span class="et-home__distributor-title-line--green"> Distributor</span>
                     </span>
                 </h2>
-                <p class="et-home__distributor-text">
+                <p class="et-home__distributor-text et-home__distributor--desktop-detail">
                     Join our growing global network of distributors and retail partners. Eggs Time combines educational entertainment, surprise toys, and quality confectionery products loved by children and families worldwide.
+                </p>
+                <p class="et-home__distributor-text et-home__distributor-text--mobile">
+                    Join our global network of distributors and retail partners bringing educational entertainment and quality products to families worldwide.
                 </p>
                 <p class="et-home__distributor-note">
                     <span class="et-home__distributor-globe" aria-hidden="true">

@@ -1161,6 +1161,97 @@ google.maps.event.addDomListener(window, 'load', initializes_address);
 			font-size: 15px !important;
 		}
 	}
+
+	@media screen and (max-width: 768px) {
+		footer.footer {
+			padding: 20px 0 24px !important;
+		}
+
+		footer.footer .center {
+			padding: 0 14px !important;
+		}
+
+		footer.footer .footer__columns .footer__accordion-toggle {
+			gap: 8px !important;
+			padding: 10px 0 8px !important;
+			font-size: 14px !important;
+			line-height: 1.25 !important;
+		}
+
+		footer.footer .footer__accordion-icon {
+			flex: 0 0 30px !important;
+			width: 30px !important;
+			height: 30px !important;
+			min-width: 30px !important;
+			max-width: 30px !important;
+		}
+
+		footer.footer .footer__accordion-icon svg {
+			width: 15px !important;
+			height: 15px !important;
+		}
+
+		footer.footer .footer__accordion-chevron {
+			flex: 0 0 24px !important;
+			width: 24px !important;
+			height: 24px !important;
+			min-width: 24px !important;
+			max-width: 24px !important;
+		}
+
+		footer.footer .footer__accordion-chevron svg {
+			width: 14px !important;
+			height: 14px !important;
+		}
+
+		footer.footer .footer__accordion-panel {
+			padding: 2px 0 8px 38px !important;
+		}
+
+		footer.footer .footer__accordion-panel ul li {
+			padding: 3px 0 !important;
+			font-size: 13px !important;
+		}
+
+		footer.footer .footer__form.footform_btm {
+			padding: 12px 0 0 !important;
+		}
+
+		footer.footer .footer__newsletter-head {
+			gap: 8px !important;
+			margin: 10px 0 8px !important;
+		}
+
+		footer.footer .footer__newsletter-title {
+			margin: 0 0 2px !important;
+			font-size: 13px !important;
+		}
+
+		footer.footer .footer__newsletter-sub {
+			font-size: 12px !important;
+		}
+
+		footer.footer .footer__form form,
+		footer.footer .footer__form .mc4wp-form-fields,
+		footer.footer .footer__form .form {
+			gap: 6px !important;
+		}
+
+		footer.footer .footer__form input[type="text"],
+		footer.footer .footer__form input[type="email"] {
+			height: 40px !important;
+			padding: 0 14px !important;
+			font-size: 13px !important;
+		}
+
+		footer.footer .footer__form .button,
+		footer.footer .footer__form input[type="submit"] {
+			min-width: 88px !important;
+			height: 40px !important;
+			padding: 0 14px !important;
+			font-size: 11px !important;
+		}
+	}
 </style>
 </body>
 </html>

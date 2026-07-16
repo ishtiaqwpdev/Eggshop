@@ -65,7 +65,7 @@ $magik_character = $brand_meta['magik']['character_image'];
                         <div class="et-home__fun-egg-games-copy">
                             <h3 class="et-home__fun-egg-games-title">Games Inside Every Egg</h3>
                             <p class="et-home__fun-egg-games-subtitle">Educational activities designed to inspire creativity, problem-solving, and learning through play.</p>
-                            <p class="et-home__fun-egg-games-desc">
+                            <p class="et-home__fun-egg-games-desc et-home__fun-egg--desktop-detail">
                                 <span class="et-home__fun-egg-colorful" aria-label="<?php esc_attr_e( 'Colorful', 'eggs-shop' ); ?>">
                                     <span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--dark">C</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--orange">o</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--blue">l</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--green">o</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--red">r</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--blue">f</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--orange">u</span><span class="et-home__fun-egg-colorful-char et-home__fun-egg-colorful-char--green">l</span>
                                 </span>
@@ -103,8 +103,8 @@ $magik_character = $brand_meta['magik']['character_image'];
 
                 <div class="et-home__fun-egg-activities-col">
                     <ul class="et-home__fun-egg-activities">
-                        <?php foreach ( $et_home_fun_egg_activities as $activity ) : ?>
-                            <li class="et-home__fun-egg-activity-item">
+                        <?php foreach ( $et_home_fun_egg_activities as $index => $activity ) : ?>
+                            <li class="et-home__fun-egg-activity-item<?php echo $index >= 4 ? ' et-home__fun-egg-activity-item--mobile-hidden' : ''; ?>">
                                 <a href="<?php echo esc_url( $activity['url'] ); ?>" class="et-home__fun-egg-activity" target="_blank" rel="noopener noreferrer">
                                     <span class="et-home__fun-egg-activity-icon" aria-hidden="true">
                                         <img
@@ -119,7 +119,7 @@ $magik_character = $brand_meta['magik']['character_image'];
                             </li>
                         <?php endforeach; ?>
                     </ul>
-                    <a href="<?php echo esc_url( $games_url ); ?>" class="et-home__fun-egg-more">...and more!</a>
+                    <a href="<?php echo esc_url( $games_url ); ?>" class="et-home__fun-egg-more et-home__fun-egg--desktop-detail">...and more!</a>
                 </div>
 
                 <div class="et-home__fun-egg-mascot" aria-hidden="true">
@@ -130,6 +130,12 @@ $magik_character = $brand_meta['magik']['character_image'];
                         loading="lazy"
                         decoding="async"
                     />
+                </div>
+
+                <div class="et-home__fun-egg-mobile-footer">
+                    <a href="<?php echo esc_url( $games_url ); ?>" class="et-home__fun-egg-details-btn">
+                        Explore All Games &amp; Activities
+                    </a>
                 </div>
             </div>
         </div>
@@ -148,16 +154,17 @@ $magik_character = $brand_meta['magik']['character_image'];
                                     <span class="et-home__fun-egg-app-kicker-line">Eggs Time App</span>
                                 </span>
                                 <div class="et-home__fun-egg-app-text">
-                                    <p class="et-home__fun-egg-app-text-line">
+                                    <p class="et-home__fun-egg-app-summary">Play educational games with your favorite egg characters anytime, anywhere!</p>
+                                    <p class="et-home__fun-egg-app-text-line et-home__fun-egg--desktop-detail">
                                         <span class="et-home__fun-egg-app-heart" aria-hidden="true">
                                             <?php echo et_home_icon( 'heart' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                         </span>
                                         Play exciting educational games inspired
                                     </p>
-                                    <p class="et-home__fun-egg-app-text-line">
+                                    <p class="et-home__fun-egg-app-text-line et-home__fun-egg--desktop-detail">
                                         by your favorite egg characters anytime,
                                     </p>
-                                    <p class="et-home__fun-egg-app-text-line">
+                                    <p class="et-home__fun-egg-app-text-line et-home__fun-egg--desktop-detail">
                                         <span class="et-home__fun-egg-app-heart" aria-hidden="true">
                                             <?php echo et_home_icon( 'heart' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                         </span>
