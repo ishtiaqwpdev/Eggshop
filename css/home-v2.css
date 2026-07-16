@@ -2583,8 +2583,7 @@
 
 @media screen and (max-width: 768px) {
     .et-home__stories-head .et-home__stories-all {
-        display: inline-flex !important;
-        width: 100%;
+        display: none !important;
     }
 
     .et-home__stories--mobile-card .et-home__stories-head {
@@ -2688,7 +2687,20 @@
     }
 
     .et-home__stories-mobile-footer {
-        display: none !important;
+        display: flex !important;
+        justify-content: center;
+        margin-top: 14px;
+    }
+
+    .et-home__stories-mobile-footer .et-home__stories-all,
+    .et-home__stories-all--mobile {
+        width: auto !important;
+        min-width: 0;
+        max-width: min(100%, 200px);
+        min-height: 36px;
+        padding: 7px 16px !important;
+        font-size: 10px !important;
+        letter-spacing: 0.08em;
     }
 }
 

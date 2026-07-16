@@ -115,7 +115,7 @@ $et_home_stories = array(
 
         <div class="et-home__stories-mobile-footer">
             <a href="<?php echo esc_url( $et_home_stories_url ); ?>" class="et-home__stories-all et-home__stories-all--mobile">
-                View All
+                View All Stories
             </a>
         </div>
     </div>
