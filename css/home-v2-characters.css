@@ -36,6 +36,7 @@
     color: var(--et-home-heading) !important;
     -webkit-text-stroke: 0;
     paint-order: initial;
+    white-space: nowrap;
 }
 
 .et-home__characters-lead {
@@ -481,8 +482,11 @@
         gap: 8px;
     }
 
-    .et-home__characters-intro .et-home__section-title {
-        font-size: clamp(26px, 7vw, 34px);
+    .et-home__characters-intro .et-home__section-title,
+    .et-home__characters-title,
+    #et-home-characters-title {
+        font-size: clamp(15px, 4.6vw, 28px);
+        letter-spacing: 0.02em;
     }
 
     .et-home__card-btn {
@@ -493,6 +497,13 @@
 @media screen and (max-width: 768px) {
     .et-home__characters-intro {
         margin-bottom: 16px;
+    }
+
+    .et-home__characters-intro .et-home__section-title,
+    .et-home__characters-title,
+    #et-home-characters-title {
+        font-size: clamp(15px, 4.6vw, 28px);
+        letter-spacing: 0.02em;
     }
 
     .et-home__characters-lead {
