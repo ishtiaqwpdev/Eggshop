@@ -45,7 +45,7 @@
     /* Tight pad used above Best Sellers / Egg World / Stories headings */
     --et-home-tight-pad: 12px;
     --et-home-panel-bg: #f0f7ff;
-    --et-home-playful-bg-url: 'https://eggstime.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-28-2026-02_38_47-PM.png';
+    --et-home-playful-bg-url: url('https://eggstime.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-28-2026-02_38_47-PM.png');
     --et-home-sparkle-gold: rgba(255, 212, 0, 0.85);
     --et-home-sparkle-pink: rgba(255, 61, 165, 0.8);
     --et-home-sparkle-blue: rgba(24, 195, 255, 0.75);
@@ -65,37 +65,58 @@
     box-sizing: border-box;
 }
 
-/* Shared playful landscape background â€” image layer + grass at bottom */
+/* Shared playful landscape background */
 .et-home__playful-section,
 .et-home__bg-band--playful {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    background-color: #dff0ff;
+    background-color: #eef7fc;
+}
+
+.et-home__playful-section {
     background-image: linear-gradient(180deg, #eef8ff 0%, #e4f4ff 55%, #daf0e8 100%);
 }
 
-.et-home__playful-section::after,
+.et-home__bg-band--playful {
+    background-image: var(--et-home-playful-bg-url);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    -webkit-background-size: cover;
+}
+
+.et-home__playful-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: #eef7fc;
+    background-image:
+        radial-gradient(circle at 14% 20%, rgba(255, 212, 0, 0.18) 0, transparent 22%),
+        radial-gradient(circle at 86% 12%, rgba(255, 61, 165, 0.14) 0, transparent 24%),
+        radial-gradient(circle at 72% 78%, rgba(24, 195, 255, 0.16) 0, transparent 26%);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    pointer-events: none;
+}
+
 .et-home__bg-band--playful::after {
     content: '';
     position: absolute;
     inset: 0;
     z-index: 0;
-    background-color: #dff0ff;
-    background-image:
-        radial-gradient(circle at 14% 20%, rgba(255, 212, 0, 0.18) 0, transparent 22%),
-        radial-gradient(circle at 86% 12%, rgba(255, 61, 165, 0.14) 0, transparent 24%),
-        radial-gradient(circle at 72% 78%, rgba(24, 195, 255, 0.16) 0, transparent 26%),
-        url('https://eggstime.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-28-2026-02_38_47-PM.png');
+    background-color: #eef7fc;
+    background-image: var(--et-home-playful-bg-url);
     background-repeat: no-repeat;
-    background-size: auto, auto, auto, cover;
-    background-position: center, center, center, center bottom;
-    -webkit-background-size: auto, auto, auto, cover;
+    background-size: cover;
+    background-position: center center;
+    -webkit-background-size: cover;
     pointer-events: none;
 }
 
-.et-home__playful-section::before,
-.et-home__bg-band--playful::before {
+.et-home__playful-section::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -113,6 +134,16 @@
     pointer-events: none;
     z-index: 1;
     opacity: 0.92;
+}
+
+.et-home__bg-band--playful::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 1;
 }
 
 .et-home__playful-section > *,
@@ -161,19 +192,25 @@
 }
 
 @media screen and (max-width: 767px) {
-    .et-home__playful-section::after,
     .et-home__bg-band--playful::after {
-        background-image: url('https://eggstime.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-28-2026-02_38_47-PM.png');
+        background-image: var(--et-home-playful-bg-url);
         background-repeat: no-repeat;
         background-size: cover !important;
-        background-position: center bottom !important;
+        background-position: center center !important;
+        -webkit-background-size: cover !important;
+    }
+
+    .et-home__bg-band--playful {
+        background-image: var(--et-home-playful-bg-url);
+        background-size: cover !important;
+        background-position: center center !important;
         -webkit-background-size: cover !important;
     }
 
     .et-home__playful-section::before,
     .et-home__bg-band--playful::before,
     .et-home__hero.et-home__playful-section::before {
-        background: rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.04);
     }
 
     .et-home__hero.et-home__playful-section .et-home__hero-overlay {
@@ -6739,6 +6776,11 @@
 .et-home__products .et-home__section-inner,
 .et-home__fun-egg .et-home__section-inner {
     position: relative;
+}
+
+.et-home__bg-band--playful .et-home__characters .et-home__section-inner::before,
+.et-home__bg-band--playful .et-home__best-sellers .et-home__section-inner::before {
+    display: none;
 }
 
 .et-home__characters .et-home__section-inner::before,
