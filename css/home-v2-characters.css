@@ -100,7 +100,7 @@
 
 .et-home__characters-slider .slick-list {
     overflow: hidden;
-    margin: 0 -8px;
+    margin: 0;
     padding: 4px 0 8px;
 }
 
@@ -540,7 +540,9 @@
     }
 
     .et-home__characters-slider .slick-list {
-        margin: 0 -2px;
+        margin: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         padding: 0 0 4px;
         overflow: hidden;
     }
@@ -657,13 +659,13 @@
         flex-direction: row !important;
         align-items: center !important;
         gap: 6px !important;
-        width: calc(100% + (2 * var(--et-home-section-x))) !important;
-        max-width: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
         box-sizing: border-box !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
-        margin-left: calc(-1 * var(--et-home-section-x)) !important;
-        margin-right: calc(-1 * var(--et-home-section-x)) !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         overflow: visible !important;
     }
 
@@ -672,6 +674,13 @@
         flex: 1 1 auto !important;
         min-width: 0 !important;
         order: 2 !important;
+    }
+
+    .et-home__characters-slider .slick-list,
+    .et-home__best-sellers-slider .slick-list {
+        margin: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .et-home__characters-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
