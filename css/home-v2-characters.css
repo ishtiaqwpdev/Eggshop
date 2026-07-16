@@ -477,7 +477,8 @@
     }
 
     .et-home__characters-slider:not(.slick-initialized) {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
     }
 
     .et-home__characters-intro .et-home__section-title {
@@ -501,80 +502,90 @@
     }
 
     .et-home__characters-slider-wrap {
-        padding: 0 var(--et-home-slider-inset-sm);
+        padding: 0 24px;
     }
 
     .et-home__characters-slider .slick-list {
-        margin: 0 -4px;
+        margin: 0 -2px;
         padding: 0 0 4px;
     }
 
     .et-home__characters-slider .slick-slide {
-        padding: 0 4px;
+        padding: 0 2px;
     }
 
     .et-home__character-card {
-        border-radius: 16px;
+        border-radius: 12px;
     }
 
     .et-home__character-media {
-        min-height: 108px;
-        padding: 10px 8px 8px;
+        min-height: 72px;
+        padding: 6px 4px 4px;
     }
 
     .et-home__character-figure {
-        max-width: 124px;
-        min-height: 96px;
+        max-width: 100%;
+        min-height: 64px;
         padding-bottom: 0;
     }
 
     .et-home__character-image {
-        max-width: min(124px, 100%);
-        max-height: 96px;
+        max-width: min(72px, 100%);
+        max-height: 64px;
     }
 
     .et-home__character-figure--egg .et-home__character-image {
-        max-height: 90px;
+        max-height: 58px;
     }
 
     .et-home__character-figure--character::after {
-        height: 7px;
+        height: 5px;
+        width: 68%;
     }
 
     .et-home__character-figure--egg::after {
-        height: 6px;
+        height: 4px;
+        width: 62%;
     }
 
     .et-home__character-body {
-        gap: 8px;
-        padding: 8px 10px 10px;
+        gap: 6px;
+        padding: 6px 6px 8px;
     }
 
     .et-home__character-name {
-        font-size: 14px;
-        line-height: 1.2;
+        font-size: 11px;
+        line-height: 1.15;
     }
 
     .et-home__character-card .et-home__card-btn {
-        min-height: 34px;
-        padding: 4px 4px 4px 12px !important;
-        font-size: 9px !important;
-        gap: 6px;
+        min-height: 28px;
+        padding: 3px 3px 3px 8px !important;
+        font-size: 7px !important;
+        gap: 4px;
+        letter-spacing: 0.05em;
     }
 
     .et-home__character-btn .et-home__card-btn-icon svg {
-        width: 11px;
-        height: 11px;
+        width: 9px;
+        height: 9px;
     }
 
     .et-home__characters-slider-wrap .et-home__egg-carousel-arrow {
-        width: 34px;
-        height: 34px;
+        width: 28px;
+        height: 28px;
+    }
+
+    .et-home__characters-slider-wrap .et-home__egg-carousel-angle {
+        font-size: 16px;
     }
 }
 
 @media screen and (max-width: 479px) {
-    .et-home__characters-slider-wrap,
+    .et-home__characters-slider-wrap {
+        padding: 0 20px;
+    }
+
     .et-home__best-sellers-slider-wrap {
         padding: 0 var(--et-home-slider-inset-md);
     }
