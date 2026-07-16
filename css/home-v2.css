@@ -1282,7 +1282,7 @@
     paint-order: initial;
 }
 
-.et-home__section-title {
+.et-home__section-title:not(#et-home-characters-title):not(.et-home__characters-title) {
     margin: 0;
     font-size: clamp(28px, 3.6vw, 40px);
     font-weight: 700;
@@ -7147,8 +7147,19 @@
 
 /* Choose Your Egg World — force black title (overrides global section-title stroke) */
 .main--home-v2 #et-home-characters-title,
-.main--home-v2 .et-home__characters-title {
+.main--home-v2 .et-home__characters-title,
+.main--home-v2 .et-home__characters-intro .et-home__section-title {
     color: #000000 !important;
     -webkit-text-stroke: 0 !important;
-    paint-order: initial;
+    paint-order: normal !important;
+}
+
+@media screen and (min-width: 768px) {
+    .main--home-v2 #et-home-characters-title,
+    .main--home-v2 .et-home__characters-title,
+    .main--home-v2 .et-home__characters-intro .et-home__section-title {
+        color: #000000 !important;
+        -webkit-text-stroke: 0 !important;
+        paint-order: normal !important;
+    }
 }
