@@ -3061,6 +3061,198 @@
     }
 }
 
+.et-home__youtube-subscribe-band {
+    display: none;
+}
+
+.et-home__youtube-subscribe--desktop {
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .et-home__youtube-list-item--mobile-hidden {
+        display: none !important;
+    }
+
+    .et-home__youtube-subscribe--desktop {
+        display: none !important;
+    }
+
+    .et-home__youtube-subscribe-band {
+        display: block;
+        background: #ffffff;
+    }
+
+    .et-home__youtube-subscribe-band .et-home__section-inner {
+        padding-top: 0;
+        padding-bottom: 40px;
+    }
+
+    .et-home__youtube-subscribe--mobile-band {
+        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px 12px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 14px 14px 14px 52px;
+        border-radius: 16px;
+        text-align: left;
+        box-shadow: 0 8px 24px rgba(30, 58, 95, 0.1);
+    }
+
+    .et-home__youtube-subscribe--mobile-band .et-home__youtube-subscribe-icon {
+        top: 50%;
+        left: 14px;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 32px;
+        box-shadow: 0 4px 12px rgba(30, 58, 95, 0.12);
+    }
+
+    .et-home__youtube-subscribe--mobile-band .et-home__youtube-subscribe-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .et-home__youtube-subscribe--mobile-band .et-home__youtube-subscribe-title {
+        flex: 1 1 100%;
+        margin: 0;
+        font-size: 15px;
+    }
+
+    .et-home__youtube-subscribe--mobile-band .et-home__youtube-subscribe-text {
+        flex: 1 1 calc(100% - 120px);
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .et-home__youtube-subscribe--mobile-band .et-home__youtube-subscribe-btn {
+        flex: 0 0 auto;
+        width: auto;
+        min-width: 108px;
+        min-height: 36px;
+        margin-top: 0;
+        padding: 8px 16px !important;
+        font-size: 10px !important;
+    }
+
+    .et-home__youtube .et-home__section-inner {
+        padding-top: 48px;
+        padding-bottom: 28px;
+    }
+
+    .et-home__youtube-panel {
+        padding: 14px 12px 16px;
+        border-radius: 18px;
+        box-shadow: 0 10px 28px rgba(26, 159, 224, 0.1);
+    }
+
+    .et-home__youtube-intro {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .et-home__youtube-intro-mark {
+        width: 40px;
+        height: 40px;
+    }
+
+    .et-home__youtube-intro .et-home__section-kicker {
+        margin-bottom: 6px;
+        font-size: 13px;
+    }
+
+    .et-home__youtube-heading {
+        font-size: clamp(24px, 6.5vw, 30px);
+        gap: 8px;
+    }
+
+    .et-home__youtube-layout {
+        gap: 10px;
+    }
+
+    .et-home__youtube-featured {
+        max-width: min(100%, 280px);
+        margin: 0 auto;
+    }
+
+    .et-home__youtube-featured-link {
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(30, 58, 95, 0.14);
+    }
+
+    .et-home__youtube-play--large {
+        width: 44px;
+        height: 44px;
+    }
+
+    .et-home__youtube-play--large svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .et-home__youtube-player-chrome {
+        gap: 6px;
+        padding: 6px 10px;
+    }
+
+    .et-home__youtube-player-btn {
+        width: 18px;
+        height: 18px;
+    }
+
+    .et-home__youtube-player-btn svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .et-home__youtube-player-time {
+        font-size: 10px;
+    }
+
+    .et-home__youtube-list-link {
+        gap: 8px;
+        padding: 8px 0;
+    }
+
+    .et-home__youtube-list-thumb {
+        width: 88px;
+        min-width: 88px;
+        border-radius: 8px;
+    }
+
+    .et-home__youtube-play--small {
+        width: 28px;
+        height: 28px;
+    }
+
+    .et-home__youtube-play--small svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .et-home__youtube-list-num {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+
+    .et-home__youtube-list-title {
+        font-size: 13px;
+        line-height: 1.25;
+    }
+
+    .et-home__youtube-list-duration {
+        font-size: 11px;
+    }
+}
+
 /* ----- Collect, Play & Learn ----- */
 .et-home__products {
     background: #ffffff;
@@ -7300,6 +7492,7 @@
 
 .main--home-v2 .et-home__stories,
 .main--home-v2 .et-home__youtube,
+.main--home-v2 .et-home__youtube-subscribe-band,
 .main--home-v2 .et-home__products,
 .main--home-v2 .et-home__fun-egg,
 .main--home-v2 .et-home__parent-benefits,
@@ -7396,5 +7589,22 @@
 
     .main--home-v2 .et-home__hero--split-video .et-home__hero-media {
         order: 1;
+    }
+
+    .main--home-v2 .et-home__youtube .et-home__section-inner,
+    .main--home-v2 .et-home__youtube .et-home__section-inner.center {
+        padding-top: 48px !important;
+        padding-bottom: 28px !important;
+    }
+
+    .main--home-v2 .et-home__youtube-subscribe-band .et-home__section-inner,
+    .main--home-v2 .et-home__youtube-subscribe-band .et-home__section-inner.center {
+        padding-top: 0 !important;
+        padding-bottom: 40px !important;
+    }
+
+    .main--home-v2 .et-home__youtube-panel {
+        padding: 14px 12px 16px !important;
+        border-radius: 18px !important;
     }
 }

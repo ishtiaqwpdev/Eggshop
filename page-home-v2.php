@@ -34,6 +34,15 @@ get_header();
 
         <?php get_template_part( 'template-parts/home-v2', 'youtube' ); ?>
 
+        <section class="et-home__youtube-subscribe-band" aria-label="<?php esc_attr_e( 'Subscribe on YouTube', 'eggs-shop' ); ?>">
+            <div class="et-home__section-inner center">
+                <?php
+                set_query_var( 'et_youtube_subscribe_wrapper', 'et-home__youtube-subscribe et-home__youtube-subscribe--mobile-band' );
+                get_template_part( 'template-parts/home-v2', 'youtube-subscribe' );
+                ?>
+            </div>
+        </section>
+
         <?php get_template_part( 'template-parts/home-v2', 'products' ); ?>
 
         <?php get_template_part( 'template-parts/home-v2', 'fun-egg' ); ?>
