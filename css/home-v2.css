@@ -4114,7 +4114,8 @@
     }
 
     .et-home__products-all {
-        width: 100%;
+        width: auto;
+        max-width: min(100%, 200px);
         justify-content: center !important;
     }
 
