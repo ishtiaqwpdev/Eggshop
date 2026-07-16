@@ -332,6 +332,7 @@
     function getFunEggPreviewsSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
         var count = parseInt($wrap.find('.et-home__fun-egg-previews-slider').data('etPreviewCount'), 10) || 2;
         var desktopShow = Math.min(count, 2);
+        var mobileShow = Math.min(count, 3);
 
         return getEggWorldSliderConfig($wrap, prevLabel, nextLabel, arrowClass, {
             slidesToShow: desktopShow,
@@ -347,11 +348,19 @@
                     }
                 },
                 {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: mobileShow,
+                        slidesToScroll: 1,
+                        infinite: count > mobileShow
+                    }
+                },
+                {
                     breakpoint: 576,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: mobileShow,
                         slidesToScroll: 1,
-                        infinite: count > 1
+                        infinite: count > mobileShow
                     }
                 }
             ]
