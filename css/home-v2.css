@@ -1765,13 +1765,20 @@
 
 @media screen and (max-width: 767px) {
     .et-home__best-sellers-slider:not(.slick-initialized) .et-home__best-sellers-item {
-        flex: 0 0 100%;
+        flex: 0 0 calc((100% - 16px) / 3);
+        min-width: 0;
     }
 }
 
 @media screen and (max-width: 768px) {
     .et-home__best-sellers-head {
         margin-bottom: 16px;
+    }
+
+    .et-home__best-sellers-title {
+        white-space: nowrap;
+        font-size: clamp(15px, 4.6vw, 28px);
+        letter-spacing: 0.02em;
     }
 
     .et-home__best-sellers-lead {
@@ -1781,52 +1788,65 @@
     }
 
     .et-home__best-sellers-slider-wrap {
-        padding: 0 var(--et-home-slider-inset-sm);
+        padding: 0 24px;
     }
 
     .et-home__best-sellers-slider .slick-list {
-        margin: 0 -4px;
+        margin: 0 -2px;
         padding: 0 0 4px;
     }
 
     .et-home__best-sellers-slider .slick-slide {
-        padding: 0 4px;
+        padding: 0 2px;
     }
 
     .et-home__best-sellers-card {
-        border-radius: 16px;
+        border-radius: 12px;
     }
 
     .et-home__best-sellers-media {
-        min-height: 96px;
-        padding: 10px 8px 8px;
+        min-height: 72px;
+        padding: 6px 4px 4px;
     }
 
     .et-home__best-sellers-product-img {
-        max-width: min(92px, 100%);
-        max-height: 88px;
+        max-width: min(72px, 100%);
+        max-height: 64px;
+    }
+
+    .et-home__best-sellers-character {
+        display: none;
     }
 
     .et-home__best-sellers-body {
-        gap: 8px;
-        padding: 8px 10px 10px;
+        gap: 6px;
+        padding: 6px 6px 8px;
     }
 
     .et-home__best-sellers-name {
-        font-size: 14px;
-        line-height: 1.2;
+        font-size: 11px;
+        line-height: 1.15;
     }
 
     .et-home__best-sellers-card .et-home__card-btn {
-        min-height: 34px;
-        padding: 4px 4px 4px 12px !important;
-        font-size: 9px !important;
-        gap: 6px;
+        min-height: 28px;
+        padding: 3px 3px 3px 8px !important;
+        font-size: 7px !important;
+        gap: 4px;
+        letter-spacing: 0.05em;
+    }
+
+    .et-home__best-sellers-btn .et-home__card-btn-icon i {
+        font-size: 8px;
     }
 
     .et-home__best-sellers-slider-wrap .et-home__egg-carousel-arrow {
-        width: 34px;
-        height: 34px;
+        width: 28px;
+        height: 28px;
+    }
+
+    .et-home__best-sellers-slider-wrap .et-home__egg-carousel-angle {
+        font-size: 16px;
     }
 }
 
