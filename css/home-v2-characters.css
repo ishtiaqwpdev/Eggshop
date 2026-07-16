@@ -626,8 +626,8 @@
     .et-home__characters-slider-wrap,
     .et-home__best-sellers-slider-wrap {
         gap: 4px;
-        padding-left: 2px;
-        padding-right: 2px;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .et-home__characters-slider-wrap .et-home__egg-carousel-arrow,
@@ -639,12 +639,16 @@
         width: 28px !important;
         height: 28px !important;
         flex: 0 0 28px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
 
 /*
  * Mobile: keep pink arrows fully visible inside the playful band clip.
- * In-flow flex + tiny wrap padding beats absolute edge positioning.
+ * No left/right padding or margin on the arrow icons.
  */
 @media screen and (max-width: 768px) {
     .et-home__characters-slider-wrap,
@@ -653,13 +657,13 @@
         flex-direction: row !important;
         align-items: center !important;
         gap: 6px !important;
-        width: 100% !important;
-        max-width: 100% !important;
+        width: calc(100% + (2 * var(--et-home-section-x))) !important;
+        max-width: none !important;
         box-sizing: border-box !important;
-        padding-left: 4px !important;
-        padding-right: 4px !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: calc(-1 * var(--et-home-section-x)) !important;
+        margin-right: calc(-1 * var(--et-home-section-x)) !important;
         overflow: visible !important;
     }
 
@@ -675,12 +679,17 @@
     .et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow,
     .et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow {
         position: relative !important;
-        left: auto !important;
-        right: auto !important;
+        left: 0 !important;
+        right: 0 !important;
         top: auto !important;
         bottom: auto !important;
         transform: none !important;
         margin: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
         width: 28px !important;
         height: 28px !important;
         flex: 0 0 28px !important;
