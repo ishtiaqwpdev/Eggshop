@@ -7925,68 +7925,62 @@
     }
 
     .et-home__cta-cards-slider-wrap {
-        max-width: 100%;
-        width: 100%;
-        padding: 0 24px;
-    }
-
-    .et-home__cta-cards:not(.slick-initialized) {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow: hidden;
-        gap: 8px;
-        max-width: none;
-    }
-
-    .et-home__cta-cards:not(.slick-initialized) .et-home__cta-card-item {
-        flex: 0 0 calc((100% - 16px) / 3);
-        min-width: 0;
+        max-width: min(100%, 320px);
+        margin: 0 auto;
+        padding: 0 var(--et-home-slider-inset-sm);
     }
 
     .et-home__cta-cards.slick-initialized .slick-list {
-        margin: 0 -2px;
-        padding: 0 0 4px;
+        margin: 0 -4px;
     }
 
     .et-home__cta-cards.slick-initialized .slick-slide {
-        padding: 0 2px;
+        padding: 0 4px;
     }
 
     .et-home__cta-cards-slider-wrap.is-slider-active .slick-arrow {
-        width: 28px;
-        height: 28px;
-    }
-
-    .et-home__cta-card {
-        gap: 4px;
-        padding: 8px 6px 6px;
-        border-radius: 12px;
-    }
-
-    .et-home__cta-card-icon {
         width: 32px;
         height: 32px;
     }
 
+    .et-home__cta-card {
+        gap: 6px;
+        padding: 12px 10px 10px;
+        border-radius: 16px;
+    }
+
+    .et-home__cta-card--blue,
+    .et-home__cta-card--yellow,
+    .et-home__cta-card--pink {
+        border-top-width: 4px;
+    }
+
+    .et-home__cta-card-icon {
+        width: 44px;
+        height: 44px;
+    }
+
     .et-home__cta-card-icon i {
-        font-size: 14px;
+        font-size: 20px;
     }
 
     .et-home__cta-card-body {
-        gap: 3px;
+        gap: 5px;
     }
 
     .et-home__cta-card-title {
-        font-size: 11px;
+        font-size: 16px;
         line-height: 1.15;
     }
 
     .et-home__cta-card-desc {
-        display: none;
+        font-size: 12px;
+        line-height: 1.35;
     }
 
     .et-home__cta-card-benefits {
-        display: none;
+        gap: 4px;
+        margin-top: 2px;
     }
 
     .et-home__cta-card-benefit {

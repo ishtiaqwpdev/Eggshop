@@ -883,7 +883,7 @@
                 }
 
                 $slider.slick({
-                    slidesToShow: MOBILE_SLIDES_TO_SHOW,
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                     arrows: true,
                     appendArrows: $wrap,
