@@ -1317,6 +1317,7 @@
     }
 
     .et-home__hero--split-video .et-home__hero-btn--primary {
+        width: min(100%, 210px);
         border-color: #1a9fe0 !important;
         background: #1a9fe0 !important;
         color: #ffffff !important;
@@ -8363,6 +8364,10 @@
 
     .main--home-v2 .et-home__hero--split-video .et-home__hero-btn {
         width: min(100%, 280px) !important;
+    }
+
+    .main--home-v2 .et-home__hero--split-video .et-home__hero-btn--primary {
+        width: min(100%, 210px) !important;
     }
 
     .main--home-v2 .et-home__hero--split-video .et-home__hero-video-wrap {
