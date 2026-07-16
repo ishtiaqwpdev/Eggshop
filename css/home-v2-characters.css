@@ -489,25 +489,96 @@
         grid-template-columns: 1fr;
     }
 
-    .et-home__character-media {
-        min-height: 152px;
-        padding: 14px 12px 12px;
-    }
-
-    .et-home__character-image {
-        max-height: 128px;
-    }
-
-    .et-home__character-figure--egg .et-home__character-image {
-        max-height: 122px;
-    }
-
     .et-home__characters-intro .et-home__section-title {
         font-size: clamp(26px, 7vw, 34px);
     }
 
     .et-home__card-btn {
         white-space: normal;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .et-home__characters-intro {
+        margin-bottom: 16px;
+    }
+
+    .et-home__characters-lead {
+        margin-top: 6px;
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .et-home__characters-slider-wrap {
+        padding: 0 34px;
+    }
+
+    .et-home__characters-slider .slick-list {
+        margin: 0 -4px;
+        padding: 0 0 4px;
+    }
+
+    .et-home__characters-slider .slick-slide {
+        padding: 0 4px;
+    }
+
+    .et-home__character-card {
+        border-radius: 16px;
+    }
+
+    .et-home__character-media {
+        min-height: 108px;
+        padding: 10px 8px 8px;
+    }
+
+    .et-home__character-figure {
+        max-width: 124px;
+        min-height: 96px;
+        padding-bottom: 0;
+    }
+
+    .et-home__character-image {
+        max-width: min(124px, 100%);
+        max-height: 96px;
+    }
+
+    .et-home__character-figure--egg .et-home__character-image {
+        max-height: 90px;
+    }
+
+    .et-home__character-figure--character::after {
+        height: 7px;
+    }
+
+    .et-home__character-figure--egg::after {
+        height: 6px;
+    }
+
+    .et-home__character-body {
+        gap: 8px;
+        padding: 8px 10px 10px;
+    }
+
+    .et-home__character-name {
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    .et-home__character-card .et-home__card-btn {
+        min-height: 34px;
+        padding: 4px 4px 4px 12px !important;
+        font-size: 9px !important;
+        gap: 6px;
+    }
+
+    .et-home__character-btn .et-home__card-btn-icon svg {
+        width: 11px;
+        height: 11px;
+    }
+
+    .et-home__characters-slider-wrap .et-home__egg-carousel-arrow {
+        width: 34px;
+        height: 34px;
     }
 }
 

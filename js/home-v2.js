@@ -228,7 +228,7 @@
                     }
                 },
                 {
-                    breakpoint: 576,
+                    breakpoint: 400,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1
@@ -439,14 +439,70 @@
             'resize.etHomeCharactersSlider'
         );
 
-        bindResponsiveSlider(
-            '.et-home__stories-slider',
-            '.et-home__stories-slider-wrap',
-            'Previous stories',
-            'Next stories',
-            'et-home__stories-arrow',
-            'resize.etHomeStoriesSlider'
-        );
+        (function initStoriesMobileList() {
+            var MOBILE_MAX = 768;
+            var $sliders = $('.et-home__stories-slider');
+            var resizeTimer;
+
+            if (!$sliders.length || typeof $.fn.slick !== 'function') {
+                return;
+            }
+
+            function toggle($slider) {
+                var $wrap = $slider.closest('.et-home__stories-slider-wrap');
+                var $section = $slider.closest('.et-home__stories');
+
+                if (window.innerWidth >= DESKTOP_BREAKPOINT) {
+                    $wrap.removeClass('is-slider-active');
+                    $section.removeClass('et-home__stories--mobile-list');
+
+                    if ($slider.hasClass('slick-initialized')) {
+                        $slider.slick('unslick');
+                    }
+
+                    return;
+                }
+
+                if (window.innerWidth <= MOBILE_MAX) {
+                    $wrap.removeClass('is-slider-active');
+                    $section.addClass('et-home__stories--mobile-list');
+
+                    if ($slider.hasClass('slick-initialized')) {
+                        $slider.slick('unslick');
+                    }
+
+                    return;
+                }
+
+                $section.removeClass('et-home__stories--mobile-list');
+                $wrap.addClass('is-slider-active');
+
+                if ($slider.hasClass('slick-initialized')) {
+                    $slider.slick('setPosition');
+                    return;
+                }
+
+                $slider.slick(getSliderConfig(
+                    $wrap,
+                    'Previous stories',
+                    'Next stories',
+                    'et-home__stories-arrow'
+                ));
+            }
+
+            function refresh() {
+                $sliders.each(function () {
+                    toggle($(this));
+                });
+            }
+
+            refresh();
+
+            $(window).on('resize.etHomeStoriesSlider', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(refresh, 150);
+            });
+        }());
 
         initEggWorldSlider(
             '.et-home__products-slider',

@@ -51,12 +51,12 @@ $et_home_stories = array(
 
         <div class="et-home__stories-slider-wrap">
             <ul class="et-home__stories-grid et-home__stories-slider">
-            <?php foreach ( $et_home_stories as $story ) : ?>
+            <?php foreach ( $et_home_stories as $index => $story ) : ?>
                 <?php
                 $video_url   = 'https://www.youtube.com/watch?v=' . $story['video_id'];
                 $thumb_url   = 'https://img.youtube.com/vi/' . $story['video_id'] . '/hqdefault.jpg';
                 ?>
-                <li class="et-home__story-item">
+                <li class="et-home__story-item<?php echo $index >= 3 ? ' et-home__story-item--mobile-hidden' : ''; ?>">
                     <article class="et-home__story-card">
                         <a
                             href="<?php echo esc_url( $video_url ); ?>"
@@ -105,6 +105,12 @@ $et_home_stories = array(
                 </li>
             <?php endforeach; ?>
             </ul>
+        </div>
+
+        <div class="et-home__stories-mobile-footer">
+            <a href="<?php echo esc_url( $et_home_stories_url ); ?>" class="et-home__stories-all et-home__stories-all--mobile">
+                View All
+            </a>
         </div>
     </div>
 </section>
