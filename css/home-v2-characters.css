@@ -625,7 +625,9 @@
 @media screen and (max-width: 479px) {
     .et-home__characters-slider-wrap,
     .et-home__best-sellers-slider-wrap {
-        gap: 6px;
+        gap: 4px;
+        padding-left: 2px;
+        padding-right: 2px;
     }
 
     .et-home__characters-slider-wrap .et-home__egg-carousel-arrow,
@@ -634,8 +636,75 @@
     .et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow,
     .et-home__best-sellers-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
     .et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow {
-        width: 32px;
-        height: 32px;
-        flex: 0 0 32px;
+        width: 28px !important;
+        height: 28px !important;
+        flex: 0 0 28px !important;
+    }
+}
+
+/*
+ * Mobile: keep pink arrows fully visible inside the playful band clip.
+ * In-flow flex + tiny wrap padding beats absolute edge positioning.
+ */
+@media screen and (max-width: 768px) {
+    .et-home__characters-slider-wrap,
+    .et-home__best-sellers-slider-wrap {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 6px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        overflow: visible !important;
+    }
+
+    .et-home__characters-slider.slick-initialized,
+    .et-home__best-sellers-slider.slick-initialized {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        order: 2 !important;
+    }
+
+    .et-home__characters-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
+    .et-home__best-sellers-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
+    .et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow,
+    .et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        width: 28px !important;
+        height: 28px !important;
+        flex: 0 0 28px !important;
+        align-self: center !important;
+        box-shadow: 0 3px 8px rgba(255, 77, 141, 0.28) !important;
+    }
+
+    .et-home__characters-slider-wrap .slick-prev.et-home__egg-carousel-arrow,
+    .et-home__best-sellers-slider-wrap .slick-prev.et-home__egg-carousel-arrow {
+        order: 1 !important;
+    }
+
+    .et-home__characters-slider-wrap .slick-next.et-home__egg-carousel-arrow,
+    .et-home__best-sellers-slider-wrap .slick-next.et-home__egg-carousel-arrow {
+        order: 3 !important;
+    }
+
+    .et-home__characters-slider-wrap .et-home__egg-carousel-arrow--prev::after,
+    .et-home__characters-slider-wrap .et-home__egg-carousel-arrow--next::after,
+    .et-home__best-sellers-slider-wrap .et-home__egg-carousel-arrow--prev::after,
+    .et-home__best-sellers-slider-wrap .et-home__egg-carousel-arrow--next::after {
+        width: 7px;
+        height: 7px;
+        border-top-width: 2px;
+        border-right-width: 2px;
     }
 }
