@@ -192,16 +192,22 @@
     border: 0 !important;
 }
 
-.et-home__characters-slider-wrap .slick-prev,
-.et-home__best-sellers-slider-wrap .slick-prev,
-.et-home__products-slider-wrap .slick-prev {
-    left: -4px;
+.et-home__characters-slider-wrap .slick-prev {
+    left: 6px;
 }
 
-.et-home__characters-slider-wrap .slick-next,
+.et-home__characters-slider-wrap .slick-next {
+    right: 6px;
+}
+
+.et-home__best-sellers-slider-wrap .slick-prev,
+.et-home__products-slider-wrap .slick-prev {
+    left: 0;
+}
+
 .et-home__best-sellers-slider-wrap .slick-next,
 .et-home__products-slider-wrap .slick-next {
-    right: -4px;
+    right: 0;
 }
 
 .et-home__egg-carousel-arrow:hover,
@@ -475,7 +481,7 @@
     .et-home__characters-slider-wrap,
     .et-home__best-sellers-slider-wrap {
         padding: 0 var(--et-home-slider-inset-md);
-        overflow: hidden;
+        overflow: visible;
     }
 
     .et-home__characters-slider:not(.slick-initialized) {
@@ -514,12 +520,22 @@
     }
 
     .et-home__characters-slider-wrap {
-        padding: 0 24px;
+        padding: 0 44px;
+        overflow: visible;
+    }
+
+    .et-home__characters-slider-wrap .slick-prev {
+        left: 4px;
+    }
+
+    .et-home__characters-slider-wrap .slick-next {
+        right: 4px;
     }
 
     .et-home__characters-slider .slick-list {
         margin: 0 -2px;
         padding: 0 0 4px;
+        overflow: hidden;
     }
 
     .et-home__characters-slider .slick-slide {
@@ -595,11 +611,25 @@
 
 @media screen and (max-width: 479px) {
     .et-home__characters-slider-wrap {
-        padding: 0 20px;
+        padding: 0 40px;
+        overflow: visible;
     }
 
     .et-home__best-sellers-slider-wrap {
-        padding: 0 20px;
+        padding: 0 34px;
+    }
+
+    .et-home__characters-slider-wrap .slick-prev {
+        left: 4px;
+    }
+
+    .et-home__characters-slider-wrap .slick-next {
+        right: 4px;
+    }
+
+    .et-home__characters-slider-wrap .et-home__egg-carousel-arrow {
+        width: 32px;
+        height: 32px;
     }
 
     .et-home__egg-carousel-arrow {
