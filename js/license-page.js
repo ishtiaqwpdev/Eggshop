@@ -416,31 +416,69 @@
             });
         })();
 
-        /* Categories: static grid at all breakpoints (2-col mobile, 4-col tablet, 8-col desktop). */
-        (function initCategoriesStaticGrid() {
+        /* Categories: static grid on tablet/desktop; 3-up carousel on mobile only. */
+        (function initCategoriesMobileSlider() {
+            var MOBILE_MAX = 767;
             var $sliders = $('.et-license__categories-slider');
+            var resizeTimer;
 
             if (!$sliders.length || typeof $.fn.slick !== 'function') {
                 return;
             }
 
-            function unslickAll() {
-                $sliders.each(function () {
-                    var $slider = $(this);
-                    var $wrap = $slider.closest('.et-license__categories-slider-wrap');
+            function toggle($slider) {
+                var $wrap = $slider.closest('.et-license__categories-slider-wrap');
 
+                if (window.innerWidth > MOBILE_MAX) {
                     $wrap.removeClass('is-slider-active');
 
                     if ($slider.hasClass('slick-initialized')) {
                         $slider.slick('unslick');
                     }
+
+                    return;
+                }
+
+                $wrap.addClass('is-slider-active');
+
+                if ($slider.hasClass('slick-initialized')) {
+                    $slider.slick('setPosition');
+                    return;
+                }
+
+                prepareProductsSliderForLoop($slider);
+                $slider.slick({
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    appendArrows: $wrap,
+                    autoplay: true,
+                    autoplaySpeed: 4500,
+                    pauseOnHover: true,
+                    pauseOnFocus: true,
+                    infinite: true,
+                    swipe: true,
+                    swipeToSlide: true,
+                    draggable: true,
+                    touchMove: true,
+                    speed: 350,
+                    prevArrow: '<button class="slick-prev et-license__slider-arrow" aria-label="Previous categories" type="button"></button>',
+                    nextArrow: '<button class="slick-next et-license__slider-arrow" aria-label="Next categories" type="button"></button>'
+                });
+                $slider.slick('slickPlay');
+            }
+
+            function refresh() {
+                $sliders.each(function () {
+                    toggle($(this));
                 });
             }
 
-            unslickAll();
+            refresh();
 
-            $(window).on('resize.etLicenseCategoriesGrid', function () {
-                unslickAll();
+            $(window).on('resize.etLicenseCategoriesSlider', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(refresh, 150);
             });
         })();
     });
