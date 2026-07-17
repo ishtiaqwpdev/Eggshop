@@ -103,9 +103,6 @@ $et_home_stories = array(
                                     </span>
                                 </div>
                             </div>
-                            <a href="<?php echo esc_url( $et_home_stories_url ); ?>" class="et-home__stories-all et-home__stories-all--in-card">
-                                View All
-                            </a>
                         </div>
                     </article>
                 </li>
