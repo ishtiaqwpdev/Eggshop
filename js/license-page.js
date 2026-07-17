@@ -2,7 +2,6 @@
     'use strict';
 
     var DESKTOP_BREAKPOINT = 1200;
-    var STATIC_GRID_BREAKPOINT = 1200;
 
     /* Duplicate slides so infinite + autoplay work with few cards. */
     function prepareProductsSliderForLoop($el) {
@@ -22,7 +21,7 @@
 
     function getBrandsSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
         return {
-            slidesToShow: 6,
+            slidesToShow: 5,
             slidesToScroll: 1,
             arrows: true,
             appendArrows: $wrap,
@@ -39,38 +38,18 @@
             nextArrow: '<button class="slick-next ' + arrowClass + '" aria-label="' + nextLabel + '" type="button"></button>',
             responsive: [
                 {
-                    breakpoint: 1400,
-                    settings: {
-                        slidesToShow: 5,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 1200,
+                    breakpoint: 1024,
                     settings: {
                         slidesToShow: 4,
                         slidesToScroll: 1
                     }
                 },
                 {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
                     breakpoint: 768,
                     settings: {
-                        slidesToShow: 2.4,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 576,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        arrows: true
                     }
                 }
             ]
@@ -361,8 +340,8 @@
     $(document).ready(function () {
         initLicenseHeroVideo();
 
-        /* Brands: static single row at 1200px+; carousel below that. */
-        (function initBrandsWideDesktopSlider() {
+        /* Brands: always a carousel — 5 on desktop/laptop, 3 on mobile. */
+        (function initBrandsSlider() {
             var $sliders = $('.et-license__brands-slider');
             var resizeTimer;
 
@@ -370,18 +349,8 @@
                 return;
             }
 
-            function toggle($slider) {
+            function init($slider) {
                 var $wrap = $slider.closest('.et-license__brands-slider-wrap');
-
-                if (window.innerWidth >= STATIC_GRID_BREAKPOINT) {
-                    $wrap.removeClass('is-slider-active');
-
-                    if ($slider.hasClass('slick-initialized')) {
-                        $slider.slick('unslick');
-                    }
-
-                    return;
-                }
 
                 $wrap.addClass('is-slider-active');
 
@@ -404,7 +373,7 @@
 
             function refresh() {
                 $sliders.each(function () {
-                    toggle($(this));
+                    init($(this));
                 });
             }
 
