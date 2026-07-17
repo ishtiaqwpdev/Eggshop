@@ -2356,6 +2356,7 @@
     font-size: 0;
     line-height: 0;
     cursor: pointer;
+    transform: translateY(-50%);
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
@@ -2399,14 +2400,14 @@
     background: var(--et-home-blue) !important;
     border-color: var(--et-home-blue) !important;
     color: #ffffff;
-    transform: scale(1.05);
+    transform: translateY(-50%) scale(1.05);
     outline: none;
 }
 
 .et-home__stories-slider-wrap .slick-arrow.slick-disabled {
     opacity: 0.35;
     cursor: not-allowed;
-    transform: none;
+    transform: translateY(-50%);
 }
 
 @media screen and (min-width: 1200px) {
@@ -2471,8 +2472,11 @@
 
 .et-home__story-play {
     position: absolute;
+    top: 50%;
+    left: 50%;
     z-index: 2;
     color: var(--et-home-blue);
+    transform: translate(-50%, -50%);
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
