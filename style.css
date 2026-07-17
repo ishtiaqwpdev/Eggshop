@@ -2842,11 +2842,12 @@ footer.footer .footer__accordion-toggle:active {
   }
 }
 
-/* Footer mobile — premium refresh */
+/* Footer tablet — keep 100px (laptop/desktop rhythm); phones override below */
 @media screen and (max-width: 1023px) {
   footer.footer {
     font-family: 'Quicksand', 'Ubuntu', Arial, sans-serif;
-    padding: 28px 0 36px;
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
   }
 
   footer.footer .center {
@@ -3949,10 +3950,11 @@ span.et-toys-buy-btn {
 }
 /* ===== END TOYS CATEGORY CARDS v6 ===== */
 
-/* Footer mobile compact — phones only; desktop/tablet (1024px+) unchanged */
+/* Footer mobile compact — phones only; use 56px (48–60 range) */
 @media screen and (max-width: 768px) {
   footer.footer {
-    padding: 20px 0 24px !important;
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
   }
 
   footer.footer .center {

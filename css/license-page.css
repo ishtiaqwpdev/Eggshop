@@ -3020,10 +3020,15 @@
     }
 }
 
-/* License page — compact yellow site footer */
-.main--license + footer.footer {
-    padding-top: var(--et-lic-footer-pad-y) !important;
-    padding-bottom: var(--et-lic-footer-pad-bottom) !important;
+/* License page — yellow site footer (shared footer.php)
+   NOTE: --et-lic-footer-* vars live on .et-license and do NOT inherit to
+   sibling footer.main; use literal px so padding is not invalid-at-computed-value. */
+.main--license + footer.footer,
+body.page-template-page-license footer.footer,
+body.page-license footer.footer {
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
+    box-sizing: border-box;
 }
 
 .main--license + footer.footer .center,
@@ -3101,7 +3106,9 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .main--license + footer.footer {
+    .main--license + footer.footer,
+    body.page-template-page-license footer.footer,
+    body.page-license footer.footer {
         padding-top: 100px !important;
         padding-bottom: 100px !important;
     }
@@ -3122,9 +3129,11 @@
 }
 
 @media screen and (max-width: 768px) {
-    .main--license + footer.footer {
-        padding-top: 100px !important;
-        padding-bottom: 100px !important;
+    .main--license + footer.footer,
+    body.page-template-page-license footer.footer,
+    body.page-license footer.footer {
+        padding-top: 56px !important;
+        padding-bottom: 56px !important;
     }
 
     .main--license + footer.footer .footer__accordion-toggle {
@@ -3169,8 +3178,8 @@
         --et-lic-form-gap: 14px;
         --et-lic-cta-banner-height: clamp(200px, 48vw, 240px);
         --et-lic-cta-inner-pad-y: 36px;
-        --et-lic-footer-pad-y: 100px;
-        --et-lic-footer-pad-bottom: 100px;
+        --et-lic-footer-pad-y: 56px;
+        --et-lic-footer-pad-bottom: 56px;
         --et-lic-footer-block-gap: 16px;
     }
 
@@ -3414,9 +3423,11 @@
     }
 
     /* Footer — newsletter first, accordion, centered social */
-    .main--license + footer.footer {
-        padding-top: var(--et-lic-footer-pad-y) !important;
-        padding-bottom: var(--et-lic-footer-pad-bottom) !important;
+    .main--license + footer.footer,
+    body.page-template-page-license footer.footer,
+    body.page-license footer.footer {
+        padding-top: 56px !important;
+        padding-bottom: 56px !important;
     }
 
     .main--license + footer.footer .center,
