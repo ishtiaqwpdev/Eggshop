@@ -6098,7 +6098,7 @@
 
     .et-home__social-slider-wrap.is-slider-active .slick-arrow {
         position: absolute;
-        top: 42%;
+        top: 50%;
         z-index: 5;
         display: inline-flex !important;
         align-items: center;
@@ -6115,7 +6115,8 @@
         line-height: 0;
         cursor: pointer;
         box-sizing: border-box;
-        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+        transform: translateY(-50%);
+        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
 
     .et-home__social-slider-wrap.is-slider-active .slick-arrow::before {
@@ -6134,7 +6135,10 @@
         left: 0;
     }
 
-    .et-home__social-slider-wrap.is-slider-active .slick-prev::before {
+    .et-home__social-slider-wrap.is-slider-active .slick-prev::before,
+    .et-home__social-slider-wrap.is-slider-active .slick-prev:hover::before,
+    .et-home__social-slider-wrap.is-slider-active .slick-prev:focus::before,
+    .et-home__social-slider-wrap.is-slider-active .slick-prev:active::before {
         transform: translateX(1.5px) rotate(135deg);
     }
 
@@ -6142,16 +6146,20 @@
         right: 0;
     }
 
-    .et-home__social-slider-wrap.is-slider-active .slick-next::before {
+    .et-home__social-slider-wrap.is-slider-active .slick-next::before,
+    .et-home__social-slider-wrap.is-slider-active .slick-next:hover::before,
+    .et-home__social-slider-wrap.is-slider-active .slick-next:focus::before,
+    .et-home__social-slider-wrap.is-slider-active .slick-next:active::before {
         transform: translateX(-1.5px) rotate(-45deg);
     }
 
     .et-home__social-slider-wrap.is-slider-active .slick-arrow:hover,
-    .et-home__social-slider-wrap.is-slider-active .slick-arrow:focus {
+    .et-home__social-slider-wrap.is-slider-active .slick-arrow:focus,
+    .et-home__social-slider-wrap.is-slider-active .slick-arrow:active {
         background: var(--et-home-blue) !important;
         border-color: var(--et-home-blue) !important;
         color: #ffffff;
-        transform: scale(1.05);
+        transform: translateY(-50%);
         outline: none;
     }
 
