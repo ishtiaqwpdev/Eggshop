@@ -104,8 +104,8 @@
     --et-lic-cta-banner-height: clamp(280px, 22vw, 320px);
     --et-lic-cta-inner-pad-y: 50px;
     --et-lic-cta-cast-height: calc(var(--et-lic-cta-banner-height) - (var(--et-lic-cta-inner-pad-y) * 2));
-    --et-lic-footer-pad-y: 24px;
-    --et-lic-footer-pad-bottom: 20px;
+    --et-lic-footer-pad-y: 100px;
+    --et-lic-footer-pad-bottom: 100px;
     --et-lic-footer-col-gap: clamp(24px, 2.2vw, 32px);
     --et-lic-footer-block-gap: 24px;
     font-family: 'Ubuntu', sans-serif;
@@ -3093,8 +3093,8 @@
 
 @media screen and (max-width: 1023px) {
     .main--license + footer.footer {
-        padding-top: 20px !important;
-        padding-bottom: 18px !important;
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
     }
 
     .main--license + footer.footer .footer__form.footform_btm {
@@ -3114,8 +3114,8 @@
 
 @media screen and (max-width: 768px) {
     .main--license + footer.footer {
-        padding-top: 16px !important;
-        padding-bottom: 16px !important;
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
     }
 
     .main--license + footer.footer .footer__accordion-toggle {
@@ -3160,8 +3160,8 @@
         --et-lic-form-gap: 14px;
         --et-lic-cta-banner-height: clamp(200px, 48vw, 240px);
         --et-lic-cta-inner-pad-y: 36px;
-        --et-lic-footer-pad-y: 16px;
-        --et-lic-footer-pad-bottom: 16px;
+        --et-lic-footer-pad-y: 100px;
+        --et-lic-footer-pad-bottom: 100px;
         --et-lic-footer-block-gap: 16px;
     }
 
