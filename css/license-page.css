@@ -65,9 +65,9 @@
     --et-lic-product-meta-pad-x: 14px;
     --et-lic-font-category-label: clamp(14px, 1.15vw, 16px);
     --et-lic-font-partner-label: 16px;
-    --et-lic-font-process-label: clamp(12px, 1.1vw, 14px);
-    --et-lic-process-label-line-height: 1.3;
-    --et-lic-process-label-lines: 2;
+    --et-lic-font-process-label: clamp(15px, 1.35vw, 18px);
+    --et-lic-process-label-line-height: 1.35;
+    --et-lic-process-label-lines: 3;
     --et-lic-font-caption: 15px;
     --et-lic-fw-display: var(--et-brand-fw-display);
     --et-lic-fw-heading: var(--et-brand-fw-heading);
@@ -1595,7 +1595,7 @@
 
 .et-license__info-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--et-lic-card-gap);
     align-items: stretch;
     min-width: 0;
@@ -1639,35 +1639,6 @@
 .et-license__info-card--process {
     background: #ffffff;
     overflow: visible;
-    grid-column: 1 / -1;
-    min-height: 0;
-}
-
-/* Give process steps a full-width row so labels fit in ≤2 lines */
-@media screen and (min-width: 1200px) {
-    .et-license__info-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .et-license__info-card--process {
-        grid-column: 1 / -1;
-        min-height: 0;
-    }
-
-    .et-license__process-wrap {
-        max-width: 1100px;
-        width: 100%;
-    }
-
-    .et-license__process-step {
-        flex: 1 1 0;
-        min-width: 140px;
-        max-width: none;
-    }
-
-    .et-license__process-connector {
-        flex: 0 0 clamp(20px, 2.5vw, 40px);
-    }
 }
 
 .et-license__info-card-title {
@@ -1849,7 +1820,7 @@
     align-items: center;
     gap: 10px;
     flex: 1 1 0;
-    min-width: 120px;
+    min-width: 0;
     max-width: none;
     text-align: center;
 }
@@ -1894,20 +1865,15 @@
 .et-license__process-label {
     display: block;
     width: 100%;
-    max-width: 11.5em;
-    margin: 0 auto;
-    padding: 0 4px;
+    margin: 0;
+    padding: 0 2px;
     min-height: calc(var(--et-lic-process-label-lines) * var(--et-lic-process-label-line-height) * 1em);
-    font-size: var(--et-lic-font-process-label);
+    font-size: clamp(11px, 0.95vw, 13px);
     font-weight: var(--et-lic-fw-heading);
     line-height: var(--et-lic-process-label-line-height);
-    /* Natural word wraps only — never orphan letters/mid-word breaks */
-    overflow-wrap: normal;
-    word-wrap: normal;
-    word-break: normal;
-    hyphens: none;
-    -webkit-hyphens: none;
-    text-wrap: balance;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
     color: var(--et-step-color) !important;
 }
 
@@ -2138,12 +2104,11 @@
     .et-license__process-connector {
         /* num(24) + gap(10) + half icon(22) */
         margin-top: 56px;
-        flex: 0 0 clamp(12px, 1.4vw, 24px);
+        flex: 0 0 clamp(10px, 1.2vw, 20px);
     }
 
     .et-license__process-label {
-        font-size: clamp(11px, 1vw, 13px);
-        max-width: 12em;
+        font-size: clamp(10px, 0.9vw, 12px);
     }
 
     .et-license__partner-icon {
@@ -2156,6 +2121,7 @@
 @media screen and (max-width: 1199px) {
     .et-license__info-grid {
         grid-template-columns: 1fr;
+        gap: var(--et-lic-card-gap);
     }
 
     .et-license__info-card {
@@ -2164,29 +2130,24 @@
     }
 
     .et-license__info-card--process {
-        grid-column: auto;
-        overflow: visible;
+        overflow: hidden;
     }
 
     .et-license__process-wrap {
-        max-width: 100%;
-        width: 100%;
+        max-width: 720px;
     }
 
     .et-license__process-step {
-        flex: 1 1 0;
-        min-width: 120px;
-        max-width: none;
+        max-width: 140px;
     }
 
     .et-license__process-connector {
-        flex: 0 0 clamp(14px, 2vw, 28px);
+        flex: 0 0 24px;
         margin-top: 56px;
     }
 
     .et-license__process-label {
-        font-size: clamp(11px, 1.4vw, 13px);
-        max-width: 12em;
+        font-size: var(--et-lic-font-body-sm);
         font-weight: var(--et-lic-fw-heading);
     }
 
@@ -2239,8 +2200,7 @@
     .et-license__process-step {
         flex: none;
         width: 100%;
-        max-width: 280px;
-        min-width: 0;
+        max-width: 260px;
         gap: 12px;
     }
 
@@ -2249,8 +2209,7 @@
     }
 
     .et-license__process-label {
-        font-size: clamp(14px, 3.8vw, 16px);
-        max-width: none;
+        font-size: var(--et-lic-font-body);
         font-weight: var(--et-lic-fw-heading);
         min-height: 0;
     }
@@ -2895,12 +2854,7 @@
     }
 
     .et-license__info-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .et-license__info-card--process {
-        grid-column: 1 / -1;
-        min-height: 0;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .et-license__info-card {
@@ -3029,12 +2983,7 @@
     }
 
     .et-license__info-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .et-license__info-card--process {
-        grid-column: 1 / -1;
-        min-height: 0;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .et-license__brands-slider-wrap .slick-arrow {
