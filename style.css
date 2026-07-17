@@ -111,6 +111,9 @@ abbr[title] {
 
 footer.footer {
     width: 100%;
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
+    box-sizing: border-box;
 }
 .news .item__images .image_url:before {
     padding-bottom: 0 !important;
@@ -2828,6 +2831,14 @@ footer.footer .footer__accordion-toggle:active {
   footer.footer .footer__columns .footer__accordion-toggle,
   footer.footer .footer__accordion-toggle {
     font-size: 15px !important;
+  }
+}
+
+/* Laptop/desktop: lock 100px top & bottom footer spacing */
+@media screen and (min-width: 1024px) {
+  footer.footer {
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
   }
 }
 
