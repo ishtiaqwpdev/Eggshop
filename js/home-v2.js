@@ -922,7 +922,6 @@
         var video = videoWrap.querySelector('.et-home__hero-video');
         var playToggle = videoWrap.querySelector('.et-home__hero-video-play');
         var soundToggle = videoWrap.querySelector('.et-home__hero-video-sound');
-        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         if (!video) {
             return;
@@ -967,38 +966,16 @@
             soundToggle.classList.toggle('is-unmuted', isUnmuted);
             soundToggle.setAttribute('aria-pressed', isUnmuted ? 'true' : 'false');
             soundToggle.setAttribute('aria-label', isUnmuted ? 'Turn sound off' : 'Turn sound on');
-
-            if (isUnmuted) {
-                video.play().catch(function () {});
-            }
         }
 
-        function startAutoplay() {
-            if (prefersReducedMotion) {
-                video.pause();
-                setPlayingState(false);
-                markVideoReady();
+        function togglePlayback() {
+            if (video.paused) {
+                video.muted = !(soundToggle && soundToggle.classList.contains('is-unmuted'));
+                video.play().catch(function () {});
                 return;
             }
 
-            video.muted = true;
-            var playPromise = video.play();
-
-            if (!playPromise || typeof playPromise.then !== 'function') {
-                setPlayingState(!video.paused);
-                markVideoReady();
-                return;
-            }
-
-            playPromise
-                .then(function () {
-                    setPlayingState(true);
-                    markVideoReady();
-                })
-                .catch(function () {
-                    setPlayingState(false);
-                    markVideoReady();
-                });
+            video.pause();
         }
 
         video.addEventListener('play', function () {
@@ -1012,13 +989,7 @@
         if (playToggle) {
             playToggle.addEventListener('click', function (event) {
                 event.stopPropagation();
-
-                if (video.paused) {
-                    video.play().catch(function () {});
-                    return;
-                }
-
-                video.pause();
+                togglePlayback();
             });
         }
 
@@ -1030,9 +1001,7 @@
                 return;
             }
 
-            if (!video.paused) {
-                video.pause();
-            }
+            togglePlayback();
         });
 
         markVideoLoading();
@@ -1052,7 +1021,10 @@
             });
         }
 
-        startAutoplay();
+        /* Click-to-play only — do not autoplay on load. */
+        video.pause();
+        setPlayingState(false);
+        markVideoReady();
     }
 
     function initHeroVideo() {

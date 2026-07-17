@@ -6,13 +6,13 @@
  */
 $et_home_hero_use_video       = true;
 $et_home_hero_video_url       = 'https://eggstime.com/wp-content/uploads/2026/07/51be273fce2746bcbecc5fda78856c43.mp4';
-/* Poster shown only while the video buffers or if playback fails. */
-$et_home_hero_video_poster    = 'https://eggstime.com/wp-content/uploads/2026/07/Gemini_Generated_Image_wmpwnnwmpwnnwmpw.png';
+/* Poster shown before play, while buffering, or if playback fails. */
+$et_home_hero_video_poster    = 'https://eggstime.com/wp-content/uploads/2026/07/0de91431-1eb6-414e-986e-5b2724b4f923.png';
 $et_home_hero_poster_width    = 1920;
 $et_home_hero_poster_height   = 1080;
 $et_home_hero_video_width     = 1920;
 $et_home_hero_video_height    = 1080;
-$et_home_hero_bg              = 'https://eggstime.com/wp-content/uploads/2026/07/Gemini_Generated_Image_wmpwnnwmpwnnwmpw.png';
+$et_home_hero_bg              = 'https://eggstime.com/wp-content/uploads/2026/07/0de91431-1eb6-414e-986e-5b2724b4f923.png';
 $et_home_hero_btn_arrow       = '<svg class="et-home__hero-btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="none" d="M8 5l8 7-8 7" stroke="#098BE5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
 if ( $et_home_hero_use_video ) :
@@ -126,8 +126,7 @@ if ( $et_home_hero_use_video ) :
                                 muted
                                 loop
                                 playsinline
-                                autoplay
-                                preload="auto"
+                                preload="metadata"
                                 poster="<?php echo esc_url( $et_home_hero_video_poster ); ?>"
                             ></video>
                             <img
@@ -142,7 +141,7 @@ if ( $et_home_hero_use_video ) :
                             <button
                                 type="button"
                                 class="et-home__hero-video-play"
-                                aria-label="<?php esc_attr_e( 'Pause video', 'eggs-shop' ); ?>"
+                                aria-label="<?php esc_attr_e( 'Play video', 'eggs-shop' ); ?>"
                             >
                                 <span class="et-home__hero-video-play-icon et-home__hero-video-play-icon--play" aria-hidden="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
