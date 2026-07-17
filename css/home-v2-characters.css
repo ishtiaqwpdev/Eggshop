@@ -33,7 +33,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     text-align: center;
-    color: #e53935 !important;
+    color: var(--et-home-heading) !important;
     -webkit-text-stroke: 0;
     paint-order: initial;
     white-space: nowrap;
