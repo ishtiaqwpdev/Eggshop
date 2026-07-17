@@ -4,7 +4,7 @@
  * Video block copied from home-v2-hero.php (same player + same video).
  */
 
-$et_home_hero_video_url       = 'https://eggstime.com/wp-content/uploads/2026/07/Unboxing_magik.mp4';
+$et_home_hero_video_url       = 'https://eggstime.com/wp-content/uploads/2026/07/Lucky-Egg-with-Multivitamin-Gummies-Toy-1.mp4';
 $et_home_hero_video_poster    = 'https://eggstime.com/wp-content/uploads/2026/07/Gemini_Generated_Image_wmpwnnwmpwnnwmpw.png';
 $et_home_hero_poster_width    = 1920;
 $et_home_hero_poster_height   = 1080;
