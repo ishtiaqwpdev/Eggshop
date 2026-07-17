@@ -21,23 +21,25 @@ $et_license_cta_characters = function_exists( 'et_get_license_cta_characters' )
 			</div>
 
 			<?php if ( ! empty( $et_license_cta_characters ) ) : ?>
-				<div class="et-license__cta-visual" aria-hidden="true">
-					<ul class="et-license__cta-cast">
-						<?php foreach ( $et_license_cta_characters as $character ) : ?>
-							<?php
-							$cast_key = isset( $character['key'] ) ? (string) $character['key'] : 'character';
-							?>
-							<li class="et-license__cta-cast-item et-license__cta-cast-item--<?php echo esc_attr( $cast_key ); ?>">
-								<img
-									src="<?php echo esc_url( $character['image'] ); ?>"
-									alt="<?php echo esc_attr( $character['name'] ); ?>"
-									class="et-license__cta-cast-img"
-									loading="lazy"
-									decoding="async"
-								/>
-							</li>
-						<?php endforeach; ?>
-					</ul>
+				<div class="et-license__cta-visual">
+					<div class="et-license__cta-cast-slider-wrap">
+						<ul class="et-license__cta-cast et-license__cta-cast-slider">
+							<?php foreach ( $et_license_cta_characters as $character ) : ?>
+								<?php
+								$cast_key = isset( $character['key'] ) ? (string) $character['key'] : 'character';
+								?>
+								<li class="et-license__cta-cast-item et-license__cta-cast-item--<?php echo esc_attr( $cast_key ); ?>">
+									<img
+										src="<?php echo esc_url( $character['image'] ); ?>"
+										alt="<?php echo esc_attr( $character['name'] ); ?>"
+										class="et-license__cta-cast-img"
+										loading="lazy"
+										decoding="async"
+									/>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
 				</div>
 			<?php endif; ?>
 		</div>

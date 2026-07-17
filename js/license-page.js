@@ -481,5 +481,60 @@
                 resizeTimer = setTimeout(refresh, 150);
             });
         })();
+
+        /* CTA cast: always a 3-up character carousel (desktop + mobile). */
+        (function initCtaCastSlider() {
+            var $sliders = $('.et-license__cta-cast-slider');
+            var resizeTimer;
+
+            if (!$sliders.length || typeof $.fn.slick !== 'function') {
+                return;
+            }
+
+            function init($slider) {
+                var $wrap = $slider.closest('.et-license__cta-cast-slider-wrap');
+
+                $wrap.addClass('is-slider-active');
+
+                if ($slider.hasClass('slick-initialized')) {
+                    $slider.slick('setPosition');
+                    return;
+                }
+
+                prepareProductsSliderForLoop($slider);
+                $slider.slick({
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    appendArrows: $wrap,
+                    autoplay: true,
+                    autoplaySpeed: 4500,
+                    pauseOnHover: true,
+                    pauseOnFocus: true,
+                    infinite: true,
+                    swipe: true,
+                    swipeToSlide: true,
+                    draggable: true,
+                    touchMove: true,
+                    speed: 350,
+                    prevArrow: '<button class="slick-prev et-license__slider-arrow" aria-label="Previous characters" type="button"></button>',
+                    nextArrow: '<button class="slick-next et-license__slider-arrow" aria-label="Next characters" type="button"></button>'
+                });
+                $slider.slick('slickPlay');
+            }
+
+            function refresh() {
+                $sliders.each(function () {
+                    init($(this));
+                });
+            }
+
+            refresh();
+
+            $(window).on('resize.etLicenseCtaCastSlider', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(refresh, 150);
+            });
+        })();
     });
 })(jQuery);
