@@ -100,9 +100,10 @@
 
     function getProductsSliderConfig($wrap, prevLabel, nextLabel, arrowClass) {
         return {
-            slidesToShow: 4,
+            slidesToShow: 5,
             slidesToScroll: 1,
-            arrows: false,
+            arrows: true,
+            appendArrows: $wrap,
             autoplay: true,
             autoplaySpeed: 4500,
             pauseOnHover: true,
@@ -113,37 +114,22 @@
             draggable: true,
             touchMove: true,
             speed: 350,
+            prevArrow: '<button class="slick-prev ' + arrowClass + '" aria-label="' + prevLabel + '" type="button"></button>',
+            nextArrow: '<button class="slick-next ' + arrowClass + '" aria-label="' + nextLabel + '" type="button"></button>',
             responsive: [
                 {
-                    breakpoint: 1400,
+                    breakpoint: 1024,
                     settings: {
                         slidesToShow: 4,
-                        slidesToScroll: 1,
-                        infinite: true
+                        slidesToScroll: 1
                     }
                 },
                 {
-                    breakpoint: 1200,
+                    breakpoint: 768,
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 1,
-                        infinite: true
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        infinite: true
-                    }
-                },
-                {
-                    breakpoint: 576,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        infinite: true
+                        arrows: true
                     }
                 }
             ]
@@ -385,9 +371,8 @@
             });
         })();
 
-        /* Products: static grid on tablet/desktop; slick slider on mobile only. */
-        (function initProductsMobileSlider() {
-            var MOBILE_MAX = 767;
+        /* Products: always a carousel — 5 on desktop/laptop, 3 on mobile. */
+        (function initProductsSlider() {
             var $sliders = $('.et-license__products-slider');
             var resizeTimer;
 
@@ -395,16 +380,8 @@
                 return;
             }
 
-            function toggle($slider) {
+            function init($slider) {
                 var $wrap = $slider.closest('.et-license__products-slider-wrap');
-
-                if (window.innerWidth > MOBILE_MAX) {
-                    $wrap.removeClass('is-slider-active');
-                    if ($slider.hasClass('slick-initialized')) {
-                        $slider.slick('unslick');
-                    }
-                    return;
-                }
 
                 $wrap.addClass('is-slider-active');
 
@@ -413,35 +390,21 @@
                     return;
                 }
 
-                $slider.slick({
-                    slidesToShow: 1.35,
-                    slidesToScroll: 1,
-                    arrows: false,
-                    autoplay: true,
-                    autoplaySpeed: 4500,
-                    pauseOnHover: true,
-                    pauseOnFocus: true,
-                    infinite: true,
-                    swipe: true,
-                    swipeToSlide: true,
-                    draggable: true,
-                    touchMove: true,
-                    speed: 350,
-                    responsive: [
-                        {
-                            breakpoint: 576,
-                            settings: {
-                                slidesToShow: 1.2,
-                                slidesToScroll: 1
-                            }
-                        }
-                    ]
-                });
+                prepareProductsSliderForLoop($slider);
+                $slider.slick(
+                    getProductsSliderConfig(
+                        $wrap,
+                        'Previous products',
+                        'Next products',
+                        'et-license__slider-arrow'
+                    )
+                );
+                $slider.slick('slickPlay');
             }
 
             function refresh() {
                 $sliders.each(function () {
-                    toggle($(this));
+                    init($(this));
                 });
             }
 
