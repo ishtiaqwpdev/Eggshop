@@ -101,8 +101,8 @@
     --et-lic-info-title-line-height: 1.25;
     --et-lic-form-field-height: 50px;
     --et-lic-form-gap: 18px;
-    --et-lic-cta-banner-height: clamp(180px, 14vw, 220px);
-    --et-lic-cta-inner-pad-y: 12px;
+    --et-lic-cta-banner-height: clamp(280px, 22vw, 320px);
+    --et-lic-cta-inner-pad-y: 50px;
     --et-lic-cta-cast-height: calc(var(--et-lic-cta-banner-height) - (var(--et-lic-cta-inner-pad-y) * 2));
     --et-lic-footer-pad-y: 24px;
     --et-lic-footer-pad-bottom: 20px;
@@ -2449,7 +2449,7 @@
 
     .et-license__cta-inner {
         min-height: 0;
-        padding: 28px var(--et-lic-section-x);
+        padding: var(--et-lic-cta-inner-pad-y) var(--et-lic-section-x);
     }
 
     .et-license__cta-layout {
@@ -2480,8 +2480,8 @@
 
 @media screen and (max-width: 575px) {
     .et-license__cta-inner {
-        padding-top: 24px;
-        padding-bottom: 24px;
+        padding-top: var(--et-lic-cta-inner-pad-y);
+        padding-bottom: var(--et-lic-cta-inner-pad-y);
     }
 
     .et-license__cta-title {
@@ -3014,8 +3014,8 @@
         --et-lic-info-card-padding: 20px;
         --et-lic-form-field-height: clamp(48px, 12vw, 52px);
         --et-lic-form-gap: 14px;
-        --et-lic-cta-banner-height: clamp(140px, 38vw, 168px);
-        --et-lic-cta-inner-pad-y: 16px;
+        --et-lic-cta-banner-height: clamp(200px, 48vw, 240px);
+        --et-lic-cta-inner-pad-y: 36px;
         --et-lic-footer-pad-y: 16px;
         --et-lic-footer-pad-bottom: 16px;
         --et-lic-footer-block-gap: 16px;
